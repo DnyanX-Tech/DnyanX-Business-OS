@@ -22,9 +22,19 @@ app.get('/api/health', (req: Request, res: Response) => {
     timestamp: new Date().toISOString(),
   });
 });
+app.get('/health', (req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'online',
+    version: '50.0.0',
+    service: '50-in-1 DnyanX Business Empire OS',
+    timestamp: new Date().toISOString(),
+  });
+});
 
-// Mount All Empire APIs
-app.use('/api', registerRoutes());
+// Mount All Empire APIs both on /api and root fallback
+const routes = registerRoutes();
+app.use('/api', routes);
+app.use('/', routes);
 
 export default function handler(req: Request, res: Response) {
   return app(req, res);
