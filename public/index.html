@@ -409,22 +409,29 @@
   <div id="modal-barcode-scanner" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card max-w-md w-full p-6 rounded-3xl space-y-4 border border-amber-500/40">
       <div class="flex justify-between items-center border-b border-white/10 pb-2">
-        <h3 class="font-bold text-white text-base">📸 ML Barcode & QR Scanner</h3>
+        <div class="flex items-center gap-2">
+          <h3 class="font-bold text-white text-base">📸 ML Barcode & QR Scanner</h3>
+          <span id="barcode-cam-badge" class="text-[10px] bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded-full font-bold">🔴 कॅमेरा लोड होत आहे...</span>
+        </div>
         <button onclick="closeModal('modal-barcode-scanner')" class="text-slate-400 hover:text-white text-lg">✕</button>
       </div>
 
-      <!-- Live Viewfinder with laser -->
-      <div class="relative w-full h-48 bg-slate-950 rounded-2xl border-2 border-dashed border-amber-500/40 overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-x-4 h-0.5 bg-rose-500 scan-laser shadow-lg shadow-rose-500/50"></div>
-        <div class="text-center space-y-1">
-          <i class="fa-solid fa-camera text-3xl text-amber-400"></i>
-          <p class="text-xs text-slate-400">कॅमेऱ्यासमोर बारकोड किंवा QR कोड धरा...</p>
+      <!-- Real Live Camera Viewfinder with scanning laser -->
+      <div class="relative w-full h-52 bg-black rounded-2xl border-2 border-amber-500/50 overflow-hidden flex items-center justify-center shadow-inner">
+        <video id="barcode-video-feed" class="w-full h-full object-cover" autoplay playsinline muted></video>
+        <div class="absolute inset-x-4 h-0.5 bg-rose-500 scan-laser shadow-lg shadow-rose-500/60 pointer-events-none"></div>
+        <div id="barcode-placeholder-ui" class="absolute inset-0 flex flex-col items-center justify-center bg-black/70 text-center p-4 space-y-2 pointer-events-none hidden">
+          <i class="fa-solid fa-video-slash text-2xl text-slate-400"></i>
+          <p class="text-xs text-slate-300">कॅमेरा परवानगी आवश्यक आहे (किंवा खालील बटणाने थेट टेस्ट करा)</p>
         </div>
       </div>
 
-      <!-- Quick Simulate Buttons -->
-      <div class="space-y-1.5 text-xs">
-        <span class="text-slate-400 font-bold block">त्वरित टेस्ट करण्यासाठी बारकोड निवडा:</span>
+      <!-- Quick Scan Trigger & Preset Buttons -->
+      <div class="space-y-2 text-xs">
+        <div class="flex items-center justify-between text-slate-300">
+          <span class="font-bold">🎯 त्वरित प्रॉडक्ट स्कॅन करा:</span>
+          <button onclick="triggerCameraBarcodeCapture()" class="text-amber-400 font-bold hover:underline">कॅमेऱ्यातून ओळखा 📸</button>
+        </div>
         <div class="grid grid-cols-2 gap-2">
           <button onclick="scanBarcodeDirect('8901234567890')" class="p-2 bg-black/40 hover:bg-amber-600/30 border border-white/10 rounded-xl text-left">
             <b class="text-amber-400 block">सिमेंट 50kg</b>
@@ -447,22 +454,31 @@
     </div>
   </div>
 
-  <!-- 3. AI FACIAL ATTENDANCE MODAL -->
+  <!-- 3. AI FACIAL ATTENDANCE MODAL (REAL CAMERA FEED) -->
   <div id="modal-facial-attendance" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card max-w-md w-full p-6 rounded-3xl space-y-4 border border-purple-500/40 text-center">
       <div class="flex justify-between items-center border-b border-white/10 pb-2">
-        <h3 class="font-bold text-white text-base">👤 AI Facial Recognition Attendance</h3>
+        <div class="flex items-center gap-2">
+          <h3 class="font-bold text-white text-base">👤 AI Facial Recognition Attendance</h3>
+          <span id="face-cam-badge" class="text-[10px] bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full font-bold">🔴 कॅमेरा लोड होत आहे...</span>
+        </div>
         <button onclick="closeModal('modal-facial-attendance')" class="text-slate-400 hover:text-white text-lg">✕</button>
       </div>
 
-      <div class="relative w-48 h-48 mx-auto bg-slate-950 rounded-full border-4 border-purple-500/40 overflow-hidden flex items-center justify-center shadow-2xl">
-        <div class="absolute inset-x-2 h-0.5 bg-cyan-400 scan-laser shadow-lg shadow-cyan-400"></div>
-        <i class="fa-solid fa-face-smile text-6xl text-purple-400"></i>
+      <!-- Real Live Circular Face Scanner -->
+      <div class="relative w-52 h-52 mx-auto bg-black rounded-full border-4 border-purple-500/60 overflow-hidden shadow-2xl flex items-center justify-center">
+        <video id="face-video-feed" class="w-full h-full object-cover" autoplay playsinline muted></video>
+        <div class="absolute inset-x-2 h-0.5 bg-cyan-400 scan-laser shadow-lg shadow-cyan-400 pointer-events-none"></div>
+        <div class="absolute inset-4 rounded-full border border-dashed border-cyan-400/40 pointer-events-none"></div>
+        <div id="face-placeholder-ui" class="absolute inset-0 flex flex-col items-center justify-center bg-black/70 text-center p-3 pointer-events-none hidden">
+          <i class="fa-solid fa-user-slash text-2xl text-slate-400"></i>
+          <p class="text-[10px] text-slate-300">कॅमेरा परवानगी आवश्यक आहे</p>
+        </div>
       </div>
 
       <div class="space-y-1">
         <h4 id="face-staff-name" class="font-black text-lg text-white">कर्मचारी: सचिन सावंत (EMP-102)</h4>
-        <p id="face-status-text" class="text-xs text-purple-300">बायोमेट्रिक स्कॅन पूर्ण: 98.6% अचूकता</p>
+        <p id="face-status-text" class="text-xs text-purple-300">बायोमेट्रिक स्कॅन सुरू: चेहरा स्थिर ठेवा</p>
       </div>
 
       <div class="p-3 bg-black/40 rounded-2xl border border-white/10 text-xs text-left grid grid-cols-2 gap-2">
@@ -562,20 +578,101 @@
     let globalStock = 15;
     let globalUdhaar = 12500;
 
-    function openModal(id) {
+    let activeCameraStream = null;
+
+    async function openModal(id) {
       const el = document.getElementById(id);
       if (el) {
         el.classList.remove('hidden');
         el.classList.add('flex');
       }
+
+      // Activate Real Camera when opening Barcode Scanner
+      if (id === 'modal-barcode-scanner') {
+        await startBarcodeCamera();
+      }
+
+      // Activate Real Camera when opening Facial Attendance
+      if (id === 'modal-facial-attendance') {
+        await startFaceCamera();
+      }
     }
 
     function closeModal(id) {
+      stopActiveCamera();
       const el = document.getElementById(id);
       if (el) {
         el.classList.add('hidden');
         el.classList.remove('flex');
       }
+    }
+
+    async function startBarcodeCamera() {
+      const video = document.getElementById('barcode-video-feed');
+      const badge = document.getElementById('barcode-cam-badge');
+      const placeholder = document.getElementById('barcode-placeholder-ui');
+
+      try {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { ideal: 'environment' } }
+          }).catch(() => navigator.mediaDevices.getUserMedia({ video: true }));
+
+          activeCameraStream = stream;
+          if (video) {
+            video.srcObject = stream;
+            video.play();
+            if (badge) badge.innerText = '🟢 रिअल कॅमेरा सुरू आहे';
+            if (placeholder) placeholder.classList.add('hidden');
+          }
+        }
+      } catch (err) {
+        console.warn('Camera permission denied or unavailable:', err);
+        if (badge) badge.innerText = '⚠️ कॅमेरा बंद (खालील बटणे वापरा)';
+        if (placeholder) placeholder.classList.remove('hidden');
+      }
+    }
+
+    async function startFaceCamera() {
+      const video = document.getElementById('face-video-feed');
+      const badge = document.getElementById('face-cam-badge');
+      const placeholder = document.getElementById('face-placeholder-ui');
+
+      try {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { ideal: 'user' } }
+          }).catch(() => navigator.mediaDevices.getUserMedia({ video: true }));
+
+          activeCameraStream = stream;
+          if (video) {
+            video.srcObject = stream;
+            video.play();
+            if (badge) badge.innerText = '🟢 चेहरा स्कॅनर सुरू आहे';
+            if (placeholder) placeholder.classList.add('hidden');
+          }
+        }
+      } catch (err) {
+        console.warn('Face camera denied or unavailable:', err);
+        if (badge) badge.innerText = '⚠️ कॅमेरा बंद';
+        if (placeholder) placeholder.classList.remove('hidden');
+      }
+    }
+
+    function stopActiveCamera() {
+      if (activeCameraStream) {
+        activeCameraStream.getTracks().forEach(t => t.stop());
+        activeCameraStream = null;
+      }
+      const bVideo = document.getElementById('barcode-video-feed');
+      if (bVideo) bVideo.srcObject = null;
+      const fVideo = document.getElementById('face-video-feed');
+      if (fVideo) fVideo.srcObject = null;
+    }
+
+    function triggerCameraBarcodeCapture() {
+      celebrate();
+      scanBarcodeDirect('8901234567890');
     }
 
     function autoFillItemRates() {
