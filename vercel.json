@@ -2,7 +2,19 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/store/:slug",
+      "destination": "/store.html"
+    },
+    {
+      "source": "/catalog",
+      "destination": "/store.html"
+    },
+    {
+      "source": "/biz/:slug",
+      "destination": "/biz.html"
+    },
+    {
+      "source": "/api/(.*)",
       "destination": "/api/index"
     }
   ]
