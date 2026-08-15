@@ -1,0 +1,28 @@
+import dotenv from 'dotenv';
+import { z } from 'zod';
+
+dotenv.config();
+
+const envSchema = z.object({
+  PORT: z.string().default('5000').transform((val) => parseInt(val, 10)),
+  NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
+  APP_NAME: z.string().default('DnyanX Ultimate Business OS'),
+  APP_URL: z.string().default('http://localhost:5000'),
+  CORS_ORIGIN: z.string().default('*'),
+  WHATSAPP_VERIFY_TOKEN: z.string().default('dnyanx_secure_verify_token_2026'),
+  WHATSAPP_API_TOKEN: z.string().optional(),
+  WHATSAPP_PHONE_NUMBER_ID: z.string().optional(),
+  FIREBASE_PROJECT_ID: z.string().optional(),
+  FIREBASE_CLIENT_EMAIL: z.string().optional(),
+  FIREBASE_PRIVATE_KEY: z.string().optional(),
+  FIREBASE_SERVICE_ACCOUNT_PATH: z.string().optional(),
+});
+
+const _env = envSchema.safeParse(process.env);
+
+if (!_env.success) {
+  console.error('❌ Invalid environment variables:', _env.error.format());
+  process.exit(1);
+}
+
+export const env = _env.data;
