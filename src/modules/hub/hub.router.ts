@@ -14,7 +14,7 @@ interface BusinessHubProfile {
   slug: string;
 }
 
-// In-memory hub store (can be seamlessly connected with Firestore)
+// In-memory hub store
 const hubDatabase = new Map<string, BusinessHubProfile>();
 
 // Seed default profile
@@ -85,7 +85,8 @@ export const createHubHandler = (req: Request, res: Response): void => {
  * GET /api/hub/:slug
  */
 hubRouter.get('/:slug', (req: Request, res: Response): void => {
-  const { slug } = req.params;
+  const rawSlug = req.params.slug;
+  const slug = Array.isArray(rawSlug) ? rawSlug[0] : (rawSlug as string);
   const profile = hubDatabase.get(slug);
 
   if (!profile) {
