@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>DnyanX Ultimate Business OS | ४-इन-१ डिजिटल बिझनेस ग्रोथ किट</title>
-  <meta name="description" content="DnyanX Ultimate Business OS - ४-इन-१ डिजिटल बिझनेस ग्रोथ किट: स्मार्ट बिलिंग, व्हॉट्सॲप बॉट, गुगल रिव्ह्यू QR, AI ब्रँडिंग">
+  <title>DnyanX Ultimate Business OS | Universal Smart QR & 5-in-1 Suite</title>
+  <meta name="description" content="Universal Smart QR & All-in-One Social Automation Dashboard: WhatsApp Bot, Google Maps, Instagram, Fast Billing">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -102,7 +103,7 @@
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <div class="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full blur-[120px] opacity-40 bg-[var(--brand-primary)] animate-mesh-slow"></div>
     <div class="absolute top-[40%] -right-[15%] w-[550px] h-[550px] rounded-full blur-[140px] opacity-30 bg-sky-500 animate-mesh-reverse"></div>
-    <div class="absolute -bottom-[20%] left-[25%] w-[500px] h-[500px] rounded-full blur-[130px] opacity-25 bg-amber-500 animate-mesh-slow"></div>
+    <div class="absolute -bottom-[20%] left-[25%] w-[500px] h-[500px] rounded-full blur-[130px] opacity-25 bg-purple-500 animate-mesh-slow"></div>
   </div>
 
   <!-- Header -->
@@ -116,7 +117,7 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="font-black text-lg tracking-tight text-white">ज्ञानX Business OS</h1>
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--brand-glow)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/30">४-इन-१ किट</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--brand-glow)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/30">Universal Smart QR</span>
           </div>
           <p class="text-xs text-[var(--text-sub)]">Smart Merchant Operating System</p>
         </div>
@@ -124,16 +125,21 @@
 
       <!-- Quick Actions -->
       <div class="flex items-center gap-2">
-        <button onclick="openModal('modal-growth-kit')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
+        <button onclick="openModal('modal-smart-hub')" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
+          <span>📲</span>
+          <span>Smart Business QR Hub</span>
+        </button>
+
+        <button onclick="openModal('modal-growth-kit')" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold active:scale-95 transition">
           <span>🎁</span>
-          <span>४-इन-१ ग्रोथ किट (₹७,९९९)</span>
+          <span>४-इन-१ किट (₹७,९९९)</span>
         </button>
 
         <div class="flex items-center gap-1.5 p-1 rounded-full glass-card">
           <button onclick="setThemeColor('#10b981', 'Emerald')" class="w-5 h-5 rounded-full bg-emerald-500 hover:scale-125 transition-transform"></button>
           <button onclick="setThemeColor('#0ea5e9', 'Cyan')" class="w-5 h-5 rounded-full bg-sky-500 hover:scale-125 transition-transform"></button>
-          <button onclick="setThemeColor('#f59e0b', 'Amber')" class="w-5 h-5 rounded-full bg-amber-500 hover:scale-125 transition-transform"></button>
           <button onclick="setThemeColor('#6366f1', 'Indigo')" class="w-5 h-5 rounded-full bg-indigo-500 hover:scale-125 transition-transform"></button>
+          <button onclick="setThemeColor('#f59e0b', 'Amber')" class="w-5 h-5 rounded-full bg-amber-500 hover:scale-125 transition-transform"></button>
         </div>
 
         <button onclick="toggleDarkMode()" class="p-2 rounded-xl glass-card text-slate-300 hover:text-white active:scale-90 transition">
@@ -147,58 +153,48 @@
   <!-- Main Content -->
   <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-6 pb-28">
 
-    <!-- 🎁 MAIN FEATURE BANNER: ४-इन-१ डिजिटल बिझनेस ग्रोथ किट -->
-    <section class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border-2 border-emerald-500/40 shadow-2xl">
-      <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- 🌟 Universal Smart QR Banner -->
+    <section class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border-2 border-blue-500/40 shadow-2xl">
+      <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
         <div class="space-y-2 max-w-2xl">
           <div class="flex items-center gap-2">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black tracking-wider uppercase border border-emerald-500/30">
-              💥 ऑल-इन-वन लोकल बिझनेस ग्रोथ किट
+            <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-black tracking-wider uppercase border border-blue-500/30">
+              📲 युनिव्हर्सल स्मार्ट QR कोड & डिजिटल हब
             </span>
-            <span class="text-xs text-slate-400 font-mono">₹१५,५०० चे मूल्य</span>
+            <span class="text-xs text-slate-400 font-mono">1-QR For Everything</span>
           </div>
 
           <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight">
-            स्थानिक दुकानांसाठी <span class="text-emerald-400">"४-इन-१ डिजिटल बिझनेस ग्रोथ किट"</span>
+            काऊंटरवरचा <span class="text-blue-400">१ स्मार्ट QR कोड</span> आणि दुकानाचे सर्व सोशल मीडिया व व्हॉट्सॲप एकाच जागी!
           </h2>
           
           <p class="text-xs sm:text-sm text-slate-300">
-            स्मार्ट बिलिंग, व्हॉट्सॲप ऑटो-बॉट, गुगल ५-स्टार रिव्ह्यू QR स्टँडी आणि सणांचे AI बॅनर्स एकाच पॅकेजमध्ये!
+            ग्राहक QR स्कॅन करताच व्हॉट्सॲप २४/७ चॅटबॉट, गुगल ५-स्टार रिव्ह्यू, इन्स्टाग्राम रील्स, फेसबुक आणि ई-बिलिंग एकाच सुंदर पेजवर उघडेल.
           </p>
 
-          <!-- 4 Mini Badges -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs">
-            <div class="p-2 rounded-xl bg-black/40 border border-white/5 text-slate-200">
-              <span class="text-emerald-400 font-bold block">१. स्मार्ट बिलिंग</span>
-              <span class="text-[10px] text-slate-400">उधार खाते + PDF</span>
-            </div>
-            <div class="p-2 rounded-xl bg-black/40 border border-white/5 text-slate-200">
-              <span class="text-cyan-400 font-bold block">२. WhatsApp बॉट</span>
-              <span class="text-[10px] text-slate-400">ऑटो रिप्लाय & मेनू</span>
-            </div>
-            <div class="p-2 rounded-xl bg-black/40 border border-white/5 text-slate-200">
-              <span class="text-sky-400 font-bold block">३. Google Maps QR</span>
-              <span class="text-[10px] text-slate-400">५-Star रेटिंग स्टँडी</span>
-            </div>
-            <div class="p-2 rounded-xl bg-black/40 border border-white/5 text-slate-200">
-              <span class="text-purple-400 font-bold block">४. AI सोशल ब्रँडिंग</span>
-              <span class="text-[10px] text-slate-400">५ सणांचे बॅनर्स + रील</span>
-            </div>
+          <div class="flex flex-wrap gap-2 pt-2 text-xs">
+            <span class="px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 text-emerald-400">🟢 WhatsApp Bot</span>
+            <span class="px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 text-amber-400">⭐ Google 5-Star</span>
+            <span class="px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 text-pink-400">📸 Instagram Reels</span>
+            <span class="px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 text-blue-400">📘 Facebook Page</span>
+            <span class="px-2.5 py-1 rounded-lg bg-black/40 border border-white/5 text-indigo-400">🧾 E-Billing Status</span>
           </div>
         </div>
 
-        <!-- Pricing Card with 1-Click Action -->
-        <div class="w-full lg:w-auto p-5 rounded-2xl bg-black/50 border border-emerald-500/30 text-center space-y-3 min-w-[260px]">
+        <!-- Standee Generator Card -->
+        <div class="w-full lg:w-auto p-5 rounded-2xl bg-black/50 border border-blue-500/30 text-center space-y-3 min-w-[280px]">
+          <div class="bg-white p-3 rounded-xl inline-block shadow-lg mx-auto">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:5000/biz/radhe-hardware" class="w-28 h-28 mx-auto" alt="Demo QR">
+          </div>
           <div>
-            <span class="text-xs text-slate-400 line-through block">सुटे मूल्य: ₹१५,५००</span>
-            <span class="text-3xl font-black text-emerald-400 font-mono block mt-0.5">₹७,९९९/-</span>
-            <span class="text-[11px] text-emerald-300 font-semibold uppercase tracking-wider block">स्पेशल कॉम्बो ऑफर (वन-टाइम)</span>
+            <span class="text-xs text-slate-300 font-bold block">राधे हार्डवेअर स्मार्ट QR</span>
+            <a href="/biz/radhe-hardware" target="_blank" class="text-[11px] text-blue-400 hover:underline font-mono block mt-0.5">/biz/radhe-hardware ↗</a>
           </div>
 
-          <button onclick="openModal('modal-growth-kit')" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/25 active:scale-95 transition flex items-center justify-center gap-1.5">
-            <span>🚀</span> <span>प्रपोजल पाहा & WhatsApp पाठवा</span>
+          <button onclick="openModal('modal-smart-hub')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs shadow-lg shadow-blue-600/30 active:scale-95 transition flex items-center justify-center gap-1.5">
+            <span>✨</span> <span>नवीन दुकानासाठी QR Hub बनवा</span>
           </button>
         </div>
       </div>
@@ -206,33 +202,33 @@
 
     <!-- 4 High-Speed Action Cards -->
     <section class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+      <!-- Universal Hub -->
+      <button onclick="openModal('modal-smart-hub')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-blue-500 flex flex-col justify-between group">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">📲</div>
+        <div class="mt-4">
+          <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider block">Universal Hub</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">Smart QR & Social Hub</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">१-QR सर्व लिंक्स</p>
+        </div>
+      </button>
+
+      <!-- 4-in-1 Kit -->
+      <button onclick="openModal('modal-growth-kit')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-emerald-500 flex flex-col justify-between group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">🎁</div>
+        <div class="mt-4">
+          <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">Combo ₹७,९९९</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">४-इन-१ ग्रोथ किट</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">बिलिंग + बॉट + रिव्ह्यू</p>
+        </div>
+      </button>
+
       <!-- Fast Billing -->
       <button onclick="openModal('modal-quick-bill')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-[var(--brand-primary)] flex flex-col justify-between group">
         <div class="w-12 h-12 rounded-xl bg-[var(--brand-glow)] text-[var(--brand-primary)] flex items-center justify-center text-2xl group-hover:scale-110 transition">🧾</div>
         <div class="mt-4">
-          <span class="text-[10px] font-bold text-[var(--brand-primary)] uppercase tracking-wider block">मॉड्यूल १</span>
-          <h3 class="font-bold text-white text-sm mt-0.5">स्मार्ट बिलिंग & उधार</h3>
+          <span class="text-[10px] font-bold text-[var(--brand-primary)] uppercase tracking-wider block">३-सेकंद बिल</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">फास्ट बिलिंग & उधार</h3>
           <p class="text-[11px] text-[var(--text-sub)] mt-0.5">WhatsApp PDF पावती</p>
-        </div>
-      </button>
-
-      <!-- WhatsApp Bot -->
-      <button onclick="openModal('modal-whatsapp-crm')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-cyan-500 flex flex-col justify-between group">
-        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">💬</div>
-        <div class="mt-4">
-          <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block">मॉड्यूल २</span>
-          <h3 class="font-bold text-white text-sm mt-0.5">WhatsApp ऑटो-बॉट</h3>
-          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">कॅटलॉग & ऑटो-रिप्लाय</p>
-        </div>
-      </button>
-
-      <!-- Google Review QR -->
-      <button onclick="openModal('modal-google-review')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-sky-500 flex flex-col justify-between group">
-        <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">⭐</div>
-        <div class="mt-4">
-          <span class="text-[10px] font-bold text-sky-400 uppercase tracking-wider block">मॉड्यूल ३</span>
-          <h3 class="font-bold text-white text-sm mt-0.5">Google 5-Star QR</h3>
-          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">काउंटर स्टँडी प्रिंट</p>
         </div>
       </button>
 
@@ -240,40 +236,11 @@
       <button onclick="openModal('modal-civil-estimator')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-amber-500 flex flex-col justify-between group">
         <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">🏗️</div>
         <div class="mt-4">
-          <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">मॉड्यूल ४</span>
-          <h3 class="font-bold text-white text-sm mt-0.5">सिव्हिल एस्टिमेटर</h3>
-          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">सिमेंट, स्टील & BOQ</p>
+          <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Civil BOQ</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">बांधकाम खर्च अंदाज</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">सिमेंट, स्टील & विटा</p>
         </div>
       </button>
-    </section>
-
-    <!-- Recent Live Activity -->
-    <section class="glass-card rounded-3xl p-6">
-      <div class="flex items-center justify-between mb-4">
-        <div>
-          <h3 class="text-lg font-bold text-white">थेट हालचाली (Live Merchant Activity)</h3>
-          <p class="text-xs text-[var(--text-sub)]">Real-time ledger updates & proposal generation</p>
-        </div>
-        <button onclick="location.reload()" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-300 transition flex items-center gap-1.5">
-          <span>🔄</span> <span>Refresh</span>
-        </button>
-      </div>
-
-      <div class="space-y-3">
-        <div class="p-4 rounded-2xl bg-black/20 border border-white/5 flex items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">🎁</div>
-            <div>
-              <h4 class="font-bold text-white text-sm">४-इन-१ ग्रोथ किट प्रपोजल तयार</h4>
-              <p class="text-xs text-[var(--text-sub)]">विजय सुपर शॉपी • स्पेशल कॉम्बो ऑफर ₹७,९९९</p>
-            </div>
-          </div>
-          <div class="text-right">
-            <span class="font-black text-emerald-400 font-mono text-base">₹७,९९९</span>
-            <span class="block text-[10px] text-emerald-500 font-semibold">Active Offer ✔️</span>
-          </div>
-        </div>
-      </div>
     </section>
 
   </main>
@@ -281,25 +248,25 @@
   <!-- One-Thumb Navigation Bar (Fitts's Law) -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-[var(--border-color)] bottom-dock px-4 py-2 sm:hidden">
     <div class="flex items-center justify-around">
+      <button onclick="openModal('modal-smart-hub')" class="flex flex-col items-center gap-1 text-blue-400 py-1 focus:outline-none">
+        <span class="text-xl">📲</span>
+        <span class="text-[10px] font-bold">QR हब</span>
+      </button>
+
       <button onclick="openModal('modal-growth-kit')" class="flex flex-col items-center gap-1 text-emerald-400 py-1 focus:outline-none">
         <span class="text-xl">🎁</span>
         <span class="text-[10px] font-bold">ग्रोथ किट</span>
       </button>
 
-      <button onclick="openModal('modal-quick-bill')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white py-1 focus:outline-none">
-        <span class="text-xl">🧾</span>
-        <span class="text-[10px] font-medium">बिलिंग</span>
-      </button>
-
       <div class="relative -top-5">
-        <button onclick="openModal('modal-growth-kit'); triggerHapticFeedback('heavy')" class="w-14 h-14 rounded-full bg-gradient-to-tr from-[var(--brand-primary)] to-cyan-400 text-slate-950 flex items-center justify-center text-3xl font-black shadow-2xl shadow-[var(--brand-glow)] active:scale-90 transition-transform">
+        <button onclick="openModal('modal-smart-hub'); triggerHapticFeedback('heavy')" class="w-14 h-14 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 text-white flex items-center justify-center text-3xl font-black shadow-2xl shadow-blue-500/40 active:scale-90 transition-transform">
           +
         </button>
       </div>
 
-      <button onclick="openModal('modal-google-review')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white py-1 focus:outline-none">
-        <span class="text-xl">⭐</span>
-        <span class="text-[10px] font-medium">रिव्ह्यू QR</span>
+      <button onclick="openModal('modal-quick-bill')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white py-1 focus:outline-none">
+        <span class="text-xl">🧾</span>
+        <span class="text-[10px] font-medium">बिलिंग</span>
       </button>
 
       <button onclick="openModal('modal-civil-estimator')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white py-1 focus:outline-none">
@@ -310,107 +277,125 @@
   </nav>
 
   <!-- ========================================================= -->
-  <!-- 🎁 MODAL: ४-इन-१ डिजिटल बिझनेस ग्रोथ किट प्रपोजल -->
+  <!-- 📲 MODAL: SMART BUSINESS QR HUB GENERATOR -->
   <!-- ========================================================= -->
-  <div id="modal-growth-kit" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
-    <div class="glass-card w-full max-w-2xl rounded-3xl p-6 sm:p-8 border border-emerald-500/40 animate-pop-in my-auto space-y-5">
+  <div id="modal-smart-hub" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="glass-card w-full max-w-2xl rounded-3xl p-6 sm:p-8 border border-blue-500/40 animate-pop-in my-auto space-y-5">
       
-      <!-- Top Title -->
       <div class="flex items-start justify-between gap-4">
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-2xl">🎁</span>
-            <h3 class="text-xl font-black text-white">४-इन-१ डिजिटल बिझनेस ग्रोथ किट</h3>
+            <span class="text-2xl">📲</span>
+            <h3 class="text-xl font-black text-white">Smart QR & Business Hub Generator</h3>
           </div>
-          <p class="text-xs text-slate-400 mt-0.5">स्थानिक दुकानदारांसाठी ऑल-इन-वन डिजिटल दुकान पॅकेज</p>
+          <p class="text-xs text-slate-400 mt-0.5">दुकानदारासाठी ऑल-इन-वन सोशल लँडिंग पेज आणि काउंटर स्टँडी QR तयार करा</p>
         </div>
-        <button onclick="closeModal('modal-growth-kit')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
+        <button onclick="closeModal('modal-smart-hub')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
       </div>
 
-      <!-- Merchant Info Inputs -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <form onsubmit="handleCreateHub(event)" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">दुकानाचे नाव (Business Name)</label>
+            <input id="hub-name" type="text" value="राधे हार्डवेअर & सप्लायर्स" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">श्रेणी / टॅगलाईन (Category)</label>
+            <input id="hub-cat" type="text" value="सर्व प्रकारचे बांधकाम साहित्य व सेवा" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">WhatsApp नंबर</label>
+            <input id="hub-phone" type="tel" value="919876543210" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-xs">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">युनिक URL Slug (उदा. radhe-hardware)</label>
+            <input id="hub-slug" type="text" value="radhe-hardware" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-xs">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Google Maps Review Link</label>
+            <input id="hub-gmap" type="url" value="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Instagram URL</label>
+            <input id="hub-insta" type="url" value="https://instagram.com/dnyanx.tech" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+          </div>
+        </div>
+
         <div>
-          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">दुकानदाराचे नाव / शॉपचे नाव</label>
-          <input id="prop-shop" type="text" value="विजय सुपर शॉपी" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+          <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">दुकानाचा पत्ता (Address)</label>
+          <input id="hub-address" type="text" value="पुणे - नाशिक हायवे, चाकण, पुणे" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
         </div>
-        <div>
-          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">दुकानदाराचा WhatsApp नंबर</label>
-          <input id="prop-phone" type="tel" value="9823456789" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-xs">
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-black text-xs shadow-lg shadow-blue-600/30 active:scale-95 transition flex items-center justify-center gap-2 cursor-pointer mt-2">
+          <span>Smart Business Hub & Counter QR Code तयार करा</span>
+          <span>⚡</span>
+        </button>
+      </form>
+
+      <!-- Output Section -->
+      <div id="hub-output-box" class="mt-4 p-4 rounded-2xl bg-black/50 border border-blue-500/30 hidden space-y-4">
+        <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <div class="bg-white p-3 rounded-2xl shadow-xl flex-shrink-0">
+            <img id="hub-qr-img" src="" alt="Generated Hub QR" class="w-36 h-36 mx-auto">
+          </div>
+          <div class="space-y-1.5 flex-1">
+            <span class="text-xs text-emerald-400 font-bold">✅ Smart Hub यशस्वीरित्या तयार झाला!</span>
+            <h4 id="hub-out-name" class="font-extrabold text-white text-base">राधे हार्डवेअर & सप्लायर्स</h4>
+            <p class="text-xs text-slate-400 font-mono">Live Link: <a id="hub-out-link" href="#" target="_blank" class="text-blue-400 hover:underline"></a></p>
+            
+            <div class="pt-2 flex flex-wrap gap-2">
+              <a id="hub-view-btn" href="#" target="_blank" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">
+                📱 लँडिंग पेज पाहा ↗
+              </a>
+              <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition">
+                🖨️ स्टँडी प्रिंट करा
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <!-- Table Breakdown -->
-      <div class="overflow-x-auto rounded-2xl border border-white/10 bg-black/40 text-xs">
-        <table class="w-full text-left">
-          <thead class="bg-slate-900/80 text-slate-300 border-b border-white/10">
-            <tr>
-              <th class="p-3">क्र.</th>
-              <th class="p-3">मॉड्यूल / सेवा</th>
-              <th class="p-3">तुम्हाला काय मिळेल</th>
-              <th class="p-3 text-right">सुटे मूल्य</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-white/5 text-slate-300">
-            <tr>
-              <td class="p-3 font-bold text-emerald-400">१</td>
-              <td class="p-3 font-bold text-white">स्मार्ट बिलिंग & उधार खाते</td>
-              <td class="p-3 text-slate-400">१-क्लिक PDF इनव्हॉइस जनरेटर + WhatsApp पावती</td>
-              <td class="p-3 text-right font-mono">₹६,०००</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-bold text-cyan-400">२</td>
-              <td class="p-3 font-bold text-white">WhatsApp ऑटो-रिप्लाय बॉट</td>
-              <td class="p-3 text-slate-400">चौकशी येताच रेट कार्ड, लोकेशन आणि मेनू ऑटो-सेंड</td>
-              <td class="p-3 text-right font-mono">₹४,०००</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-bold text-sky-400">३</td>
-              <td class="p-3 font-bold text-white">Google 5-Star Review QR</td>
-              <td class="p-3 text-slate-400">Google Maps प्रोफाइल + काउंटर 'Scan to Review' स्टँडी</td>
-              <td class="p-3 text-right font-mono">₹२,५००</td>
-            </tr>
-            <tr>
-              <td class="p-3 font-bold text-purple-400">४</td>
-              <td class="p-3 font-bold text-white">सणांचे AI ब्रँडिंग पॅकेज</td>
-              <td class="p-3 text-slate-400">५ सणांचे प्रोमोशनल बॅनर्स + १ हाय-क्वालिटी रील</td>
-              <td class="p-3 text-right font-mono">₹३,०००</td>
-            </tr>
-          </tbody>
-          <tfoot class="bg-emerald-950/40 border-t border-emerald-500/30 font-bold">
-            <tr>
-              <td colspan="3" class="p-3 text-slate-400">एकूण सुटे मूल्य (Regular Price):</td>
-              <td class="p-3 text-right text-slate-400 line-through font-mono">₹१५,५००</td>
-            </tr>
-            <tr class="text-sm text-emerald-400">
-              <td colspan="3" class="p-3 font-black text-white">💥 स्पेशल कॉम्बो ऑफर (Special Limited Price):</td>
-              <td class="p-3 text-right font-black text-emerald-400 font-mono text-base">₹७,९९९/-</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-2 pt-2">
-        <button onclick="shareProposalOnWhatsApp()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 active:scale-95 transition">
-          <span>💬</span>
-          <span>ग्राहकाला WhatsApp वर ऑफर पाठवा (1-Click Proposal)</span>
-        </button>
-        <button onclick="window.print()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition">
-          <span>🖨️</span>
-          <span>प्रिंट प्रपोजल</span>
-        </button>
       </div>
 
     </div>
   </div>
 
-  <!-- Other Modals (Civil, Google Review, Quick Bill, WhatsApp CRM) -->
+  <!-- 4-in-1 Kit Proposal Modal -->
+  <div id="modal-growth-kit" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="glass-card w-full max-w-2xl rounded-3xl p-6 sm:p-8 border border-emerald-500/40 animate-pop-in my-auto space-y-4">
+      <div class="flex items-start justify-between gap-4">
+        <h3 class="text-xl font-black text-white">🎁 ४-इन-१ डिजिटल बिझनेस ग्रोथ किट (₹७,९९९)</h3>
+        <button onclick="closeModal('modal-growth-kit')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
+      </div>
+      <div class="p-3 bg-black/40 rounded-xl text-xs space-y-1">
+        <p>1️⃣ स्मार्ट बिलिंग + उधार खाते (WhatsApp PDF) - ₹6,000</p>
+        <p>2️⃣ WhatsApp ऑटो-बॉट & कॅटलॉग - ₹4,000</p>
+        <p>3️⃣ Google Maps 5-Star Review QR स्टँडी - ₹2,500</p>
+        <p>4️⃣ सणांचे AI बॅनर्स + १ रील - ₹3,000</p>
+        <p class="font-bold text-emerald-400 pt-1">💥 कॉम्बो ऑफर: फक्त ₹7,999/-</p>
+      </div>
+      <button onclick="shareProposalOnWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs">ग्राहकाला WhatsApp वर पाठवा (1-Click Proposal)</button>
+    </div>
+  </div>
+
+  <!-- Quick Bill Modal -->
+  <div id="modal-quick-bill" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in relative">
+      <div class="flex items-center justify-between mb-4"><h3 class="text-lg font-bold text-white">⚡ 3-सेकंद फास्ट बिलिंग</h3><button onclick="closeModal('modal-quick-bill')" class="w-8 h-8 rounded-full bg-white/10 text-white">✕</button></div>
+      <form onsubmit="handleGenerateBill(event)" class="space-y-3">
+        <input type="tel" id="bill-phone" value="9823456789" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-sm">
+        <input type="text" id="bill-item" value="10kg Kolam Rice + 2L Sunflower Oil" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm">
+        <input type="number" id="bill-amount" value="1250" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-[var(--brand-primary)] font-black text-lg font-mono">
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[var(--brand-primary)] to-cyan-500 text-slate-950 font-extrabold text-sm shadow-lg">बिल तयार करा & WhatsApp पाठवा</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Civil Estimator Modal -->
   <div id="modal-civil-estimator" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="glass-card w-full max-w-2xl rounded-3xl p-6 sm:p-8 border border-white/10 animate-pop-in my-auto">
-      <div class="flex items-start justify-between gap-4 mb-4">
-        <h3 class="text-xl font-black text-white">🏗️ सिव्हिल बांधकाम खर्च & साहित्याचा अंदाज</h3>
-        <button onclick="closeModal('modal-civil-estimator')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
-      </div>
+      <div class="flex items-start justify-between gap-4 mb-4"><h3 class="text-xl font-black text-white">🏗️ सिव्हिल बांधकाम खर्च & साहित्याचा अंदाज</h3><button onclick="closeModal('modal-civil-estimator')" class="w-8 h-8 rounded-full bg-white/10 text-white">✕</button></div>
       <form onsubmit="handleCivilEstimate(event)" class="space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div><label class="block text-xs font-bold text-slate-300 mb-1">Plot Area (Sq.Ft)</label><input id="civ-area" type="number" value="1200" required class="w-full px-3 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-sm"></div>
@@ -419,77 +404,61 @@
         </div>
         <button type="submit" class="w-full py-3 rounded-xl bg-amber-600 text-white font-extrabold text-xs shadow-lg">साहित्याचा हिशोब काढा (BOQ) ⚡</button>
       </form>
-      <div id="civ-output-box" class="mt-4 hidden space-y-2">
-        <div class="p-4 rounded-2xl bg-black/50 border border-amber-500/30 flex justify-between items-center"><span class="text-xs text-slate-400">अंदाजे एकूण खर्च:</span><span id="civ-total-cost" class="text-xl font-black text-amber-400 font-mono">₹39,60,000</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-google-review" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in text-center my-auto">
-      <div class="flex items-center justify-between mb-3 text-left">
-        <h3 class="text-base font-bold text-white">⭐ Google Maps 5-Star QR Standee</h3>
-        <button onclick="closeModal('modal-google-review')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
-      </div>
-      <input id="rev-name" type="text" value="Vijay Super Shopee Pune" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs mb-3">
-      <div class="p-4 rounded-2xl bg-white text-slate-900 inline-block shadow-2xl mx-auto my-1">
-        <img id="rev-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.google.com/search?q=Vijay%20Super%20Shopee%20Pune%20reviews" class="w-40 h-40 mx-auto" alt="Review QR">
-        <p class="text-[11px] font-bold mt-2 text-slate-800">⭐ आम्हाला Google वर ५-स्टार रेटिंग द्या!</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-quick-bill" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in relative">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-bold text-white">⚡ 3-सेकंद फास्ट बिलिंग</h3>
-        <button onclick="closeModal('modal-quick-bill')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
-      </div>
-      <form onsubmit="handleGenerateBill(event)" class="space-y-3">
-        <input type="tel" id="bill-phone" value="9823456789" placeholder="WhatsApp Number" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-sm">
-        <input type="text" id="bill-item" value="10kg Kolam Rice + 2L Sunflower Oil" placeholder="Item Name" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm">
-        <input type="number" id="bill-amount" value="1250" placeholder="Amount" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-[var(--brand-primary)] font-black text-lg font-mono">
-        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[var(--brand-primary)] to-cyan-500 text-slate-950 font-extrabold text-sm shadow-lg">बिल तयार करा & WhatsApp पाठवा</button>
-      </form>
-    </div>
-  </div>
-
-  <div id="modal-whatsapp-crm" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in relative">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-base font-bold text-white">💬 व्हॉट्सॲप ऑटो-बॉट</h3>
-        <button onclick="closeModal('modal-whatsapp-crm')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
-      </div>
-      <div class="p-3 rounded-xl bg-emerald-950/60 border border-emerald-800/60 text-xs text-emerald-300 mb-3">
-        🟢 Auto-Responder: Rate card & store location sent in 3 seconds.
-      </div>
+      <div id="civ-output-box" class="mt-4 hidden space-y-2"><div class="p-4 rounded-2xl bg-black/50 border border-amber-500/30 flex justify-between items-center"><span class="text-xs text-slate-400">अंदाजे एकूण खर्च:</span><span id="civ-total-cost" class="text-xl font-black text-amber-400 font-mono">₹39,60,000</span></div></div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer class="border-t border-[var(--border-color)] px-6 py-4 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p>© 2026 DnyanX Tech. ४-इन-१ डिजिटल बिझनेस ग्रोथ किट.</p>
-      <p class="font-mono text-[11px] text-slate-400">High-ROI Merchant Package</p>
+      <p>© 2026 DnyanX Tech. Universal Smart QR & 5-in-1 Suite Platform.</p>
+      <p class="font-mono text-[11px] text-slate-400">All-in-One Merchant Automation</p>
     </div>
   </footer>
 
   <!-- Script Handlers -->
   <script>
-    function shareProposalOnWhatsApp() {
+    async function handleCreateHub(e) {
+      e.preventDefault();
       triggerHapticFeedback('medium');
       celebratePayment();
 
-      const shop = document.getElementById('prop-shop').value || 'तुमच्या दुकानासाठी';
-      const phone = document.getElementById('prop-phone').value || '';
+      const payload = {
+        businessName: document.getElementById('hub-name').value,
+        category: document.getElementById('hub-cat').value,
+        phone: document.getElementById('hub-phone').value,
+        slug: document.getElementById('hub-slug').value,
+        googleReviewUrl: document.getElementById('hub-gmap').value,
+        instagramUrl: document.getElementById('hub-insta').value,
+        address: document.getElementById('hub-address').value
+      };
 
-      const proposalText = `🎁 *४-इन-१ डिजिटल बिझनेस ग्रोथ किट (Special Offer)* 🚀\n\nनमस्कार ${shop}!\nतुमच्या दुकानाचा व्यवसाय दुप्पट करण्यासाठी हे खास डिजिटल पॅकेज:\n\n1️⃣ *स्मार्ट बिलिंग & उधार खाते:* WhatsApp PDF पावतीसह (मूल्य: ₹6,000)\n2️⃣ *WhatsApp ऑटो-बॉट:* २४/७ ऑटो रिप्लाय & मेनू (मूल्य: ₹4,000)\n3️⃣ *Google Maps 5-Star QR:* काउंटर स्टँडी डिझाइन (मूल्य: ₹2,500)\n4️⃣ *सणांचे AI सोशल ब्रँडिंग:* ५ बॅनर्स + १ रील (मूल्य: ₹3,000)\n\n━━━━━━━━━━━━━━━━━━━━\n💰 *एकूण सुटे मूल्य:* ~₹15,500~\n💥 *स्पेशल कॉम्बो ऑफर:* *फक्त ₹7,999/-*\n━━━━━━━━━━━━━━━━━━━━\n\n👉 *आजच तुमचे डिजिटल दुकान सुरू करा!*\n_DnyanX Tech Solutions_`;
+      try {
+        const res = await fetch('/api/hub/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
 
-      const targetUrl = phone 
-        ? `https://wa.me/91${phone}?text=${encodeURIComponent(proposalText)}`
-        : `https://wa.me/?text=${encodeURIComponent(proposalText)}`;
+        const outBox = document.getElementById('hub-output-box');
+        outBox.classList.remove('hidden');
+        document.getElementById('hub-qr-img').src = data.qrImage;
+        document.getElementById('hub-out-name').innerText = data.profile.businessName;
+        document.getElementById('hub-out-link').href = data.hubUrl;
+        document.getElementById('hub-out-link').innerText = data.hubUrl;
+        document.getElementById('hub-view-btn').href = data.hubUrl;
+        outBox.scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        console.error('Hub generation error:', err);
+      }
+    }
 
-      window.open(targetUrl, '_blank');
+    function shareProposalOnWhatsApp() {
+      triggerHapticFeedback('medium');
+      celebratePayment();
+      const proposalText = `🎁 *४-इन-१ डिजिटल बिझनेस ग्रोथ किट (Special Offer)* 🚀\n\n1️⃣ स्मार्ट बिलिंग & उधार खाते\n2️⃣ WhatsApp २४/७ ऑटो-बॉट\n3️⃣ Google Maps 5-Star Review QR स्टँडी\n4️⃣ सणांचे ५ AI बॅनर्स + १ रील\n\n💰 *एकूण सुटे मूल्य:* ~₹15,500~\n💥 *स्पेशल ऑफर:* *फक्त ₹7,999/-*\n_DnyanX Tech Solutions_`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(proposalText)}`, '_blank');
     }
 
     async function handleCivilEstimate(e) {

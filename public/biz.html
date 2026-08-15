@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="mr" class="dark h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Smart Business Hub | ज्ञानX Business OS</title>
+  <meta name="description" content="All-in-One Smart Business Hub: WhatsApp, Google Maps Review, Instagram, Facebook & E-Billing">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background-color: #030712;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    }
+    .action-btn {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .action-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center p-4 sm:p-6 relative overflow-x-hidden">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-500/20 rounded-full blur-[100px]"></div>
+    <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/15 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Business Hub Card -->
+  <div class="relative z-10 w-full max-w-md glass-panel rounded-3xl p-6 sm:p-7 space-y-6 text-center my-auto">
+    
+    <!-- Business Identity -->
+    <div class="space-y-2">
+      <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-3xl font-extrabold text-slate-950 shadow-xl shadow-emerald-500/20 active:rotate-12 transition-transform">
+        🏪
+      </div>
+      <h1 id="biz-name" class="text-2xl font-black text-white tracking-tight">राधे हार्डवेअर & सप्लायर्स</h1>
+      <p id="biz-category" class="text-xs text-slate-400">सर्व प्रकारचे बांधकाम साहित्य व सेवा • पुणे</p>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Open Now • Verified Merchant</span>
+      </div>
+    </div>
+
+    <!-- 5 Core Actions -->
+    <div class="space-y-3 font-medium text-left">
+      
+      <!-- 1. WhatsApp 24/7 Chat & Catalog -->
+      <a id="btn-wa" href="https://wa.me/919876543210?text=नमस्कार,%20मला%20कोटेशन%20हवे%20आहे." target="_blank"
+         class="action-btn flex items-center justify-between p-4 bg-emerald-950/50 border border-emerald-500/30 rounded-2xl hover:bg-emerald-900/40 text-emerald-200">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-xl text-emerald-400">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div>
+            <span class="block font-bold text-white text-sm">व्हॉट्सॲपवर संपर्क करा</span>
+            <span class="text-[11px] text-emerald-400">२४/७ ऑटो-कॅटलॉग & कोटेशन</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right text-emerald-400 text-xs"></i>
+      </a>
+
+      <!-- 2. Google Maps 5-Star Review -->
+      <a id="btn-review" href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4" target="_blank"
+         onclick="triggerConfetti()"
+         class="action-btn flex items-center justify-between p-4 bg-amber-950/50 border border-amber-500/30 rounded-2xl hover:bg-amber-900/40 text-amber-200">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-xl text-amber-400">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div>
+            <span class="block font-bold text-white text-sm">Google वर ५-स्टार रिव्ह्यू द्या ⭐</span>
+            <span class="text-[11px] text-amber-400">३ सेकंदात रेटिंग द्या</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right text-amber-400 text-xs"></i>
+      </a>
+
+      <!-- 3. Instagram Reels & Offers -->
+      <a id="btn-insta" href="https://instagram.com/dnyanx.tech" target="_blank"
+         class="action-btn flex items-center justify-between p-4 bg-pink-950/50 border border-pink-500/30 rounded-2xl hover:bg-pink-900/40 text-pink-200">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center text-xl text-pink-400">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <div>
+            <span class="block font-bold text-white text-sm">इन्स्टाग्राम रील्स & ऑफर्स</span>
+            <span class="text-[11px] text-pink-400">नवीन व्हिडिओ आणि डिस्काउंट्स</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right text-pink-400 text-xs"></i>
+      </a>
+
+      <!-- 4. Facebook Page -->
+      <a id="btn-fb" href="https://facebook.com/dnyanx.tech" target="_blank"
+         class="action-btn flex items-center justify-between p-4 bg-blue-950/50 border border-blue-500/30 rounded-2xl hover:bg-blue-900/40 text-blue-200">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-xl text-blue-400">
+            <i class="fa-brands fa-facebook"></i>
+          </div>
+          <div>
+            <span class="block font-bold text-white text-sm">फेसबुक पेजला फॉलो करा</span>
+            <span class="text-[11px] text-blue-400">दुकान अपडेट्स & पोस्ट्स</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right text-blue-400 text-xs"></i>
+      </a>
+
+      <!-- 5. E-Bill & Khata Status -->
+      <button onclick="checkEBill()"
+         class="w-full action-btn flex items-center justify-between p-4 bg-indigo-950/50 border border-indigo-500/30 rounded-2xl hover:bg-indigo-900/40 text-indigo-200">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-xl text-indigo-400">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <div>
+            <span class="block font-bold text-white text-sm">ई-बिल / कोटेशन तपासा</span>
+            <span class="text-[11px] text-indigo-400">चालू बिलाची प्रत मिळवा</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right text-indigo-400 text-xs"></i>
+      </button>
+
+    </div>
+
+    <!-- Location & Footer -->
+    <div class="pt-4 border-t border-slate-800/80 text-xs text-slate-500 space-y-1">
+      <p id="biz-address" class="text-slate-400">📍 पुणे - नाशिक हायवे, चाकण, पुणे</p>
+      <p class="font-mono text-[10px] text-slate-500">⚡ Powered by DnyanX Smart Business OS</p>
+    </div>
+
+  </div>
+
+  <script>
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 60, spread: 50, origin: { y: 0.6 } });
+      }
+    }
+
+    function checkEBill() {
+      const phone = prompt('कृपया तुमचा WhatsApp मोबाईल नंबर टाका:');
+      if (phone) {
+        alert(`✅ +91 ${phone} चे चालू बिल तपासले गेले आहे. अधिक तपशीलासाठी WhatsApp वर संपर्क सुरू करत आहोत.`);
+        window.open(`https://wa.me/919876543210?text=माझे%20बिल%20क्रमांक%20(${phone})%20तपासा`, '_blank');
+      }
+    }
+
+    // Dynamic Profile Loader via URL params or API
+    async function loadHubProfile() {
+      const pathParts = window.location.pathname.split('/');
+      let slug = pathParts[pathParts.length - 1];
+      if (!slug || slug === 'biz.html' || slug === 'biz') {
+        const urlParams = new URLSearchParams(window.location.search);
+        slug = urlParams.get('slug') || 'radhe-hardware';
+      }
+
+      try {
+        const res = await fetch(`/api/hub/${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          const p = data.profile;
+          document.getElementById('biz-name').innerText = p.businessName;
+          document.getElementById('biz-category').innerText = p.category || 'सर्व प्रकारच्या सेवा व उत्पादने';
+          if (p.address) document.getElementById('biz-address').innerText = '📍 ' + p.address;
+          if (p.phone) document.getElementById('btn-wa').href = `https://wa.me/${p.phone}?text=${encodeURIComponent(p.whatsappMessage || 'नमस्कार')}`;
+          if (p.googleReviewUrl) document.getElementById('btn-review').href = p.googleReviewUrl;
+          if (p.instagramUrl) document.getElementById('btn-insta').href = p.instagramUrl;
+          if (p.facebookUrl) document.getElementById('btn-fb').href = p.facebookUrl;
+        }
+      } catch (err) {
+        console.log('Profile loaded locally');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadHubProfile);
+  </script>
+</body>
+</html>

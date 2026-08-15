@@ -13,7 +13,7 @@ export const createApp = (): Express => {
   // Security and Middleware
   app.use(
     helmet({
-      contentSecurityPolicy: false, // Allows CDN resources for Phase 1 local dashboard
+      contentSecurityPolicy: false,
       crossOriginEmbedderPolicy: false,
     })
   );
@@ -22,9 +22,14 @@ export const createApp = (): Express => {
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-  // Serve Super Admin Dashboard Frontend
+  // Serve Public Static Assets
   const publicDir = path.resolve(process.cwd(), 'public');
   app.use(express.static(publicDir));
+
+  // Public Dynamic Business Hub Route: /biz/:slug -> public/biz.html
+  app.get('/biz/:slug', (req, res) => {
+    res.sendFile(path.join(publicDir, 'biz.html'));
+  });
 
   // Mount Core API Sub-routes
   app.use('/api', registerRoutes());
