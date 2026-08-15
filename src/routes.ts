@@ -10,6 +10,7 @@ import { storeRouter } from './modules/store/store.router.js';
 import { operationsRouter } from './modules/operations/operations.router.js';
 import { crmRouter } from './modules/crm/crm.router.js';
 import { advancedErpRouter } from './modules/erp/advanced.router.js';
+import { empireRouter } from './modules/empire/empire.router.js';
 import { handleWebhookEvents } from './modules/whatsapp/whatsapp.controller.js';
 
 export const registerRoutes = (): Router => {
@@ -46,6 +47,9 @@ export const registerRoutes = (): Router => {
 
   // 20-in-1 Advanced ERP: Profit Tracker, EMI Reminders, Unified Inbox, Loyalty
   router.use('/erp', advancedErpRouter);
+
+  // 25-in-1 Empire Modules: Vendor Ledger, Dead Stock, In-App Soundbox, Anti-Theft Shift, Marathi Invoice
+  router.use('/empire', empireRouter);
 
   return router;
 };
