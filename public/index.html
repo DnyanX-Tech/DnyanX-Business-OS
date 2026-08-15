@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>DnyanX Ultimate Business OS | 7-Pillar AI Studio & Merchant Console</title>
-  <meta name="description" content="DnyanX Ultimate Business OS - All-in-One Merchant OS with 7-Pillar AI Prompt Studio, Glassmorphism, Dynamic Themes & Fast Billing">
+  <title>DnyanX Ultimate Business OS | 5-in-1 Merchant & Civil Suite</title>
+  <meta name="description" content="DnyanX Ultimate Business OS - 5 High-Value Business Solvers: Civil Estimator, WhatsApp Bot, One-Click Bill, Review QR, 7-Pillar AI">
   
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Canvas Confetti for Celebration Feedback -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <script>
@@ -38,13 +35,8 @@
               '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
               '66%': { transform: 'translate(-20px, 20px) scale(0.95)' },
             },
-            shimmer: {
-              '100%': { transform: 'translateX(100%)' }
-            },
-            popIn: {
-              '0%': { transform: 'scale(0.9)', opacity: '0' },
-              '100%': { transform: 'scale(1)', opacity: '1' }
-            }
+            shimmer: { '100%': { transform: 'translateX(100%)' } },
+            popIn: { '0%': { transform: 'scale(0.9)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } }
           },
           animation: {
             'mesh-slow': 'meshFloat 18s ease-in-out infinite alternate',
@@ -58,7 +50,7 @@
 
   <style>
     :root {
-      --brand-primary: #10b981; /* Emerald default */
+      --brand-primary: #10b981;
       --brand-glow: rgba(16, 185, 129, 0.25);
       --brand-light: #34d399;
       --bg-base: #030712;
@@ -108,13 +100,7 @@
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
       transform: translateX(-100%);
-      background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.12) 20%,
-        rgba(255, 255, 255, 0.2) 60%,
-        rgba(255, 255, 255, 0)
-      );
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0));
       animation: shimmer 1.8s infinite;
       content: '';
     }
@@ -126,11 +112,11 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative">
 
-  <!-- Living Mesh Gradient Background -->
+  <!-- Mesh Background -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <div class="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full blur-[120px] opacity-40 bg-[var(--brand-primary)] animate-mesh-slow"></div>
     <div class="absolute top-[40%] -right-[15%] w-[550px] h-[550px] rounded-full blur-[140px] opacity-30 bg-sky-500 animate-mesh-reverse"></div>
-    <div class="absolute -bottom-[20%] left-[25%] w-[500px] h-[500px] rounded-full blur-[130px] opacity-25 bg-purple-500 animate-mesh-slow"></div>
+    <div class="absolute -bottom-[20%] left-[25%] w-[500px] h-[500px] rounded-full blur-[130px] opacity-25 bg-amber-500 animate-mesh-slow"></div>
   </div>
 
   <!-- Header -->
@@ -144,25 +130,29 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="font-black text-lg tracking-tight text-white">ज्ञानX Business OS</h1>
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--brand-glow)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/30">AI Prompt SaaS Active</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--brand-glow)] text-[var(--brand-primary)] border border-[var(--brand-primary)]/30">5-in-1 Suite</span>
           </div>
-          <p class="text-xs text-[var(--text-sub)]">Merchant OS + 7-Pillar AI Studio</p>
+          <p class="text-xs text-[var(--text-sub)]">Local Merchants • Civil Contractors • AI Content</p>
         </div>
       </div>
 
-      <!-- Quick Theme Engine -->
+      <!-- Quick Actions -->
       <div class="flex items-center gap-2">
-        <button onclick="openModal('modal-prompt-studio')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold shadow-md shadow-purple-600/20 active:scale-95 transition">
+        <button onclick="openModal('modal-civil-estimator')" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600/30 hover:bg-amber-600/50 border border-amber-500/30 text-amber-300 text-xs font-bold active:scale-95 transition">
+          <span>🏗️</span>
+          <span>Civil Estimator</span>
+        </button>
+
+        <button onclick="openModal('modal-prompt-studio')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/30 text-purple-300 text-xs font-bold active:scale-95 transition">
           <span>✨</span>
-          <span>7-Pillar AI Studio</span>
+          <span>7-Pillar AI</span>
         </button>
 
         <div class="flex items-center gap-1.5 p-1 rounded-full glass-card">
           <button onclick="setThemeColor('#10b981', 'Emerald')" class="w-5 h-5 rounded-full bg-emerald-500 hover:scale-125 transition-transform"></button>
           <button onclick="setThemeColor('#0ea5e9', 'Cyan')" class="w-5 h-5 rounded-full bg-sky-500 hover:scale-125 transition-transform"></button>
-          <button onclick="setThemeColor('#6366f1', 'Indigo')" class="w-5 h-5 rounded-full bg-indigo-500 hover:scale-125 transition-transform"></button>
           <button onclick="setThemeColor('#f59e0b', 'Amber')" class="w-5 h-5 rounded-full bg-amber-500 hover:scale-125 transition-transform"></button>
-          <button onclick="setThemeColor('#f43f5e', 'Rose')" class="w-5 h-5 rounded-full bg-rose-500 hover:scale-125 transition-transform"></button>
+          <button onclick="setThemeColor('#6366f1', 'Indigo')" class="w-5 h-5 rounded-full bg-indigo-500 hover:scale-125 transition-transform"></button>
         </div>
 
         <button onclick="toggleDarkMode()" class="p-2 rounded-xl glass-card text-slate-300 hover:text-white active:scale-90 transition">
@@ -173,116 +163,135 @@
     </div>
   </header>
 
-  <!-- Main Dashboard Content -->
+  <!-- Main Content -->
   <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-6 pb-28">
 
-    <!-- Store Summary Hero -->
+    <!-- 5 High-Value Problem Solutions Hero Banner -->
     <section class="glass-card rounded-3xl p-6 relative overflow-hidden">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-xs uppercase font-bold tracking-widest text-[var(--brand-primary)]">Verified Enterprise</span>
+            <span class="text-xs uppercase font-bold tracking-widest text-[var(--brand-primary)]">High-ROI Ready Software</span>
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">DnyanX AI & Merchant Console</h2>
-          <p class="text-xs sm:text-sm text-[var(--text-sub)] mt-0.5 font-mono">Civil Contracts • Local Merchants • Content Creators • WhatsApp Automation</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">स्थानिक व्यवसाय व कंत्राटदारांचे ५ थेट सोल्यूशन्स</h2>
+          <p class="text-xs sm:text-sm text-[var(--text-sub)] mt-0.5">थेट ₹१,५०० ते ₹८,००० कमवून देणारी रेडीमेड टूल्स</p>
         </div>
 
-        <div class="flex items-center gap-3 w-full md:w-auto">
-          <button onclick="openModal('modal-prompt-studio')" class="w-full md:w-auto px-5 py-3 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 text-white font-extrabold text-xs shadow-lg shadow-purple-600/30 flex items-center justify-center gap-2 active:scale-95 transition">
-            <span class="text-base">🚀</span>
-            <span>Open 7-Pillar AI Studio (₹5,000 SaaS)</span>
+        <div class="flex flex-wrap gap-2 w-full lg:w-auto">
+          <button onclick="openModal('modal-civil-estimator')" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs shadow-md shadow-amber-600/20 active:scale-95 transition flex items-center justify-center gap-1.5">
+            <span>🏗️</span> <span>Civil Estimator (₹5,000)</span>
+          </button>
+          <button onclick="openModal('modal-google-review')" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-md shadow-sky-600/20 active:scale-95 transition flex items-center justify-center gap-1.5">
+            <span>⭐</span> <span>Google Review QR (₹2,500)</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- 4 High-Speed Action Cards -->
-    <section class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+    <!-- 5 Core Solutions Interactive Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
       
-      <!-- AI Studio Trigger Card -->
-      <button onclick="openModal('modal-prompt-studio')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-purple-500 flex flex-col justify-between group">
-        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition">
-          ✨
+      <!-- 1. Civil Estimator -->
+      <button onclick="openModal('modal-civil-estimator')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-amber-500 flex flex-col justify-between group">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+          🏗️
         </div>
         <div class="mt-4">
-          <h3 class="font-bold text-white text-base">7-Pillar AI Studio</h3>
-          <p class="text-xs text-[var(--text-sub)] mt-0.5">Prompt & Content Generator</p>
+          <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">₹४,००० - ₹६,०००</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">५. बांधकाम खर्च अंदाज</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">सिमेंट, वाळू, स्टील & BOQ</p>
         </div>
       </button>
 
-      <!-- Instant Bill -->
+      <!-- 2. Fast Billing & Khata -->
       <button onclick="openModal('modal-quick-bill')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-[var(--brand-primary)] flex flex-col justify-between group">
-        <div class="w-12 h-12 rounded-xl bg-[var(--brand-glow)] flex items-center justify-center text-2xl group-hover:scale-110 transition">
+        <div class="w-12 h-12 rounded-xl bg-[var(--brand-glow)] text-[var(--brand-primary)] flex items-center justify-center text-2xl group-hover:scale-110 transition">
           🧾
         </div>
         <div class="mt-4">
-          <h3 class="font-bold text-white text-base">नवीन बिल (Quick Bill)</h3>
-          <p class="text-xs text-[var(--text-sub)] mt-0.5">3-Second GST & Non-GST</p>
+          <span class="text-[10px] font-bold text-[var(--brand-primary)] uppercase tracking-wider block">₹५,००० - ₹८,०००</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">२. फास्ट बिल & उधार खाते</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">WhatsApp PDF पावती</p>
         </div>
       </button>
 
-      <!-- UPI QR -->
-      <button onclick="openModal('modal-upi-qr')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-cyan-500 flex flex-col justify-between group">
-        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition">
-          📱
-        </div>
-        <div class="mt-4">
-          <h3 class="font-bold text-white text-base">UPI QR कोड</h3>
-          <p class="text-xs text-[var(--text-sub)] mt-0.5">Dynamic Soundbox & Pay</p>
-        </div>
-      </button>
-
-      <!-- WhatsApp CRM -->
+      <!-- 3. WhatsApp Auto-Bot -->
       <button onclick="openModal('modal-whatsapp-crm')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-emerald-500 flex flex-col justify-between group">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">
           💬
         </div>
         <div class="mt-4">
-          <h3 class="font-bold text-white text-base">व्हॉट्सॲप मार्केटिंग</h3>
-          <p class="text-xs text-[var(--text-sub)] mt-0.5">Festival Offers & Bot</p>
+          <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">₹३,००० - ₹५,०००</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">१. व्हॉट्सॲप ऑटो-बॉट</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">Instant Rate Card & Leads</p>
         </div>
       </button>
+
+      <!-- 4. Google 5-Star Review QR -->
+      <button onclick="openModal('modal-google-review')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-sky-500 flex flex-col justify-between group">
+        <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+          ⭐
+        </div>
+        <div class="mt-4">
+          <span class="text-[10px] font-bold text-sky-400 uppercase tracking-wider block">₹१,५०० - ₹२,५००</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">४. Google 5-Star QR</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">गुगल मॅप्स रेटिंग बूस्टर</p>
+        </div>
+      </button>
+
+      <!-- 5. 7-Pillar AI Studio -->
+      <button onclick="openModal('modal-prompt-studio')" class="glass-card glass-card-interactive p-5 rounded-2xl text-left border-l-4 border-l-purple-500 flex flex-col justify-between group">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl group-hover:scale-110 transition">
+          ✨
+        </div>
+        <div class="mt-4">
+          <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider block">₹२,००० - ₹४,०००</span>
+          <h3 class="font-bold text-white text-sm mt-0.5">३. AI फेस्टिव्हल & बॅनर्स</h3>
+          <p class="text-[11px] text-[var(--text-sub)] mt-0.5">7-Pillar Content Studio</p>
+        </div>
+      </button>
+
     </section>
 
-    <!-- Recent Activity Feed with Shimmer Skeleton Reload -->
+    <!-- Real-time Activity Feed -->
     <section class="glass-card rounded-3xl p-6">
       <div class="flex items-center justify-between mb-4">
         <div>
-          <h3 class="text-lg font-bold text-white">थेट व्यवहार आणि AI प्रॉम्प्ट हिस्ट्री</h3>
-          <p class="text-xs text-[var(--text-sub)]">Real-time ledger updates & prompt generation activity</p>
+          <h3 class="text-lg font-bold text-white">थेट हालचाली आणि जनरेटेड एस्टिमेट्स</h3>
+          <p class="text-xs text-[var(--text-sub)]">Real-time Civil & Merchant Transactions</p>
         </div>
         <button onclick="reloadTransactionsWithSkeleton()" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-300 transition flex items-center gap-1.5">
-          <span>🔄</span> <span>Shimmer Reload</span>
+          <span>🔄</span> <span>Shimmer Refresh</span>
         </button>
       </div>
 
       <div id="tx-container" class="space-y-3">
         <div class="p-4 rounded-2xl bg-black/20 border border-white/5 flex items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">✨</div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">🏗️</div>
             <div>
-              <h4 class="font-bold text-white text-sm">Civil BOQ Estimate Master Prompt</h4>
-              <p class="text-xs text-[var(--text-sub)]">Engineered via 7-Pillars • First Principles Secret Code</p>
+              <h4 class="font-bold text-white text-sm">1500 Sq.Ft G+1 House BOQ Estimate</h4>
+              <p class="text-xs text-[var(--text-sub)]">₹49,50,000 Total • 600 Bags Cement • 5,250 kg Steel</p>
             </div>
           </div>
           <div class="text-right">
-            <span class="font-black text-purple-400 font-mono text-base">7 Pillars</span>
-            <span class="block text-[10px] text-purple-400 font-semibold">Generated ✔️</span>
+            <span class="font-black text-amber-400 font-mono text-base">Civil BOQ</span>
+            <span class="block text-[10px] text-amber-500 font-semibold">Estimate Ready ✔️</span>
           </div>
         </div>
 
         <div class="p-4 rounded-2xl bg-black/20 border border-white/5 flex items-center justify-between gap-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">₹</div>
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-sm">⭐</div>
             <div>
-              <h4 class="font-bold text-white text-sm">गणेश किराणा (Order #1094)</h4>
-              <p class="text-xs text-[var(--text-sub)]">UPI Paid • +91 98234 56789 • 2 min ago</p>
+              <h4 class="font-bold text-white text-sm">Google 5-Star Review Standee QR</h4>
+              <p class="text-xs text-[var(--text-sub)]">विजय सुपर शॉपी • Direct Review Link Generated</p>
             </div>
           </div>
           <div class="text-right">
-            <span class="font-black text-emerald-400 font-mono text-base">+₹1,450.00</span>
-            <span class="block text-[10px] text-emerald-500 font-semibold">WhatsApp Sent ✔️</span>
+            <span class="font-black text-sky-400 font-mono text-base">QR Standee</span>
+            <span class="block text-[10px] text-sky-400 font-semibold">Ready to Print ✔️</span>
           </div>
         </div>
       </div>
@@ -290,7 +299,7 @@
 
   </main>
 
-  <!-- One-Thumb Mobile Bottom Dock (Fitts's Law) -->
+  <!-- One-Thumb Navigation Bar (Fitts's Law) -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-[var(--border-color)] bottom-dock px-4 py-2 sm:hidden">
     <div class="flex items-center justify-around">
       <button onclick="switchTab('home')" class="flex flex-col items-center gap-1 text-[var(--brand-primary)] py-1 focus:outline-none">
@@ -298,40 +307,153 @@
         <span class="text-[10px] font-bold">होम</span>
       </button>
 
-      <button onclick="openModal('modal-prompt-studio')" class="flex flex-col items-center gap-1 text-purple-400 hover:text-white py-1 focus:outline-none">
-        <span class="text-xl">✨</span>
-        <span class="text-[10px] font-medium">AI Studio</span>
+      <button onclick="openModal('modal-civil-estimator')" class="flex flex-col items-center gap-1 text-amber-400 hover:text-white py-1 focus:outline-none">
+        <span class="text-xl">🏗️</span>
+        <span class="text-[10px] font-medium">सिव्हिल</span>
       </button>
 
       <div class="relative -top-5">
-        <button 
-          onclick="openModal('modal-quick-bill'); triggerHapticFeedback('heavy')"
-          class="w-14 h-14 rounded-full bg-gradient-to-tr from-[var(--brand-primary)] to-cyan-400 text-slate-950 flex items-center justify-center text-3xl font-black shadow-2xl shadow-[var(--brand-glow)] active:scale-90 transition-transform"
-        >
+        <button onclick="openModal('modal-quick-bill'); triggerHapticFeedback('heavy')" class="w-14 h-14 rounded-full bg-gradient-to-tr from-[var(--brand-primary)] to-cyan-400 text-slate-950 flex items-center justify-center text-3xl font-black shadow-2xl shadow-[var(--brand-glow)] active:scale-90 transition-transform">
           +
         </button>
       </div>
 
-      <button onclick="openModal('modal-upi-qr')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white py-1 focus:outline-none">
-        <span class="text-xl">📱</span>
-        <span class="text-[10px] font-medium">QR पे</span>
+      <button onclick="openModal('modal-google-review')" class="flex flex-col items-center gap-1 text-sky-400 hover:text-white py-1 focus:outline-none">
+        <span class="text-xl">⭐</span>
+        <span class="text-[10px] font-medium">रिव्ह्यू</span>
       </button>
 
-      <button onclick="openModal('modal-whatsapp-crm')" class="flex flex-col items-center gap-1 text-slate-400 hover:text-white py-1 focus:outline-none">
-        <span class="text-xl">💬</span>
-        <span class="text-[10px] font-medium">व्हॉट्सॲप</span>
+      <button onclick="openModal('modal-prompt-studio')" class="flex flex-col items-center gap-1 text-purple-400 hover:text-white py-1 focus:outline-none">
+        <span class="text-xl">✨</span>
+        <span class="text-[10px] font-medium">AI स्टुडिओ</span>
       </button>
     </div>
   </nav>
 
   <!-- ========================================================= -->
-  <!-- ✨ 7-PILLAR AI MASTERCLASS PROMPT STUDIO MODAL -->
+  <!-- 🏗️ 1. CIVIL CONSTRUCTION AUTO-ESTIMATOR MODAL -->
   <!-- ========================================================= -->
+  <div id="modal-civil-estimator" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="glass-card w-full max-w-2xl rounded-3xl p-6 sm:p-8 border border-white/10 animate-pop-in my-auto">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🏗️</span>
+            <h3 class="text-xl font-black text-white">सिव्हिल बांधकाम खर्च & साहित्याचा अंदाज</h3>
+          </div>
+          <p class="text-xs text-[var(--text-sub)] mt-0.5">Plot Area • Cement • Steel • Sand • Bricks & Total Budget</p>
+        </div>
+        <button onclick="closeModal('modal-civil-estimator')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
+      </div>
+
+      <form onsubmit="handleCivilEstimate(event)" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Plot Area (Sq.Ft)</label>
+            <input id="civ-area" type="number" value="1200" required class="w-full px-3 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-1">मजले (Floors)</label>
+            <select id="civ-floors" class="w-full px-3 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+              <option value="1">Ground Floor (G)</option>
+              <option value="2" selected>G + 1 Floor</option>
+              <option value="3">G + 2 Floors</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Quality Tier</label>
+            <select id="civ-tier" class="w-full px-3 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+              <option value="Standard" selected>Standard (₹1,650/sq.ft)</option>
+              <option value="Premium">Premium (₹2,100/sq.ft)</option>
+              <option value="Luxury">Luxury (₹2,600/sq.ft)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 text-white font-extrabold text-xs shadow-lg shadow-amber-600/30 active:scale-95 transition flex items-center justify-center gap-2">
+          <span>साहित्याचा अचूक हिशोब काढा (Generate BOQ)</span>
+          <span>⚡</span>
+        </button>
+      </form>
+
+      <!-- Output Table -->
+      <div id="civ-output-box" class="mt-5 hidden space-y-3">
+        <div class="p-4 rounded-2xl bg-black/50 border border-amber-500/30">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs text-slate-400 uppercase">अंदाजे एकूण बांधकाम खर्च:</span>
+            <span id="civ-total-cost" class="text-xl font-black text-amber-400 font-mono">₹39,60,000</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-900/80 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">सिमेंट गोण्या</span>
+              <strong id="civ-cement" class="text-white font-mono block mt-0.5">960 Bags</strong>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/80 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">स्टील (सळया)</span>
+              <strong id="civ-steel" class="text-white font-mono block mt-0.5">8,400 kg</strong>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/80 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">विटा (Bricks)</span>
+              <strong id="civ-bricks" class="text-white font-mono block mt-0.5">43,200 Pcs</strong>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/80 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">वाळू (Sand)</span>
+              <strong id="civ-sand" class="text-white font-mono block mt-0.5">132 Tons</strong>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="shareEstimateOnWhatsApp()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5">
+          <span>💬</span> <span>ग्राहकाला WhatsApp वर एस्टिमेट पाठवा</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- ⭐ 2. GOOGLE 5-STAR REVIEW QR GENERATOR MODAL -->
+  <!-- ========================================================= -->
+  <div id="modal-google-review" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in text-center my-auto">
+      <div class="flex items-center justify-between mb-3 text-left">
+        <div>
+          <h3 class="text-base font-bold text-white">⭐ Google Maps 5-Star QR Generator</h3>
+          <p class="text-[11px] text-slate-400">काउंटर स्टँडीसाठी ३ सेकंदात QR तयार करा</p>
+        </div>
+        <button onclick="closeModal('modal-google-review')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
+      </div>
+
+      <div class="space-y-3 text-left mb-4">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">दुकानाचे/व्यवसायाचे नाव</label>
+          <input id="rev-name" type="text" value="Vijay Super Shopee Pune" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
+        </div>
+        <button onclick="generateReviewQR()" class="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition">
+          Review QR Code तयार करा
+        </button>
+      </div>
+
+      <div id="rev-qr-box" class="p-4 rounded-2xl bg-white text-slate-900 inline-block shadow-2xl mx-auto my-1">
+        <img id="rev-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://www.google.com/search?q=Vijay%20Super%20Shopee%20Pune%20reviews" class="w-44 h-44 mx-auto" alt="Review QR">
+        <p class="text-[11px] font-bold mt-2 text-slate-800">⭐ आम्हाला Google वर ५-स्टार रेटिंग द्या!</p>
+      </div>
+
+      <div class="mt-4 flex gap-2">
+        <button onclick="window.print()" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold">
+          🖨️ स्टँडी प्रिंट करा
+        </button>
+        <button onclick="closeModal('modal-google-review')" class="px-4 py-2.5 rounded-xl bg-white/10 text-slate-300 text-xs">
+          पूर्ण
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. AI Studio Modal (Loaded from previous implementation) -->
   <div id="modal-prompt-studio" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="glass-card w-full max-w-3xl rounded-3xl p-6 sm:p-8 border border-white/10 animate-pop-in my-auto">
-      
-      <!-- Top Title & Template Picker -->
-      <div class="flex items-start justify-between gap-4 mb-6">
+      <div class="flex items-start justify-between gap-4 mb-5">
         <div>
           <div class="flex items-center gap-2">
             <span class="text-2xl">✨</span>
@@ -339,160 +461,78 @@
           </div>
           <p class="text-xs text-[var(--text-sub)] mt-0.5">Role • Task • Context • Audience • Format • Tone • Constraints + 11 Secret Codes</p>
         </div>
-        <button onclick="closeModal('modal-prompt-studio')" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('modal-prompt-studio')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
       </div>
 
-      <!-- Quick Template Selector -->
-      <div class="mb-5 p-3 rounded-2xl bg-black/30 border border-white/5 flex flex-wrap items-center gap-2">
-        <span class="text-[11px] font-bold text-purple-400 uppercase tracking-wider block mr-1">Load Preset:</span>
+      <div class="mb-4 p-3 rounded-2xl bg-black/30 border border-white/5 flex flex-wrap items-center gap-2">
+        <span class="text-[11px] font-bold text-purple-400 uppercase tracking-wider mr-1">Preset:</span>
         <button onclick="loadTemplate('civil-engineer')" class="px-2.5 py-1 rounded-lg bg-purple-950/60 hover:bg-purple-900 border border-purple-800/40 text-xs text-purple-300 transition">🏛️ Civil BOQ</button>
         <button onclick="loadTemplate('merchant-marketing')" class="px-2.5 py-1 rounded-lg bg-emerald-950/60 hover:bg-emerald-900 border border-emerald-800/40 text-xs text-emerald-300 transition">🛍️ Merchant Offer</button>
         <button onclick="loadTemplate('youtube-script')" class="px-2.5 py-1 rounded-lg bg-red-950/60 hover:bg-red-900 border border-red-800/40 text-xs text-red-300 transition">🎬 YouTube Shorts</button>
-        <button onclick="loadTemplate('coaching-class')" class="px-2.5 py-1 rounded-lg bg-cyan-950/60 hover:bg-cyan-900 border border-cyan-800/40 text-xs text-cyan-300 transition">📚 Coaching Leads</button>
       </div>
 
-      <!-- 7 Pillars Input Grid -->
-      <form onsubmit="handleGeneratePrompt(event)" class="space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">1. भूमिका (Role)</label>
-            <input id="p-role" type="text" placeholder="उदा. Senior Civil Engineer / Copywriter" required class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">2. काम (Task)</label>
-            <input id="p-task" type="text" placeholder="उदा. Generate BOQ estimate and material breakdown" required class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">3. संदर्भ (Context)</label>
-            <input id="p-context" type="text" placeholder="उदा. G+2 residential building on 1500 sq.ft plot in Pune" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">4. प्रेक्षक (Audience)</label>
-            <input id="p-audience" type="text" placeholder="उदा. Local Property Owners & Sub-Contractors" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">5. स्वरूप (Format)</label>
-            <input id="p-format" type="text" placeholder="उदा. Markdown Table + Step-by-Step Action Plan" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">6. टोन (Tone)</label>
-            <input id="p-tone" type="text" placeholder="उदा. Highly Technical, Authoritative & Precise" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
+      <form onsubmit="handleGeneratePrompt(event)" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">1. Role</label><input id="p-role" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">2. Task</label><input id="p-task" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">3. Context</label><input id="p-context" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">4. Audience</label><input id="p-audience" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">5. Format</label><input id="p-format" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">6. Tone</label><input id="p-tone" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div><label class="block text-[11px] font-bold text-slate-300 mb-1">7. Constraints</label><input id="p-constraints" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white text-xs"></div>
           <div>
-            <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">7. मर्यादा (Constraints)</label>
-            <input id="p-constraints" type="text" placeholder="उदा. Include 10% contingency buffer, zero fluff" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-purple-400 uppercase mb-1">11 Secret Codes Activation</label>
-            <select id="p-secret-code" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-purple-500/30 text-purple-200 text-xs">
-              <option value="First Principles">First Principles (मूलभूत तत्त्वे)</option>
-              <option value="Red Team">Red Team (सुरक्षा व त्रुटी विश्लेषण)</option>
-              <option value="ELI5 (Explain Like I am 5)">ELI5 (अतिशय सोप्या भाषेत)</option>
-              <option value="Mental Models (Fitts's Law)">Mental Models (Fitts's & Hick's Law)</option>
-              <option value="Storytelling & Empathy">Storytelling & Empathy (८०/२० विक्री सूत्र)</option>
+            <label class="block text-[11px] font-bold text-purple-400 mb-1">Secret Code</label>
+            <select id="p-secret-code" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-purple-500/30 text-purple-200 text-xs">
+              <option value="First Principles">First Principles</option>
+              <option value="Red Team">Red Team</option>
+              <option value="ELI5">ELI5</option>
+              <option value="Storytelling & Empathy">Storytelling & Empathy</option>
             </select>
           </div>
         </div>
-
-        <button 
-          type="submit" 
-          class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-black text-sm shadow-xl shadow-purple-600/30 active:scale-95 transition flex items-center justify-center gap-2 cursor-pointer mt-2"
-        >
-          <span>Generate 7-Pillar Engineered Master Prompt</span>
-          <span>⚡</span>
-        </button>
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 text-white font-bold text-xs shadow-lg mt-2">Generate Master Prompt ⚡</button>
       </form>
 
-      <!-- Output Section -->
-      <div id="prompt-output-box" class="mt-6 hidden space-y-2">
+      <div id="prompt-output-box" class="mt-4 hidden space-y-2">
         <div class="flex items-center justify-between">
-          <label class="block text-xs font-bold text-purple-300 uppercase tracking-wider">Engineered Master Prompt (Ready for Gemini / ChatGPT):</label>
-          <button onclick="copyMasterPrompt()" id="copy-btn" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-1.5">
-            <span>📋</span> <span id="copy-btn-text">Copy Prompt</span>
-          </button>
+          <label class="text-xs font-bold text-purple-300">Master Prompt:</label>
+          <button onclick="copyMasterPrompt()" id="copy-btn" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold">📋 Copy</button>
         </div>
-        <textarea id="prompt-output" rows="7" readonly class="w-full p-3.5 rounded-xl bg-black/60 border border-purple-500/30 text-emerald-400 font-mono text-xs leading-relaxed focus:outline-none"></textarea>
+        <textarea id="prompt-output" rows="6" readonly class="w-full p-3 rounded-xl bg-black/60 border border-purple-500/30 text-emerald-400 font-mono text-xs"></textarea>
       </div>
-
     </div>
   </div>
 
-  <!-- Other Modals (Quick Bill, UPI QR, WhatsApp CRM) -->
-  <!-- Quick Bill Modal -->
+  <!-- Other Modals: Quick Bill & WhatsApp CRM -->
   <div id="modal-quick-bill" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in relative">
       <div class="flex items-center justify-between mb-4">
         <h3 class="text-lg font-bold text-white">⚡ 3-सेकंद फास्ट बिलिंग</h3>
         <button onclick="closeModal('modal-quick-bill')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
       </div>
-
-      <form onsubmit="handleGenerateBill(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs text-slate-400 uppercase mb-1">Customer Mobile (WhatsApp)</label>
-          <input type="tel" id="bill-phone" value="9823456789" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-sm">
-        </div>
-        <div>
-          <label class="block text-xs text-slate-400 uppercase mb-1">Item / Description</label>
-          <input type="text" id="bill-item" value="10kg Kolam Rice + 2L Sunflower Oil" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm">
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs text-slate-400 uppercase mb-1">Amount (₹)</label>
-            <input type="number" id="bill-amount" value="1250" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-[var(--brand-primary)] font-black text-lg font-mono">
-          </div>
-          <div>
-            <label class="block text-xs text-slate-400 uppercase mb-1">Payment Mode</label>
-            <select id="bill-mode" class="w-full px-3 py-3 rounded-xl bg-black/40 border border-white/10 text-white text-xs">
-              <option value="UPI">UPI / QR Pay</option>
-              <option value="Cash">रोख (Cash)</option>
-              <option value="Udhar">उधार (Ledger)</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[var(--brand-primary)] to-cyan-500 text-slate-950 font-extrabold text-sm shadow-lg shadow-[var(--brand-glow)] active:scale-95 transition flex items-center justify-center gap-2 cursor-pointer mt-2">
-          <span>बिल तयार करा & WhatsApp पाठवा</span>
-        </button>
+      <form onsubmit="handleGenerateBill(event)" class="space-y-3">
+        <input type="tel" id="bill-phone" value="9823456789" placeholder="WhatsApp Number" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono text-sm">
+        <input type="text" id="bill-item" value="10kg Kolam Rice + 2L Sunflower Oil" placeholder="Item Name" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm">
+        <input type="number" id="bill-amount" value="1250" placeholder="Amount" required class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-[var(--brand-primary)] font-black text-lg font-mono">
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[var(--brand-primary)] to-cyan-500 text-slate-950 font-extrabold text-sm shadow-lg">बिल तयार करा & WhatsApp पाठवा</button>
       </form>
     </div>
   </div>
 
-  <!-- UPI QR Modal -->
-  <div id="modal-upi-qr" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-sm rounded-3xl p-6 border border-white/10 animate-pop-in text-center relative">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-base font-bold text-white">ग्राहक UPI QR कोड</h3>
-        <button onclick="closeModal('modal-upi-qr')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
-      </div>
-      <div class="bg-white p-4 rounded-2xl inline-block shadow-2xl mx-auto my-2">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=vijayshop@okhdfcbank&pn=Vijay%20Super%20Shopee&am=1250&cu=INR" alt="UPI QR" class="w-48 h-48 mx-auto"/>
-      </div>
-      <div class="mt-3">
-        <span class="text-2xl font-black text-[var(--brand-primary)] font-mono">₹1,250.00</span>
-        <p class="text-xs text-slate-400 mt-0.5">vijayshop@okhdfcbank</p>
-      </div>
-      <div class="mt-4 flex gap-2">
-        <button onclick="triggerHapticFeedback('heavy'); celebratePayment(); closeModal('modal-upi-qr')" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs">पेमेंट मिळाले ✔️</button>
-        <button onclick="closeModal('modal-upi-qr')" class="px-4 py-2.5 rounded-xl bg-white/10 text-slate-300 text-xs">रद्द</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- WhatsApp CRM Modal -->
   <div id="modal-whatsapp-crm" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-white/10 animate-pop-in relative">
       <div class="flex items-center justify-between mb-4">
-        <h3 class="text-base font-bold text-white">💬 व्हॉट्सॲप ब्रॉडकास्ट</h3>
+        <h3 class="text-base font-bold text-white">💬 व्हॉट्सॲप ऑटो-बॉट & ब्रॉडकास्ट</h3>
         <button onclick="closeModal('modal-whatsapp-crm')" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
       </div>
       <div class="space-y-3">
-        <textarea rows="3" class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs" placeholder="आज सर्व खरेदीवर १०% सूट!"></textarea>
-        <button onclick="triggerHapticFeedback('medium'); alert('१,२०० ग्राहकांना ब्रॉडकास्ट पाठवला!'); closeModal('modal-whatsapp-crm')" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg">
-          सर्व ग्राहकांना पाठवा
-        </button>
+        <div class="p-3 rounded-xl bg-emerald-950/60 border border-emerald-800/60 text-xs text-emerald-300">
+          🟢 Auto-Responder Active: Rate card & store location sent in 3 seconds.
+        </div>
+        <textarea rows="3" class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs" placeholder="सर्व ग्राहकांना पाठवायचा मेसेज..."></textarea>
+        <button onclick="triggerHapticFeedback('medium'); alert('१,२०० ग्राहकांना ब्रॉडकास्ट पाठवला!'); closeModal('modal-whatsapp-crm')" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg">सर्व ग्राहकांना पाठवा</button>
       </div>
     </div>
   </div>
@@ -500,182 +540,76 @@
   <!-- Footer -->
   <footer class="border-t border-[var(--border-color)] px-6 py-4 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p>© 2026 DnyanX Tech. 7-Pillar AI Studio & Merchant OS Platform.</p>
-      <p class="font-mono text-[11px] text-slate-400">Silicon Valley Grade SaaS</p>
+      <p>© 2026 DnyanX Tech. 5-in-1 Business & Civil Suite.</p>
+      <p class="font-mono text-[11px] text-slate-400">High-ROI Ready Software</p>
     </div>
   </footer>
 
-  <!-- Script Handlers -->
+  <!-- Scripts -->
   <script>
-    const industryPresets = {
-      'civil-engineer': {
-        role: 'Senior Civil Engineer & Project Cost Estimator',
-        task: 'Generate a detailed BOQ (Bill of Quantities) and RCC material estimate with current market rates',
-        context: 'G+2 Residential Building construction in Pune (1500 sq.ft plot area)',
-        audience: 'Local House Owners & Civil Sub-Contractors',
-        format: 'Markdown Table with Material Breakdown, Labor Cost, and Schedule',
-        tone: 'Technical, Trustworthy, and Precise',
-        constraints: 'Include 10% contingency buffer, state cement-sand-aggregate ratios explicitly',
-        secretCode: 'First Principles'
-      },
-      'merchant-marketing': {
-        role: 'Growth Marketing & Copywriting Expert',
-        task: 'Write high-converting WhatsApp promotional messages for a local festival sale',
-        context: 'Diwali Special 20% discount on groceries and gift hampers',
-        audience: 'Local neighborhood families',
-        format: '3 short WhatsApp messages with emojis, clear CTA, and store address placeholder',
-        tone: 'Warm, Festive, Urgent, and Friendly',
-        constraints: 'Keep each message under 80 words, include One-Click WhatsApp order link',
-        secretCode: 'Storytelling & Empathy'
-      },
-      'youtube-script': {
-        role: 'Viral Content Strategist and Video Scriptwriter',
-        task: 'Write a high-retention 60-second YouTube Shorts / Reels script with a 3-second hook',
-        context: 'Educating youth on earning their first ₹10,000 using AI and tech skills',
-        audience: 'Marathi & Indian college students looking for financial freedom',
-        format: 'Timestamped Script (Hook, Problem, Solution, Call to Action)',
-        tone: 'Energetic, Inspiring, Action-Oriented',
-        constraints: 'Fast-paced, zero introductory greetings, punchy one-liners',
-        secretCode: 'ELI5 (Explain Like I am 5)'
-      },
-      'coaching-class': {
-        role: 'Education Marketing Specialist',
-        task: 'Create an irresistible admission flyer copy and WhatsApp reminder sequence',
-        context: '10th & 12th Board Exam Revision Crash Course with 100% doubt solving',
-        audience: 'Parents and ambitious students',
-        format: 'Structured Brochure Outline + WhatsApp Follow-up sequence',
-        tone: 'Reassuring, Academic, and Result-Focused',
-        constraints: 'Highlight proven past results, limited seats, and early-bird discount',
-        secretCode: 'Red Team'
-      }
-    };
+    let lastCivilSummaryMarathi = '';
 
-    function loadTemplate(key) {
-      triggerHapticFeedback('light');
-      const data = industryPresets[key];
-      if (!data) return;
-      document.getElementById('p-role').value = data.role;
-      document.getElementById('p-task').value = data.task;
-      document.getElementById('p-context').value = data.context;
-      document.getElementById('p-audience').value = data.audience;
-      document.getElementById('p-format').value = data.format;
-      document.getElementById('p-tone').value = data.tone;
-      document.getElementById('p-constraints').value = data.constraints;
-      document.getElementById('p-secret-code').value = data.secretCode;
-    }
-
-    async function handleGeneratePrompt(e) {
+    async function handleCivilEstimate(e) {
       e.preventDefault();
       triggerHapticFeedback('medium');
       celebratePayment();
 
-      const payload = {
-        role: document.getElementById('p-role').value,
-        task: document.getElementById('p-task').value,
-        context: document.getElementById('p-context').value,
-        audience: document.getElementById('p-audience').value,
-        format: document.getElementById('p-format').value,
-        tone: document.getElementById('p-tone').value,
-        constraints: document.getElementById('p-constraints').value,
-        secretCode: document.getElementById('p-secret-code').value
-      };
+      const plotAreaSqFt = parseInt(document.getElementById('civ-area').value, 10);
+      const floors = parseInt(document.getElementById('civ-floors').value, 10);
+      const qualityTier = document.getElementById('civ-tier').value;
 
       try {
-        const res = await fetch('/api/prompt/generate', {
+        const res = await fetch('/api/estimation/civil', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({ plotAreaSqFt, floors, qualityTier })
         });
         const data = await res.json();
+
+        document.getElementById('civ-output-box').classList.remove('hidden');
+        document.getElementById('civ-total-cost').innerText = '₹' + data.totalEstimatedCost.toLocaleString('en-IN');
+        document.getElementById('civ-cement').innerText = data.breakdown.cement.quantity;
+        document.getElementById('civ-steel').innerText = data.breakdown.steel.quantity;
+        document.getElementById('civ-bricks').innerText = data.breakdown.bricks.quantity;
+        document.getElementById('civ-sand').innerText = data.breakdown.sand.quantity;
         
-        const outBox = document.getElementById('prompt-output-box');
-        const outText = document.getElementById('prompt-output');
-        outBox.classList.remove('hidden');
-        outText.value = data.masterPrompt;
-        outText.scrollIntoView({ behavior: 'smooth' });
+        lastCivilSummaryMarathi = data.shareableSummaryMarathi;
       } catch (err) {
-        console.error('Error generating prompt:', err);
+        console.error('Civil estimate error:', err);
       }
     }
 
-    function copyMasterPrompt() {
+    function shareEstimateOnWhatsApp() {
       triggerHapticFeedback('light');
-      const text = document.getElementById('prompt-output').value;
-      navigator.clipboard.writeText(text);
-      const btnText = document.getElementById('copy-btn-text');
-      btnText.innerText = 'Copied to Clipboard! ✔️';
-      setTimeout(() => { btnText.innerText = 'Copy Prompt'; }, 2000);
+      const text = encodeURIComponent(lastCivilSummaryMarathi || 'Civil Estimate generated via DnyanX OS');
+      window.open(`https://wa.me/?text=${text}`, '_blank');
     }
 
-    function setThemeColor(colorHex) {
-      document.documentElement.style.setProperty('--brand-primary', colorHex);
-      document.documentElement.style.setProperty('--brand-glow', colorHex + '40');
-      document.documentElement.style.setProperty('--brand-light', colorHex);
-      triggerHapticFeedback('light');
-    }
-
-    function toggleDarkMode() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      document.getElementById('theme-icon').innerText = isDark ? '🌙' : '☀️';
+    function generateReviewQR() {
       triggerHapticFeedback('medium');
+      const name = document.getElementById('rev-name').value;
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent('https://www.google.com/search?q=' + encodeURIComponent(name + ' reviews'))}`;
+      document.getElementById('rev-qr-img').src = url;
     }
 
-    function triggerHapticFeedback(pattern) {
-      if (!window.navigator || !window.navigator.vibrate) return;
-      if (pattern === 'light') window.navigator.vibrate(15);
-      else if (pattern === 'medium') window.navigator.vibrate([20, 30, 20]);
-      else if (pattern === 'heavy') window.navigator.vibrate([30, 50, 40, 60]);
-    }
+    // Modal & Theme Controls
+    function openModal(id) { triggerHapticFeedback('light'); const el = document.getElementById(id); if (el) { el.classList.remove('hidden'); el.classList.add('flex'); } }
+    function closeModal(id) { triggerHapticFeedback('light'); const el = document.getElementById(id); if (el) { el.classList.add('hidden'); el.classList.remove('flex'); } }
+    function setThemeColor(c) { document.documentElement.style.setProperty('--brand-primary', c); document.documentElement.style.setProperty('--brand-glow', c + '40'); triggerHapticFeedback('light'); }
+    function toggleDarkMode() { const isDark = document.documentElement.classList.toggle('dark'); document.getElementById('theme-icon').innerText = isDark ? '🌙' : '☀️'; triggerHapticFeedback('medium'); }
+    function triggerHapticFeedback(pattern) { if (!window.navigator || !window.navigator.vibrate) return; if (pattern === 'light') window.navigator.vibrate(15); else if (pattern === 'medium') window.navigator.vibrate([20, 30, 20]); else if (pattern === 'heavy') window.navigator.vibrate([30, 50, 40, 60]); }
+    function celebratePayment() { if (typeof confetti === 'function') confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } }); }
+    async function handleGenerateBill(e) { e.preventDefault(); triggerHapticFeedback('heavy'); celebratePayment(); closeModal('modal-quick-bill'); alert('✅ बिल तयार झाले! WhatsApp वर पाठवले गेले.'); }
+    function reloadTransactionsWithSkeleton() { triggerHapticFeedback('light'); const c = document.getElementById('tx-container'); c.innerHTML = '<div class="skeleton-shimmer h-16 rounded-2xl"></div><div class="skeleton-shimmer h-16 rounded-2xl"></div>'; setTimeout(() => location.reload(), 500); }
 
-    function openModal(modalId) {
-      triggerHapticFeedback('light');
-      const el = document.getElementById(modalId);
-      if (el) { el.classList.remove('hidden'); el.classList.add('flex'); }
-    }
-
-    function closeModal(modalId) {
-      triggerHapticFeedback('light');
-      const el = document.getElementById(modalId);
-      if (el) { el.classList.add('hidden'); el.classList.remove('flex'); }
-    }
-
-    function celebratePayment() {
-      if (typeof confetti === 'function') confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
-    }
-
-    async function handleGenerateBill(e) {
-      e.preventDefault();
-      triggerHapticFeedback('heavy');
-      celebratePayment();
-      closeModal('modal-quick-bill');
-      alert('✅ बिल तयार झाले! WhatsApp वर पावती पाठवली गेली आहे.');
-    }
-
-    function reloadTransactionsWithSkeleton() {
-      triggerHapticFeedback('light');
-      const container = document.getElementById('tx-container');
-      container.innerHTML = `
-        <div class="p-4 rounded-2xl skeleton-shimmer h-16 rounded-2xl"></div>
-        <div class="p-4 rounded-2xl skeleton-shimmer h-16 rounded-2xl"></div>
-      `;
-      setTimeout(() => {
-        container.innerHTML = `
-          <div class="p-4 rounded-2xl bg-black/20 border border-white/5 flex items-center justify-between gap-4 animate-pop-in">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">✨</div>
-              <div>
-                <h4 class="font-bold text-white text-sm">Civil BOQ Estimate Master Prompt</h4>
-                <p class="text-xs text-[var(--text-sub)]">Engineered via 7-Pillars • First Principles Secret Code</p>
-              </div>
-            </div>
-            <div class="text-right">
-              <span class="font-black text-purple-400 font-mono text-base">7 Pillars</span>
-              <span class="block text-[10px] text-purple-400 font-semibold">Generated ✔️</span>
-            </div>
-          </div>
-        `;
-      }, 600);
-    }
+    const industryPresets = {
+      'civil-engineer': { role: 'Senior Civil Engineer', task: 'Generate BOQ Estimate', context: '1500 sq.ft residential building in Pune', audience: 'Property owners', format: 'Markdown Table', tone: 'Technical', constraints: '10% buffer' },
+      'merchant-marketing': { role: 'Copywriter', task: 'Write WhatsApp Offer', context: 'Diwali 20% discount', audience: 'Local families', format: 'WhatsApp messages', tone: 'Warm', constraints: 'Max 80 words' },
+      'youtube-script': { role: 'Scriptwriter', task: 'Write YouTube Shorts script', context: 'Earn first ₹10,000 using AI', audience: 'Students', format: 'Timestamped', tone: 'Inspiring', constraints: 'Fast paced' }
+    };
+    function loadTemplate(k) { const d = industryPresets[k]; if (!d) return; document.getElementById('p-role').value = d.role; document.getElementById('p-task').value = d.task; document.getElementById('p-context').value = d.context; document.getElementById('p-audience').value = d.audience; document.getElementById('p-format').value = d.format; document.getElementById('p-tone').value = d.tone; document.getElementById('p-constraints').value = d.constraints; }
+    async function handleGeneratePrompt(e) { e.preventDefault(); triggerHapticFeedback('medium'); celebratePayment(); const p = { role: document.getElementById('p-role').value, task: document.getElementById('p-task').value, context: document.getElementById('p-context').value, audience: document.getElementById('p-audience').value, format: document.getElementById('p-format').value, tone: document.getElementById('p-tone').value, constraints: document.getElementById('p-constraints').value, secretCode: document.getElementById('p-secret-code').value }; const res = await fetch('/api/prompt/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) }); const data = await res.json(); document.getElementById('prompt-output-box').classList.remove('hidden'); document.getElementById('prompt-output').value = data.masterPrompt; }
+    function copyMasterPrompt() { triggerHapticFeedback('light'); navigator.clipboard.writeText(document.getElementById('prompt-output').value); document.getElementById('copy-btn').innerText = 'Copied! ✔️'; setTimeout(() => document.getElementById('copy-btn').innerText = '📋 Copy', 2000); }
   </script>
 </body>
 </html>
