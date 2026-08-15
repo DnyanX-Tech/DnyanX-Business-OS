@@ -1,5 +1,5 @@
-import { createApp } from '../src/app.js';
-import { initializeFirebase } from '../src/config/firebase.js';
+const { createApp } = require('../dist/app.js');
+const { initializeFirebase } = require('../dist/config/firebase.js');
 
 try {
   initializeFirebase();
@@ -9,4 +9,4 @@ try {
 
 const app = createApp();
 
-export default app;
+module.exports = app;
