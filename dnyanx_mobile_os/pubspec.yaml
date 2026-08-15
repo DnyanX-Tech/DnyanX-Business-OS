@@ -1,0 +1,47 @@
+name: dnyanx_mobile_os
+description: "50-in-1 Unified Connected Business OS Super App"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Firebase Native Suite
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.4
+  firebase_auth: ^5.3.1
+
+  # Offline-First Storage Engine
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # State Management & Ergonomics
+  provider: ^6.1.2
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  lottie: ^3.1.2
+  intl: ^0.19.0
+  uuid: ^4.5.1
+
+  # Hardware Interfacing
+  blue_thermal_printer: ^1.2.3
+  audioplayers: ^6.0.0
+  qr_flutter: ^4.1.0
+
+  # Networking & WhatsApp Actions
+  http: ^1.2.2
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
