@@ -9,6 +9,7 @@ import { hubRouter, createHubHandler } from './modules/hub/hub.router.js';
 import { storeRouter } from './modules/store/store.router.js';
 import { operationsRouter } from './modules/operations/operations.router.js';
 import { crmRouter } from './modules/crm/crm.router.js';
+import { advancedErpRouter } from './modules/erp/advanced.router.js';
 import { handleWebhookEvents } from './modules/whatsapp/whatsapp.controller.js';
 
 export const registerRoutes = (): Router => {
@@ -37,11 +38,14 @@ export const registerRoutes = (): Router => {
   // Smart Digital Dukan Storefront
   router.use('/store', storeRouter);
 
-  // 15-in-1 Operations, Low-Stock, Vendor PO, Voice Parsing & EOD
+  // Operations: Low-Stock, Vendor PO, Voice Parsing & EOD
   router.use('/operations', operationsRouter);
 
   // CRM Leads & Bulk Remarketing
   router.use('/crm', crmRouter);
+
+  // 20-in-1 Advanced ERP: Profit Tracker, EMI Reminders, Unified Inbox, Loyalty
+  router.use('/erp', advancedErpRouter);
 
   return router;
 };
