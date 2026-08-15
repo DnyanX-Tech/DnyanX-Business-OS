@@ -35,7 +35,12 @@ const startServer = async () => {
   process.on('SIGINT', () => shutdown('SIGINT'));
 };
 
-startServer().catch((err) => {
-  console.error('💥 Fatal Startup Failure:', err);
-  process.exit(1);
-});
+// Only listen on port when executed directly (not in Vercel Serverless environment)
+if (!process.env.VERCEL) {
+  startServer().catch((err) => {
+    console.error('💥 Fatal Startup Failure:', err);
+    process.exit(1);
+  });
+}
+
+export default createApp();

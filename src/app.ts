@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -52,7 +52,9 @@ export const createApp = (): Express => {
   return app;
 };
 
-const defaultApp = createApp();
+const appInstance = createApp();
 
-// Default export required by Vercel Serverless Function runtime
-export default defaultApp;
+// Vercel Serverless Function Handler
+export default function handler(req: Request, res: Response): void {
+  appInstance(req, res);
+}
