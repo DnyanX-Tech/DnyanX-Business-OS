@@ -9,7 +9,7 @@
   <!-- Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Tailwind CSS, jsPDF & Confetti -->
@@ -505,22 +505,155 @@
 
     function downloadMarathiPDF() {
       celebrate();
+
+      // Create an offscreen high-resolution Canvas (A4 aspect ratio: 2480 x 3508 at 300 DPI)
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const width = 1200;
+      const height = 1600;
+      canvas.width = width;
+      canvas.height = height;
+
+      // Background
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, width, height);
+
+      // Header Banner
+      const grad = ctx.createLinearGradient(0, 0, width, 0);
+      grad.addColorStop(0, '#0F172A');
+      grad.addColorStop(1, '#1E293B');
+      ctx.fillStyle = grad;
+      ctx.fillRect(40, 40, width - 80, 160);
+
+      // Header Text (Devanagari Font)
+      ctx.fillStyle = '#10B981';
+      ctx.font = 'bold 36px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('कर बीजक / कर पावती (TAX INVOICE)', 70, 100);
+
+      ctx.fillStyle = '#F8FAFC';
+      ctx.font = 'bold 22px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('राधे हार्डवेअर & इंडस्ट्रियल सप्लायर्स • DnyanX Business OS', 70, 140);
+
+      ctx.fillStyle = '#94A3B8';
+      ctx.font = '16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('GSTIN: 27AABCU9603R1ZM | मोबाईल: +91 98234 56789 | चाकण, पुणे - 410501', 70, 172);
+
+      // Invoice Meta Card
+      ctx.fillStyle = '#F8FAFC';
+      ctx.fillRect(40, 230, width - 80, 120);
+      ctx.strokeStyle = '#E2E8F0';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(40, 230, width - 80, 120);
+
+      ctx.fillStyle = '#0F172A';
+      ctx.font = 'bold 20px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('ग्राहकाचे नाव: राहुल पाटील (राहुल कन्स्ट्रक्शन्स)', 70, 275);
+      ctx.fillText('पावती क्र.: INV-2026-0842', 750, 275);
+
+      ctx.fillStyle = '#64748B';
+      ctx.font = '16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('पत्ता: प्लॉट नं. ४२, आळंदी रोड, चाकण, पुणे', 70, 315);
+      ctx.fillText(`दिनांक: ${new Date().toLocaleDateString('mr-IN')}`, 750, 315);
+
+      // Table Header
+      ctx.fillStyle = '#0F172A';
+      ctx.fillRect(40, 380, width - 80, 50);
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 18px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('अ.क्र.', 60, 412);
+      ctx.fillText('साहित्य व तपशील (Item Description)', 140, 412);
+      ctx.fillText('नग (Qty)', 620, 412);
+      ctx.fillText('दर (Rate)', 760, 412);
+      ctx.fillText('GST %', 900, 412);
+      ctx.fillText('एकूण रक्कम (₹)', 1020, 412);
+
+      // Table Rows
+      const items = [
+        { sr: '१', desc: 'अल्ट्राटेक सिमेंट 50kg प्रीमियम', qty: '१० पोती', rate: '₹३८५.००', gst: '१८%', total: '₹४,५४३.००' },
+        { sr: '२', desc: 'TMT स्टील बार्स 12mm (५०० kg)', qty: '५०० kg', rate: '₹६८.००', gst: '१८%', total: '₹४०,१२०.००' },
+        { sr: '३', desc: 'एशियन पेंट्स 20L रॉयल इमल्शन', qty: '२ बादल्या', rate: '₹२,४००.००', gst: '२८%', total: '₹६,१४४.००' },
+      ];
+
+      let y = 470;
+      items.forEach((it, idx) => {
+        ctx.fillStyle = idx % 2 === 0 ? '#FFFFFF' : '#F8FAFC';
+        ctx.fillRect(40, y - 35, width - 80, 50);
+
+        ctx.fillStyle = '#1E293B';
+        ctx.font = 'bold 16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(it.sr, 65, y);
+        ctx.fillText(it.desc, 140, y);
+        ctx.fillText(it.qty, 620, y);
+        ctx.fillText(it.rate, 760, y);
+        ctx.fillText(it.gst, 910, y);
+        ctx.fillText(it.total, 1020, y);
+
+        ctx.strokeStyle = '#E2E8F0';
+        ctx.strokeRect(40, y - 35, width - 80, 50);
+        y += 50;
+      });
+
+      // Total Breakdown Box
+      y += 40;
+      ctx.fillStyle = '#F1F5F9';
+      ctx.fillRect(650, y, 510, 240);
+      ctx.strokeStyle = '#CBD5E1';
+      ctx.strokeRect(650, y, 510, 240);
+
+      ctx.fillStyle = '#334155';
+      ctx.font = '18px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('करपात्र मूल्य (Taxable Amount):', 680, y + 40);
+      ctx.fillText('₹४३,०००.००', 1040, y + 40);
+
+      ctx.fillText('CGST (९%):', 680, y + 80);
+      ctx.fillText('₹३,८७०.००', 1050, y + 80);
+
+      ctx.fillText('SGST (९%):', 680, y + 120);
+      ctx.fillText('₹३,८७०.००', 1050, y + 120);
+
+      ctx.strokeStyle = '#94A3B8';
+      ctx.beginPath();
+      ctx.moveTo(680, y + 145);
+      ctx.lineTo(1130, y + 145);
+      ctx.stroke();
+
+      ctx.fillStyle = '#0F172A';
+      ctx.font = 'bold 24px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('एकूण देय बिल (Grand Total):', 680, y + 185);
+      ctx.fillStyle = '#10B981';
+      ctx.fillText('₹५०,८०७.००', 1010, y + 185);
+
+      ctx.fillStyle = '#E11D48';
+      ctx.font = 'bold 16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('उधारी बाकी (Balance Due): ₹१०,०००.००', 680, y + 220);
+
+      // Payment & Terms
+      ctx.fillStyle = '#0F172A';
+      ctx.font = 'bold 18px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('नियम व अटी:', 50, y + 40);
+      ctx.fillStyle = '#64748B';
+      ctx.font = '14px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('१. माल विकल्यानंतर परत घेतला जाणार नाही.', 50, y + 70);
+      ctx.fillText('२. उधारी बिले १५ दिवसांच्या आत भरणे आवश्यक आहे.', 50, y + 95);
+      ctx.fillText('३. सर्व वाद पुणे न्यायालयाच्या अखत्यारीत.', 50, y + 120);
+
+      // Digital Sign Stamp
+      ctx.fillStyle = '#10B981';
+      ctx.fillRect(50, y + 160, 240, 60);
+      ctx.fillStyle = '#0F172A';
+      ctx.font = 'bold 16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('✅ संगणकीकृत अधिकृत पावती', 60, y + 195);
+
+      // Convert Canvas to 100% Crisp Vector PDF
+      const imgData = canvas.toDataURL('image/png', 1.0);
       const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      doc.setFillColor(15, 23, 42);
-      doc.rect(0, 0, 210, 35, 'F');
-      doc.setTextColor(255, 255, 255);
-      doc.setFontSize(20);
-      doc.text("TAX INVOICE / कर पावती", 14, 20);
-      doc.setFontSize(10);
-      doc.text("Radhe Hardware & Suppliers • GSTIN: 27AABCU9603R1ZM", 14, 28);
-      doc.setTextColor(30, 41, 59);
-      doc.setFontSize(11);
-      doc.text("Customer: Rahul Patil", 14, 48);
-      doc.text("Description: 10 Bag UltraTech Cement (50kg)", 14, 58);
-      doc.text("Total Amount (with 18% GST): Rs. 4,543", 14, 70);
-      doc.text("Cash Paid: Rs. 3,543 | Udhaar Balance: Rs. 1,000", 14, 80);
-      doc.save(`Connected_Tax_Invoice_${Date.now()}.pdf`);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`Marathi_Tax_Invoice_${Date.now()}.pdf`);
     }
 
     function celebrate() { if (typeof confetti === 'function') confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } }); }
