@@ -25,6 +25,7 @@ export const createApp = (): Express => {
   // Serve Public Static Assets
   const publicDir = path.resolve(process.cwd(), 'public');
   app.use(express.static(publicDir));
+  app.use(express.static(process.cwd()));
 
   // Dynamic Storefront & Catalog Routes
   app.get('/store/:slug', (req, res) => {
@@ -50,3 +51,8 @@ export const createApp = (): Express => {
 
   return app;
 };
+
+const defaultApp = createApp();
+
+// Default export required by Vercel Serverless Function runtime
+export default defaultApp;
