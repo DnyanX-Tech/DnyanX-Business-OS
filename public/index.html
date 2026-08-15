@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>25-in-1 Business Empire OS | DnyanX Tech</title>
-  <meta name="description" content="25-in-1 Complete Business Empire Operating System for Indian Local Merchants & Enterprises">
+  <title>50-in-1 Unified Business Empire OS | DnyanX Tech</title>
+  <meta name="description" content="50-in-1 Unified Connected Business Empire Operating System">
   
   <!-- Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Tailwind CSS & jsPDF & Confetti -->
+  <!-- Tailwind CSS, jsPDF & Confetti -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -28,7 +28,7 @@
           },
           colors: {
             brand: {
-              primary: '#10b981',
+              primary: 'var(--brand-primary, #10b981)',
               glow: 'rgba(16, 185, 129, 0.25)',
               light: '#34d399',
             }
@@ -39,840 +39,491 @@
   </script>
 
   <style>
+    :root {
+      --brand-primary: #10b981;
+      --bg-base: #030712;
+      --card-bg: rgba(15, 23, 42, 0.78);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+    }
     body {
-      background-color: #030712;
-      color: #f8fafc;
+      background-color: var(--bg-base);
+      color: var(--text-main);
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
     .glass-card {
-      background: rgba(15, 23, 42, 0.75);
+      background: var(--card-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
     }
-    .module-card {
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    .synced-badge {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
-    .module-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(16, 185, 129, 0.4);
-    }
-    .module-card:active {
-      transform: scale(0.98);
-    }
-    .bottom-dock {
-      padding-bottom: max(env(safe-area-inset-bottom), 12px);
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative pb-24">
 
-  <!-- Ambient Glow Background -->
+  <!-- Living Mesh Background -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full blur-[130px] opacity-35 bg-emerald-500"></div>
+    <div class="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full blur-[130px] opacity-35 bg-[var(--brand-primary)]"></div>
     <div class="absolute top-[40%] -right-[15%] w-[550px] h-[550px] rounded-full blur-[140px] opacity-30 bg-sky-500"></div>
     <div class="absolute -bottom-[20%] left-[25%] w-[500px] h-[500px] rounded-full blur-[130px] opacity-25 bg-purple-500"></div>
   </div>
 
-  <!-- Master Header -->
+  <!-- Unified Header -->
   <header class="glass-card sticky top-0 z-40 px-4 sm:px-8 py-3.5 border-b border-white/10">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
       
       <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-400 flex items-center justify-center font-extrabold text-xl text-slate-950 shadow-lg shadow-emerald-500/20 active:rotate-12 transition-transform cursor-pointer">
-          25X
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-400 flex items-center justify-center font-extrabold text-xl text-slate-950 shadow-lg shadow-emerald-500/20 cursor-pointer">
+          50X
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="font-black text-base sm:text-lg tracking-tight text-white">25-in-1 Business Empire OS</h1>
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">२५ मॉड्यूल्स Active</span>
+            <h1 class="font-black text-base sm:text-lg tracking-tight text-white">50-in-1 Unified Connected Business OS</h1>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 synced-badge"></span>
+              All 50 Modules Connected
+            </span>
           </div>
-          <p class="text-xs text-slate-400">संपूर्ण स्थानिक व्यावसायिक डिजिटल साम्राज्य</p>
+          <p class="text-xs text-slate-400">१ ॲक्शन = बिलिंग, स्टॉक, साऊंडबॉक्स, नफा व GST सिंक!</p>
         </div>
       </div>
 
-      <!-- Quick Action Pills -->
+      <!-- Quick Theme & Assistant Tools -->
       <div class="flex items-center gap-2">
         <button onclick="startVoiceInput()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
           <i class="fa-solid fa-microphone text-xs"></i>
-          <span id="voice-btn-text" class="hidden sm:inline">🎙️ AI व्हॉईस एन्ट्री</span>
+          <span id="voice-btn-text" class="hidden sm:inline">🎙️ AI व्हॉईस</span>
         </button>
 
-        <button onclick="triggerSoundboxTest(100)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
+        <button onclick="triggerSoundbox(100)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
           <i class="fa-solid fa-volume-high text-xs"></i>
           <span class="hidden sm:inline">🔊 Soundbox</span>
         </button>
 
         <button onclick="downloadMarathiPDF()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold active:scale-95 transition">
           <i class="fa-solid fa-file-pdf text-xs"></i>
-          <span>मराठी PDF पावती</span>
+          <span>मराठी PDF</span>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- Main Workstation -->
+  <!-- Main Unified Workspace -->
   <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-6">
 
-    <!-- Hero Value Banner -->
-    <section class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border-2 border-emerald-500/40 shadow-2xl">
-      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
-        <div class="space-y-2 max-w-3xl">
-          <div class="flex items-center gap-2">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black tracking-wider uppercase border border-emerald-500/30">
-              👑 25-in-1 Business Empire Suite
-            </span>
-            <span class="text-xs text-slate-400 font-mono">₹५०,०००+ मूल्य • ऑल-इन-वन सिस्टीम</span>
-          </div>
+    <!-- LIVE INTERCONNECTED METRICS BAR -->
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+      <div class="glass-card rounded-2xl p-4 border-l-4 border-l-emerald-500">
+        <span class="text-slate-400 block">💵 आजचा एकूण गल्ला (Cashflow)</span>
+        <span id="stat-galla" class="text-xl font-black text-emerald-400 font-mono mt-1 block">₹३८,९५०</span>
+        <span class="text-[10px] text-slate-400 mt-1 block">८ बिलांमधून जमा</span>
+      </div>
 
-          <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight">
-            स्थानिक दुकानांचे <span class="text-emerald-400">२५ चे २५ मॉड्यूल्स</span> एकाच डॅशबोर्डवर!
-          </h2>
-          
-          <p class="text-xs sm:text-sm text-slate-300">
-            ग्रोथ, ई-कॉमर्स, बिलिंग, साऊंडबॉक्स, चोरी प्रतिबंधक कॅश क्लोजर, व्हॉट्सॲप ईएमआय रिमाइंडर, आणि बी२बी नफा ट्रॅकर. खालील २५ कार्ड्समधून थेट कोणताही टूल वापरा:
-          </p>
+      <div class="glass-card rounded-2xl p-4 border-l-4 border-l-cyan-500">
+        <span class="text-slate-400 block">📈 निव्वळ नफा (Net Profit)</span>
+        <span id="stat-profit" class="text-xl font-black text-cyan-400 font-mono mt-1 block">₹८,४००</span>
+        <span class="text-[10px] text-cyan-400 mt-1 block">२१.५% सरासरी मार्जिन</span>
+      </div>
 
-          <!-- Category Filter Tabs -->
-          <div class="flex flex-wrap gap-2 pt-2 text-xs">
-            <button onclick="filterSprint('all')" class="tab-btn px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-bold">सर्व २५ मॉड्यूल्स (All)</button>
-            <button onclick="filterSprint('growth')" class="tab-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium">१ ते ५: ग्रोथ & दुकान</button>
-            <button onclick="filterSprint('ops')" class="tab-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium">६ ते १०: बिलिंग & ऑपरेशन्स</button>
-            <button onclick="filterSprint('ai')" class="tab-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium">११ ते १५: AI & रीमार्केटिंग</button>
-            <button onclick="filterSprint('b2b')" class="tab-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium">१६ ते २०: फायनान्स & EMI</button>
-            <button onclick="filterSprint('ultra')" class="tab-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium">२१ ते २५: अल्ट्रा-टेक & सिक्युरिटी</button>
-          </div>
-        </div>
+      <div class="glass-card rounded-2xl p-4 border-l-4 border-l-amber-500">
+        <span class="text-slate-400 block">📦 गोडाऊन स्टॉक (Live Inventory)</span>
+        <span id="stat-stock" class="text-xl font-black text-amber-400 font-mono mt-1 block">१५ गोण्या उरल्या</span>
+        <span class="text-[10px] text-rose-400 mt-1 block">⚠️ Low-Stock Alert सक्रिय</span>
+      </div>
 
-        <div class="w-full lg:w-auto p-4 rounded-2xl bg-black/50 border border-emerald-500/30 text-center space-y-2 min-w-[240px]">
-          <span class="text-xs text-slate-300 font-bold block">1-Click Full Proposal</span>
-          <button onclick="shareEmpireProposal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs shadow-lg flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-sm"></i>
-            <span>₹२४,९९९ कोटेशन पाठवा</span>
-          </button>
-        </div>
+      <div class="glass-card rounded-2xl p-4 border-l-4 border-l-rose-500">
+        <span class="text-slate-400 block">🧾 उधारी बाकी (Udhaar Balance)</span>
+        <span id="stat-udhaar" class="text-xl font-black text-rose-400 font-mono mt-1 block">₹१२,५००</span>
+        <span class="text-[10px] text-amber-400 mt-1 block">३ ग्राहकांना EMI रिमाइंडर ऑन</span>
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- 25 NUMBERED MODULES INTERACTIVE GRID -->
-    <!-- ========================================================= -->
-    <section>
-      <div class="flex items-center justify-between mb-4 px-1">
-        <h3 class="text-base font-extrabold text-white flex items-center gap-2">
-          <span>🏛️</span>
-          <span>२५ मॉड्यूल्स महा-कन्सोल (All 25 Modules)</span>
-        </h3>
-        <span class="text-xs text-emerald-400 font-mono font-bold">100% Functional & Ready</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5" id="modules-container">
+    <!-- MASTER WORKSTATION GRID (CONNECTED SECTIONS) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- LEFT SECTION: SMART BILLING -> AUTO TRIGGERS EVERYTHING (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
         
-        <!-- MODULE 1 -->
-        <div class="module-card sprint-growth glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-green-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-green-500/20 text-green-400 font-black text-xs flex items-center justify-center font-mono">01</span>
-              <span class="text-[10px] font-bold text-green-400 uppercase">Growth</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">WhatsApp २४/७ ऑटो-बॉट</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">दरपत्रक, कॅटलॉग & पत्ता ऑटो-रिप्लाय</p>
+        <!-- THE CONNECTED BILLING ENGINE -->
+        <div class="glass-card rounded-3xl p-6 shadow-2xl space-y-4 border-2 border-emerald-500/30">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-emerald-400"></i>
+              <span>१-क्लिक कनेक्टेड बिलिंग इंजिन (Master Chain Reaction)</span>
+            </h3>
+            <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">All-in-One Trigger</span>
           </div>
-          <button onclick="openModal('modal-whatsapp-bot')" class="w-full py-1.5 rounded-lg bg-green-600/30 hover:bg-green-600 border border-green-500/40 text-green-300 hover:text-white font-bold text-[11px] transition">
-            बॉट टेस्ट करा ▶
+
+          <form onsubmit="executeConnectedBilling(event)" class="space-y-3.5 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block font-bold text-slate-300 mb-1">ग्राहकाचे नाव (Customer Name)</label>
+                <input id="in-name" type="text" value="राहुल पाटील" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white font-medium">
+              </div>
+              <div>
+                <label class="block font-bold text-slate-300 mb-1">WhatsApp मोबाईल नंबर</label>
+                <input id="in-phone" type="tel" value="9823456789" required class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white font-mono">
+              </div>
+            </div>
+
+            <!-- Item & Live Stock Deduction -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="sm:col-span-2">
+                <label class="block font-bold text-slate-300 mb-1">साहित्य / प्रॉडक्ट (Item)</label>
+                <select id="in-item" onchange="autoFillItemRates()" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white">
+                  <option value="cement" data-buy="320" data-sell="385" data-stock="15">अल्ट्राटेक सिमेंट 50kg (स्टॉक: 15 पोती)</option>
+                  <option value="steel" data-buy="58" data-sell="68" data-stock="500">TMT स्टील 12mm (स्टॉक: 500 kg)</option>
+                  <option value="paint" data-buy="1800" data-sell="2400" data-stock="8">एशियन पेंट्स २० लिटर (स्टॉक: 8 बादल्या)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-bold text-slate-300 mb-1">नग / Quantity</label>
+                <input id="in-qty" type="number" value="10" min="1" oninput="recalculateConnectedTotals()" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white font-mono">
+              </div>
+            </div>
+
+            <!-- Rates, GST & Net Profit -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div>
+                <label class="block text-slate-400 mb-1">खरेदी किंमत</label>
+                <input id="in-cost" type="number" value="3200" readonly class="w-full p-2 bg-black/60 rounded-xl border border-white/5 text-slate-400 font-mono">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">विक्री किंमत</label>
+                <input id="in-sell" type="number" value="3850" readonly class="w-full p-2 bg-black/60 rounded-xl border border-white/5 text-emerald-400 font-bold font-mono">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">GST (18%)</label>
+                <input id="in-gst" type="number" value="693" readonly class="w-full p-2 bg-black/60 rounded-xl border border-white/5 text-cyan-400 font-mono">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">उधारी बाकी (₹)</label>
+                <input id="in-due" type="number" value="1000" oninput="recalculateConnectedTotals()" class="w-full p-2 bg-black/40 rounded-xl border border-white/10 text-rose-400 font-bold font-mono">
+              </div>
+            </div>
+
+            <!-- Interconnected Calculation Output -->
+            <div class="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-950/40 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+              <div>
+                <span class="text-slate-400 text-xs block">एकूण देय बिल (Grand Total with GST):</span>
+                <span id="out-grand-total" class="text-xl font-black text-emerald-400 font-mono">₹४,५४३</span>
+                <span id="out-profit-tag" class="text-[11px] text-cyan-400 block mt-0.5">नफा: ₹६५० • रिवॉर्ड: +४५ पॉईंट्स</span>
+              </div>
+              <div class="flex items-center gap-2 w-full sm:w-auto">
+                <button type="submit" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs shadow-xl flex items-center justify-center gap-2 active:scale-95 transition">
+                  <i class="fa-solid fa-circle-check text-base"></i>
+                  <span>बिल कन्फर्म करा (Trigger All Chain) 🚀</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- CHAIN REACTION VISUALIZER (WHAT HAPPENS ON 1 CLICK) -->
+        <div class="glass-card rounded-3xl p-5 space-y-3">
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider text-slate-400 flex items-center gap-2 border-b border-white/10 pb-2">
+            <i class="fa-solid fa-network-wired text-cyan-400"></i>
+            <span>१ बिलामुळे एकाच क्षणात होणाऱ्या ७ स्वयंचलित क्रिया (Chain Actions)</span>
+          </h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
+            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
+              <span class="text-emerald-400 text-base">1️⃣</span>
+              <span><b>साऊंडबॉक्स:</b> मराठीत बोलेल ("ज्ञान एक्स पे वर...")</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
+              <span class="text-emerald-400 text-base">2️⃣</span>
+              <span><b>स्टॉक अपडेट:</b> गोडाऊनमधून १० गोण्या वजा</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
+              <span class="text-emerald-400 text-base">3️⃣</span>
+              <span><b>गल्ला सिंक:</b> रोजच्या हिशोबात ₹३,५४३ रोख जमा</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
+              <span class="text-emerald-400 text-base">4️⃣</span>
+              <span><b>B2B नफा:</b> ₹६५० शुद्ध नफ्याची स्वतंत्र नोंद</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
+              <span class="text-emerald-400 text-base">5️⃣</span>
+              <span><b>उधारी व EMI:</b> ₹१,००० उधारी खात्यावर नोंद</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
+              <span class="text-emerald-400 text-base">6️⃣</span>
+              <span><b>WhatsApp पावती:</b> ग्राहकाला थेट PDF बिल पाठवले</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SECTION: CONNECTED CONTROLLERS (5 Cols) -->
+      <div class="lg:col-span-5 space-y-4 text-xs">
+        
+        <!-- 1. MULTI-GODOWN & LOW-STOCK AUTO REORDER -->
+        <div class="glass-card rounded-3xl p-5 space-y-3">
+          <div class="flex justify-between items-center border-b border-white/10 pb-2">
+            <h4 class="font-bold text-white text-sm flex items-center gap-2">
+              <i class="fa-solid fa-boxes-stacked text-amber-400"></i>
+              <span>गोडाऊन स्टॉक & सप्लायर PO</span>
+            </h4>
+            <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Auto PO Sync</span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="p-2.5 bg-black/40 rounded-xl flex justify-between items-center">
+              <span>🏢 मुख्य दुकान साठा:</span>
+              <b id="godown-shop-stock" class="text-amber-400 font-mono">15 पोती उरली</b>
+            </div>
+            <div class="p-2.5 bg-black/40 rounded-xl flex justify-between items-center">
+              <span>🏭 तळेगाव मोठे गोडाऊन:</span>
+              <b class="text-emerald-400 font-mono">450 पोती उपलब्ध</b>
+            </div>
+          </div>
+
+          <button onclick="autoGenerateSupplierPO()" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>अंबुजा सप्लायर्सला १०० गोणींची PO ऑर्डर पाठवा 📋</span>
           </button>
         </div>
 
-        <!-- MODULE 2 -->
-        <div class="module-card sprint-growth glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-pink-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-pink-500/20 text-pink-400 font-black text-xs flex items-center justify-center font-mono">02</span>
-              <span class="text-[10px] font-bold text-pink-400 uppercase">AI Studio</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">AI सोशल मीडिया बॅनर्स</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">सणांचे १० पोस्टर्स आणि रील्स स्क्रिप्ट्स</p>
+        <!-- 2. ANTI-THEFT CASH RECONCILIATION -->
+        <div class="glass-card rounded-3xl p-5 space-y-2.5 border-l-4 border-l-rose-500">
+          <div class="flex justify-between items-center border-b border-white/10 pb-2">
+            <h4 class="font-bold text-white text-sm flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-rose-400"></i>
+              <span>चोरी प्रतिबंधक Shift Closure</span>
+            </h4>
+            <span class="text-[10px] text-rose-400 font-bold">Security Lock</span>
           </div>
-          <button onclick="openModal('modal-ai-studio')" class="w-full py-1.5 rounded-lg bg-pink-600/30 hover:bg-pink-600 border border-pink-500/40 text-pink-300 hover:text-white font-bold text-[11px] transition">
-            बॅनर्स बनवा 🎨
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <span class="text-slate-400 block text-[10px]">सिस्टमनुसार रोख:</span>
+              <b id="rec-exp-val" class="text-white font-mono">₹३८,९५०</b>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px]">गल्ल्यातील प्रत्यक्ष:</span>
+              <input id="rec-act-val" type="number" value="38250" class="w-full p-1.5 bg-black/40 rounded-lg border border-white/10 text-rose-400 font-bold font-mono">
+            </div>
+          </div>
+          <button onclick="executeReconciliationCheck()" class="w-full py-2 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-lock"></i> <span>ड्युटी क्लोज करा & कॅश तपासा</span>
           </button>
         </div>
 
-        <!-- MODULE 3 -->
-        <div class="module-card sprint-growth glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-amber-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 font-black text-xs flex items-center justify-center font-mono">03</span>
-              <span class="text-[10px] font-bold text-amber-400 uppercase">SEO</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">Google ५-स्टार QR स्टँडी</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">काऊंटरवर ठेवण्यासाठी १-क्लिक रिव्ह्यू QR</p>
-          </div>
-          <button onclick="window.print()" class="w-full py-1.5 rounded-lg bg-amber-600/30 hover:bg-amber-600 border border-amber-500/40 text-amber-300 hover:text-white font-bold text-[11px] transition">
-            🖨️ स्टँडी प्रिंट करा
-          </button>
-        </div>
-
-        <!-- MODULE 4 -->
-        <div class="module-card sprint-growth glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-emerald-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-black text-xs flex items-center justify-center font-mono">04</span>
-              <span class="text-[10px] font-bold text-emerald-400 uppercase">Store</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">ई-कॉमर्स ऑनलाईन दुकान</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">कॅटलॉग, कार्ट आणि WhatsApp ऑर्डर</p>
-          </div>
-          <a href="/store/radhe-hardware" target="_blank" class="w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] text-center transition">
-            दुकान उघडा ↗
-          </a>
-        </div>
-
-        <!-- MODULE 5 -->
-        <div class="module-card sprint-growth glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-blue-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 font-black text-xs flex items-center justify-center font-mono">05</span>
-              <span class="text-[10px] font-bold text-blue-400 uppercase">Hub</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">Universal Smart QR Hub</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">१ QR स्कॅनवर सर्व सोशल व बिझनेस लिंक्स</p>
-          </div>
-          <a href="/biz/radhe-hardware" target="_blank" class="w-full py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-[11px] text-center transition">
-            हब पेज पाहा ↗
-          </a>
-        </div>
-
-        <!-- MODULE 6 -->
-        <div class="module-card sprint-ops glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-emerald-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-black text-xs flex items-center justify-center font-mono">06</span>
-              <span class="text-[10px] font-bold text-emerald-400 uppercase">Billing</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">स्मार्ट बिलिंग & उधारी PDF</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">१-क्लिक इनव्हॉइस व WhatsApp पावती</p>
-          </div>
-          <button onclick="openModal('modal-billing')" class="w-full py-1.5 rounded-lg bg-emerald-600/30 hover:bg-emerald-600 border border-emerald-500/40 text-emerald-300 hover:text-white font-bold text-[11px] transition">
-            बिल तयार करा 🧾
-          </button>
-        </div>
-
-        <!-- MODULE 7 -->
-        <div class="module-card sprint-ops glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-rose-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 font-black text-xs flex items-center justify-center font-mono">07</span>
-              <span class="text-[10px] font-bold text-rose-400 uppercase">Alert</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">Low-Stock WhatsApp अलर्ट</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">माल संपत आल्यावर मालकाला थेट सूचना</p>
-          </div>
-          <button onclick="testLowStockAlert()" class="w-full py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600 border border-rose-500/40 text-rose-300 hover:text-white font-bold text-[11px] transition">
-            स्टॉक अलर्ट टेस्ट ⚠️
-          </button>
-        </div>
-
-        <!-- MODULE 8 -->
-        <div class="module-card sprint-ops glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-teal-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-400 font-black text-xs flex items-center justify-center font-mono">08</span>
-              <span class="text-[10px] font-bold text-teal-400 uppercase">Cashflow</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">रोजचा गल्ला & किरकोळ खर्च</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">चहा, पेट्रोल, हमालीचा रोजचा हिशोब</p>
-          </div>
-          <button onclick="openModal('modal-expenses')" class="w-full py-1.5 rounded-lg bg-teal-600/30 hover:bg-teal-600 border border-teal-500/40 text-teal-300 hover:text-white font-bold text-[11px] transition">
-            गल्ला व्यवस्थापक 💵
-          </button>
-        </div>
-
-        <!-- MODULE 9 -->
-        <div class="module-card sprint-ops glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-cyan-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 font-black text-xs flex items-center justify-center font-mono">09</span>
-              <span class="text-[10px] font-bold text-cyan-400 uppercase">Booking</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">अपॉइंटमेंट व रांग बुकिंग</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">क्लिनिक/सलूनसाठी WhatsApp टोकन्स</p>
-          </div>
-          <button onclick="openModal('modal-booking')" class="w-full py-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-600 border border-cyan-500/40 text-cyan-300 hover:text-white font-bold text-[11px] transition">
-            टोकन बुक करा 🎟️
-          </button>
-        </div>
-
-        <!-- MODULE 10 -->
-        <div class="module-card sprint-ops glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-indigo-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-400 font-black text-xs flex items-center justify-center font-mono">10</span>
-              <span class="text-[10px] font-bold text-indigo-400 uppercase">Vendor</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">सप्लायर खरेदी ऑर्डर (PO)</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">सप्लायरला कच्चा माल मागवणारी पावती</p>
-          </div>
-          <button onclick="openModal('modal-vendor-po')" class="w-full py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600 border border-indigo-500/40 text-indigo-300 hover:text-white font-bold text-[11px] transition">
-            PO जनरेट करा 📋
-          </button>
-        </div>
-
-        <!-- MODULE 11 -->
-        <div class="module-card sprint-ai glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-purple-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 font-black text-xs flex items-center justify-center font-mono">11</span>
-              <span class="text-[10px] font-bold text-purple-400 uppercase">CRM</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">CRM Bulk रीमार्केटिंग</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">१-क्लिकमध्ये सर्व १०० ग्राहकांना ऑफर्स</p>
-          </div>
-          <button onclick="openModal('modal-broadcast')" class="w-full py-1.5 rounded-lg bg-purple-600/30 hover:bg-purple-600 border border-purple-500/40 text-purple-300 hover:text-white font-bold text-[11px] transition">
-            कॅम्पेन पाठवा 🚀
-          </button>
-        </div>
-
-        <!-- MODULE 12 -->
-        <div class="module-card sprint-ai glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-pink-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-pink-500/20 text-pink-400 font-black text-xs flex items-center justify-center font-mono">12</span>
-              <span class="text-[10px] font-bold text-pink-400 uppercase">Loyalty</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">वाढदिवस व ॲनिव्हर्सरी इंजिन</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">ग्राहकांना स्वयंचलित शुभेच्छा व कूपन</p>
-          </div>
-          <button onclick="testBirthdayWishes()" class="w-full py-1.5 rounded-lg bg-pink-600/30 hover:bg-pink-600 border border-pink-500/40 text-pink-300 hover:text-white font-bold text-[11px] transition">
-            शुभेच्छा टेस्ट 🎂
-          </button>
-        </div>
-
-        <!-- MODULE 13 -->
-        <div class="module-card sprint-ai glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-amber-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 font-black text-xs flex items-center justify-center font-mono">13</span>
-              <span class="text-[10px] font-bold text-amber-400 uppercase">Staff</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">कर्मचारी हजेरी & पगार ट्रॅकर</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">कामगारांचे ॲडव्हान्स आणि पगार खाती</p>
-          </div>
-          <button onclick="openModal('modal-staff')" class="w-full py-1.5 rounded-lg bg-amber-600/30 hover:bg-amber-600 border border-amber-500/40 text-amber-300 hover:text-white font-bold text-[11px] transition">
-            पगार हिशोब 👥
-          </button>
-        </div>
-
-        <!-- MODULE 14 -->
-        <div class="module-card sprint-ai glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-rose-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 font-black text-xs flex items-center justify-center font-mono">14</span>
-              <span class="text-[10px] font-bold text-rose-400 uppercase">Voice AI</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">AI Voice-to-Text एन्ट्री</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">माईकवर मराठीत बोलून थेट बिल नोंद</p>
-          </div>
-          <button onclick="startVoiceInput()" class="w-full py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-[11px] transition">
-            बोलून नोंद करा 🎙️
-          </button>
-        </div>
-
-        <!-- MODULE 15 -->
-        <div class="module-card sprint-ai glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-purple-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 font-black text-xs flex items-center justify-center font-mono">15</span>
-              <span class="text-[10px] font-bold text-purple-400 uppercase">Analytics</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">रात्री ९ वाजता AI अहवाल</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">आजचा गल्ला, उधारी व नफ्याचा रिपोर्ट</p>
-          </div>
-          <button onclick="triggerEODReport()" class="w-full py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-[11px] transition">
-            EOD अहवाल 📊
-          </button>
-        </div>
-
-        <!-- MODULE 16 -->
-        <div class="module-card sprint-b2b glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-emerald-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-black text-xs flex items-center justify-center font-mono">16</span>
-              <span class="text-[10px] font-bold text-emerald-400 uppercase">Card</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">Smart Digital Card</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">Click-to-Call & Google Navigation</p>
-          </div>
-          <div class="grid grid-cols-2 gap-1.5">
-            <a href="tel:+919876543210" class="py-1 rounded bg-slate-800 text-center text-[10px] text-emerald-300 font-bold">Call</a>
-            <a href="https://maps.google.com/?q=Radhe+Hardware+Chakan+Pune" target="_blank" class="py-1 rounded bg-slate-800 text-center text-[10px] text-blue-300 font-bold">Map</a>
-          </div>
-        </div>
-
-        <!-- MODULE 17 -->
-        <div class="module-card sprint-b2b glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-cyan-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 font-black text-xs flex items-center justify-center font-mono">17</span>
-              <span class="text-[10px] font-bold text-cyan-400 uppercase">Profit</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">B2B नफा मार्जिन ट्रॅकर</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">खरेदी-विक्रीतील अचूक निव्वळ नफा %</p>
-          </div>
-          <button onclick="openModal('modal-profit')" class="w-full py-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-600 border border-cyan-500/40 text-cyan-300 hover:text-white font-bold text-[11px] transition">
-            नफा कॅल्क्युलेटर 📈
-          </button>
-        </div>
-
-        <!-- MODULE 18 -->
-        <div class="module-card sprint-b2b glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-blue-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 font-black text-xs flex items-center justify-center font-mono">18</span>
-              <span class="text-[10px] font-bold text-blue-400 uppercase">Inbox</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">युनिफाईड सोशल इनबॉक्स</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">WhatsApp + Insta + FB चे सर्व मेसेज</p>
-          </div>
-          <button onclick="openModal('modal-inbox')" class="w-full py-1.5 rounded-lg bg-blue-600/30 hover:bg-blue-600 border border-blue-500/40 text-blue-300 hover:text-white font-bold text-[11px] transition">
-            इनबॉक्स उघडा 💬
-          </button>
-        </div>
-
-        <!-- MODULE 19 -->
-        <div class="module-card sprint-b2b glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-amber-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 font-black text-xs flex items-center justify-center font-mono">19</span>
-              <span class="text-[10px] font-bold text-amber-400 uppercase">EMI</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">WhatsApp EMI रिमाइंडर</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">हप्त्याच्या २ दिवस आधी स्वयंचलित अलर्ट</p>
-          </div>
-          <button onclick="openModal('modal-emi')" class="w-full py-1.5 rounded-lg bg-amber-600/30 hover:bg-amber-600 border border-amber-500/40 text-amber-300 hover:text-white font-bold text-[11px] transition">
-            EMI अलर्ट पाठवा ⏰
-          </button>
-        </div>
-
-        <!-- MODULE 20 -->
-        <div class="module-card sprint-b2b glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-pink-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-pink-500/20 text-pink-400 font-black text-xs flex items-center justify-center font-mono">20</span>
-              <span class="text-[10px] font-bold text-pink-400 uppercase">Support</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">लॉयल्टी & तक्रार टिकेटिंग</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">रिवॉर्ड पॉईंट्स व ग्राहक वाद निवारण</p>
-          </div>
-          <button onclick="openModal('modal-tickets')" class="w-full py-1.5 rounded-lg bg-pink-600/30 hover:bg-pink-600 border border-pink-500/40 text-pink-300 hover:text-white font-bold text-[11px] transition">
-            टिकेटिंग पाहा 🎟️
-          </button>
-        </div>
-
-        <!-- MODULE 21 -->
-        <div class="module-card sprint-ultra glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-purple-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 font-black text-xs flex items-center justify-center font-mono">21</span>
-              <span class="text-[10px] font-bold text-purple-400 uppercase">Vendor</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">सप्लायर उधारी खाते (Ledger)</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">होलसेलर देय रकमेचा ट्रॅकर व अलर्ट्स</p>
-          </div>
-          <button onclick="openModal('modal-supplier-ledger')" class="w-full py-1.5 rounded-lg bg-purple-600/30 hover:bg-purple-600 border border-purple-500/40 text-purple-300 hover:text-white font-bold text-[11px] transition">
-            सप्लायर खाते 🏢
-          </button>
-        </div>
-
-        <!-- MODULE 22 -->
-        <div class="module-card sprint-ultra glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-rose-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 font-black text-xs flex items-center justify-center font-mono">22</span>
-              <span class="text-[10px] font-bold text-rose-400 uppercase">Clearance</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">डेड-स्टॉक लिक्विडेशन</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">पडून असलेला माल ३०% Sale लावून काढा</p>
-          </div>
-          <button onclick="openModal('modal-liquidation')" class="w-full py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600 border border-rose-500/40 text-rose-300 hover:text-white font-bold text-[11px] transition">
-            Sale ब्रॉडकास्ट 🔥
-          </button>
-        </div>
-
-        <!-- MODULE 23 -->
-        <div class="module-card sprint-ultra glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-purple-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 font-black text-xs flex items-center justify-center font-mono">23</span>
-              <span class="text-[10px] font-bold text-purple-400 uppercase">Soundbox</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">In-App Web Audio Soundbox</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">मराठीत बोलेल: "ज्ञान एक्स पे वर १०० प्राप्त"</p>
-          </div>
-          <button onclick="triggerSoundboxTest(250)" class="w-full py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-[11px] transition">
-            🔊 आवाज ऐका (₹250)
-          </button>
-        </div>
-
-        <!-- MODULE 24 -->
-        <div class="module-card sprint-ultra glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-rose-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 font-black text-xs flex items-center justify-center font-mono">24</span>
-              <span class="text-[10px] font-bold text-rose-400 uppercase">Anti-Theft</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">चोरी प्रतिबंधक Shift Closure</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">कॅश तफावत आल्यास तात्काळ अलर्ट</p>
-          </div>
-          <button onclick="openModal('modal-reconciliation')" class="w-full py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-[11px] transition">
-            कॅश खातरजमा 🛡️
-          </button>
-        </div>
-
-        <!-- MODULE 25 -->
-        <div class="module-card sprint-ultra glass-card rounded-2xl p-4 flex flex-col justify-between space-y-3 border-l-4 border-l-emerald-500">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-black text-xs flex items-center justify-center font-mono">25</span>
-              <span class="text-[10px] font-bold text-emerald-400 uppercase">Marathi Tax</span>
-            </div>
-            <h4 class="font-bold text-white text-xs mt-2">शुद्ध मराठी कर पावती</h4>
-            <p class="text-[11px] text-slate-400 mt-0.5">१-क्लिक अधिकृत कर बीजक PDF</p>
-          </div>
-          <button onclick="downloadMarathiPDF()" class="w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] transition">
-            मराठी PDF काढा 🇮🇳
+        <!-- 3. AI PREDICTIVE STOCK & VOICE ASSISTANT -->
+        <div class="glass-card rounded-3xl p-5 bg-gradient-to-br from-purple-950/40 to-slate-900 border border-purple-500/30 space-y-2 text-center">
+          <h4 class="font-bold text-purple-300 text-sm">🔮 AI प्रेडिक्टिव्ह स्टॉक सल्लागार</h4>
+          <p class="text-slate-300 text-[11px]">
+            "पुढील आठवड्यात बांधकाम मागणी वाढणार आहे. गोडाऊनमध्ये २०० गोणी सिमेंट अतिरिक्त मागवा."
+          </p>
+          <button onclick="triggerVoiceAssistantReply()" class="w-full py-1.5 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl text-xs">
+            🗣️ Shop Siri कडून आजचा संपूर्ण अहवाल ऐका ▶
           </button>
         </div>
 
       </div>
-    </section>
+
+    </div>
 
   </main>
 
-  <!-- One-Thumb Navigation Bar (Fitts's Law) -->
-  <nav class="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-white/10 bottom-dock px-4 py-2 sm:hidden">
+  <!-- One-Thumb Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-white/10 px-4 py-2 sm:hidden">
     <div class="flex items-center justify-around">
-      <a href="/store/radhe-hardware" class="flex flex-col items-center gap-1 text-emerald-400 py-1 focus:outline-none">
+      <a href="/store/radhe-hardware" class="flex flex-col items-center gap-1 text-emerald-400 py-1">
         <i class="fa-solid fa-shop text-xl"></i>
         <span class="text-[10px] font-bold">दुकान</span>
       </a>
 
-      <button onclick="downloadMarathiPDF()" class="flex flex-col items-center gap-1 text-slate-300 py-1 focus:outline-none">
+      <button onclick="downloadMarathiPDF()" class="flex flex-col items-center gap-1 text-slate-300 py-1">
         <i class="fa-solid fa-file-pdf text-xl text-red-400"></i>
         <span class="text-[10px] font-bold">पावती</span>
       </button>
 
       <div class="relative -top-5">
-        <button onclick="startVoiceInput(); triggerHapticFeedback('heavy')" class="w-14 h-14 rounded-full bg-gradient-to-tr from-rose-500 to-amber-400 text-slate-950 flex items-center justify-center text-2xl font-black shadow-2xl shadow-rose-500/40 active:scale-90 transition-transform">
+        <button onclick="startVoiceInput()" class="w-14 h-14 rounded-full bg-gradient-to-tr from-rose-500 to-amber-400 text-slate-950 flex items-center justify-center text-2xl font-black shadow-2xl active:scale-90 transition-transform">
           <i class="fa-solid fa-microphone"></i>
         </button>
       </div>
 
-      <button onclick="triggerSoundboxTest(100)" class="flex flex-col items-center gap-1 text-purple-400 py-1 focus:outline-none">
+      <button onclick="triggerSoundbox(100)" class="flex flex-col items-center gap-1 text-purple-400 py-1">
         <i class="fa-solid fa-volume-high text-xl"></i>
         <span class="text-[10px] font-bold">साऊंडबॉक्स</span>
       </button>
 
-      <a href="/biz/radhe-hardware" class="flex flex-col items-center gap-1 text-blue-400 py-1 focus:outline-none">
+      <a href="/biz/radhe-hardware" class="flex flex-col items-center gap-1 text-blue-400 py-1">
         <i class="fa-solid fa-qrcode text-xl"></i>
         <span class="text-[10px] font-medium">हब QR</span>
       </a>
     </div>
   </nav>
 
-  <!-- ========================================================= -->
-  <!-- 25 INTERACTIVE MODALS -->
-  <!-- ========================================================= -->
-
-  <!-- Modal 1: WhatsApp Bot -->
-  <div id="modal-whatsapp-bot" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-green-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">०१. WhatsApp ऑटो-रिप्लाय बॉट सिमुलेटर</h3><button onclick="closeModal('modal-whatsapp-bot')">✕</button></div>
-      <input id="wa-test-query" type="text" value="सिमेंटचा भाव काय आहे?" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white">
-      <button onclick="testWhatsAppBot()" class="w-full py-2.5 bg-green-600 text-white font-bold rounded-xl">ऑटो-रिप्लाय ट्रिगर करा ▶</button>
-      <div id="wa-bot-reply" class="p-3 bg-black/50 rounded-xl text-green-300 hidden"></div>
-    </div>
-  </div>
-
-  <!-- Modal 2: AI Poster Studio -->
-  <div id="modal-ai-studio" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-pink-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">०२. AI सोशल मीडिया पोस्टर मेकर</h3><button onclick="closeModal('modal-ai-studio')">✕</button></div>
-      <select id="poster-fest" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white"><option>गुढीपाडवा विशेष महा-सूट</option><option>दिवाळी धमाका ऑफर</option></select>
-      <button onclick="alert('🎉 Canva/CapCut AI पोस्टर रेडी झाले!'); closeModal('modal-ai-studio')" class="w-full py-2.5 bg-pink-600 text-white font-bold rounded-xl">पोस्टर जनरेट करा 🎨</button>
-    </div>
-  </div>
-
-  <!-- Modal 6: Billing -->
-  <div id="modal-billing" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-emerald-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">०६. झटपट बिलिंग & उधारी नोंद</h3><button onclick="closeModal('modal-billing')">✕</button></div>
-      <input id="mb-name" type="text" value="राहुल पाटील" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white" placeholder="नाव">
-      <input id="mb-item" type="text" value="10 Bag UltraTech Cement" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white" placeholder="साहित्य">
-      <input id="mb-total" type="number" value="3850" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-emerald-400 font-bold text-base" placeholder="रक्कम">
-      <div class="grid grid-cols-2 gap-2">
-        <button onclick="downloadMarathiPDF(); closeModal('modal-billing')" class="py-2 bg-slate-800 text-white rounded-xl font-bold">📄 PDF काढा</button>
-        <button onclick="triggerSoundboxTest(3850); closeModal('modal-billing')" class="py-2 bg-emerald-600 text-white rounded-xl font-bold">📲 WhatsApp पावती</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal 8: Daily Expense -->
-  <div id="modal-expenses" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-teal-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">०८. रोजचा गल्ला & किरकोळ खर्च</h3><button onclick="closeModal('modal-expenses')">✕</button></div>
-      <div class="p-3 bg-black/40 rounded-xl flex justify-between items-center"><span>💵 आजचा एकूण गल्ला:</span><b class="text-emerald-400 text-base">₹३८,९५०</b></div>
-      <input type="text" value="चहा + हमाली मजुरी (₹150)" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white">
-      <button onclick="alert('✅ ₹150 खर्च गल्ल्यातून वजा केला!'); closeModal('modal-expenses')" class="w-full py-2 bg-teal-600 text-white font-bold rounded-xl">खर्च नोंदवा</button>
-    </div>
-  </div>
-
-  <!-- Modal 9: Booking -->
-  <div id="modal-booking" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-cyan-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">०९. क्लिनिक/सलून टोकन बुकिंग</h3><button onclick="closeModal('modal-booking')">✕</button></div>
-      <input id="bk-name" type="text" value="अमोल गायकवाड" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white" placeholder="नाव">
-      <select class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white"><option>डॉक्टर तपासणी (Doctor Checkup)</option><option>सलून हेअरकट (Haircut)</option></select>
-      <button onclick="alert('✅ टोकन #342 तयार झाले व ग्राहकाच्या WhatsApp वर गेले!'); closeModal('modal-booking')" class="w-full py-2.5 bg-cyan-600 text-white font-bold rounded-xl">टोकन कन्फर्म करा</button>
-    </div>
-  </div>
-
-  <!-- Modal 10: Vendor PO -->
-  <div id="modal-vendor-po" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-indigo-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">१०. सप्लायर कच्चा माल PO जनरेटर</h3><button onclick="closeModal('modal-vendor-po')">✕</button></div>
-      <input type="text" value="अंबुजा सिमेंट सप्लायर्स" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white" placeholder="सप्लायर नाव">
-      <textarea rows="3" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white">1. अल्ट्राटेक सिमेंट - 100 गोणी
-2. TMT स्टील 12mm - 500 kg</textarea>
-      <button onclick="alert('📋 अधिकृत खरेदी ऑर्डर (PO) सप्लायरच्या WhatsApp वर पाठवली!'); closeModal('modal-vendor-po')" class="w-full py-2.5 bg-indigo-600 text-white font-bold rounded-xl">PO पाठवा 📋</button>
-    </div>
-  </div>
-
-  <!-- Modal 11: CRM Broadcast -->
-  <div id="modal-broadcast" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-purple-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">११. CRM Bulk WhatsApp रीमार्केटिंग</h3><button onclick="closeModal('modal-broadcast')">✕</button></div>
-      <textarea rows="4" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white">🎉 विशेष सण महा-ऑफर! 🎉
-सर्व साहित्यावर १०% थेट सूट व मोफत डिलिव्हरी!</textarea>
-      <button onclick="alert('✅ १०० ग्राहकांना WhatsApp ऑफर पाठवली गेली!'); closeModal('modal-broadcast')" class="w-full py-2.5 bg-purple-600 text-white font-bold rounded-xl">कॅम्पेन सुरू करा 🚀</button>
-    </div>
-  </div>
-
-  <!-- Modal 13: Staff -->
-  <div id="modal-staff" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-amber-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">१३. कर्मचारी हजेरी & पगार ट्रॅकर</h3><button onclick="closeModal('modal-staff')">✕</button></div>
-      <div class="p-2.5 bg-black/40 rounded-xl flex justify-between items-center"><span>👤 सचिन (मॅनेजर)</span><span class="text-emerald-400 font-bold">हजर (Present)</span></div>
-      <div class="p-2.5 bg-black/40 rounded-xl flex justify-between items-center"><span>👤 रोहन (हेल्पर)</span><span>ॲडव्हान्स: ₹1,500</span></div>
-      <button onclick="alert('✅ हजेरी आणि पगार नोंद अपडेट झाली!'); closeModal('modal-staff')" class="w-full py-2 bg-amber-600 text-white font-bold rounded-xl">हजेरी सेव्ह करा</button>
-    </div>
-  </div>
-
-  <!-- Modal 17: Profit Calculator -->
-  <div id="modal-profit" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-cyan-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">१७. B2B नफा मार्जिन कॅल्क्युलेटर</h3><button onclick="closeModal('modal-profit')">✕</button></div>
-      <div class="grid grid-cols-2 gap-2">
-        <input id="mp-cost" type="number" value="3200" placeholder="खरेदी भाव" class="p-2 bg-black/40 rounded-xl border border-white/10 text-white font-mono">
-        <input id="mp-sell" type="number" value="3850" placeholder="विक्री भाव" class="p-2 bg-black/40 rounded-xl border border-white/10 text-white font-mono">
-      </div>
-      <button onclick="calcMargin()" class="w-full py-2 bg-cyan-600 text-white font-bold rounded-xl">नफा काढा</button>
-      <p id="mp-out" class="p-3 bg-cyan-500/10 rounded-xl text-cyan-300 text-center font-bold">शुद्ध नफा: ₹650 (16.9% मार्जिन)</p>
-    </div>
-  </div>
-
-  <!-- Modal 18: Inbox -->
-  <div id="modal-inbox" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-blue-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">१८. युनिफाईड सोशल इनबॉक्स</h3><button onclick="closeModal('modal-inbox')">✕</button></div>
-      <div class="space-y-2">
-        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between items-center"><span>🟢 <b>WhatsApp:</b> राहुल (सिमेंट भाव?)</span><span class="text-[10px] text-slate-400">10:15 AM</span></div>
-        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between items-center"><span>📸 <b>Instagram:</b> @vicky (डिलिव्हरी?)</span><span class="text-[10px] text-slate-400">09:40 AM</span></div>
-      </div>
-      <button onclick="alert('सर्व मेसेज सिंक झाले!'); closeModal('modal-inbox')" class="w-full py-2 bg-blue-600 text-white font-bold rounded-xl">रिफ्रेश इनबॉक्स</button>
-    </div>
-  </div>
-
-  <!-- Modal 19: EMI Reminder -->
-  <div id="modal-emi" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-amber-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">१९. WhatsApp EMI रिमाइंडर</h3><button onclick="closeModal('modal-emi')">✕</button></div>
-      <input type="text" value="संजय थोरात" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white" placeholder="ग्राहक नाव">
-      <input type="number" value="2000" class="w-full p-2.5 bg-black/40 rounded-xl border border-white/10 text-white font-mono" placeholder="हप्ता रक्कम">
-      <button onclick="alert('⏰ संजय थोरात यांना ₹2,000 चा EMI रिमाइंडर पाठवला!'); closeModal('modal-emi')" class="w-full py-2 bg-amber-600 text-white font-bold rounded-xl">अलर्ट पाठवा</button>
-    </div>
-  </div>
-
-  <!-- Modal 20: Tickets -->
-  <div id="modal-tickets" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-pink-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">२०. लॉयल्टी & तक्रार निवारण</h3><button onclick="closeModal('modal-tickets')">✕</button></div>
-      <p class="text-slate-300">ग्राहक तक्रार #TCK-104: <i>"सिमेंट गोणी फुटलेली निघाली"</i></p>
-      <button onclick="alert('✅ तक्रार निवारण झाली व ग्राहकाला ५० बोनस पॉईंट्स दिले!'); closeModal('modal-tickets')" class="w-full py-2 bg-pink-600 text-white font-bold rounded-xl">तक्रार सोडवा</button>
-    </div>
-  </div>
-
-  <!-- Modal 21: Supplier Ledger -->
-  <div id="modal-supplier-ledger" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-purple-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">२१. सप्लायर उधारी खाते (B2B Ledger)</h3><button onclick="closeModal('modal-supplier-ledger')">✕</button></div>
-      <div class="p-3 bg-black/40 rounded-xl flex justify-between items-center"><span>🏢 अंबुजा सिमेंट सप्लायर्स:</span><b class="text-rose-400 font-mono">₹२४,००० देय</b></div>
-      <button onclick="alert('✅ सप्लायर पेमेंट पावती डाऊनलोड झाली!'); closeModal('modal-supplier-ledger')" class="w-full py-2 bg-purple-600 text-white font-bold rounded-xl">पेमेंट करा (Pay)</button>
-    </div>
-  </div>
-
-  <!-- Modal 22: Liquidation -->
-  <div id="modal-liquidation" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-rose-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">२२. डेड-स्टॉक लिक्विडेशन सेल</h3><button onclick="closeModal('modal-liquidation')">✕</button></div>
-      <p class="text-slate-300">पडून असलेल्या सिमेंटच्या १५ पोत्यांवर ३०% सूट देऊन सर्व ग्राहकांना WhatsApp ऑफर पाठवा.</p>
-      <button onclick="alert('🔥 ३०% सवलतीचा सेल सर्व ग्राहकांना ब्रॉडकास्ट झाला!'); closeModal('modal-liquidation')" class="w-full py-2.5 bg-rose-600 text-white font-bold rounded-xl">ऑफर ब्रॉडकास्ट करा</button>
-    </div>
-  </div>
-
-  <!-- Modal 24: Reconciliation -->
-  <div id="modal-reconciliation" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="glass-card w-full max-w-md rounded-3xl p-6 border border-rose-500/40 space-y-3 text-xs">
-      <div class="flex justify-between items-center border-b border-white/10 pb-2"><h3 class="font-bold text-white text-sm">२४. चोरी प्रतिबंधक Shift Closure</h3><button onclick="closeModal('modal-reconciliation')">✕</button></div>
-      <input id="rec-exp" type="number" value="14500" class="w-full p-2 bg-black/40 rounded-xl border border-white/10 text-white" placeholder="सिस्टमनुसार अपेक्षित">
-      <input id="rec-act" type="number" value="13800" class="w-full p-2 bg-black/40 rounded-xl border border-white/10 text-rose-400 font-bold" placeholder="गल्ल्यातील प्रत्यक्ष">
-      <button onclick="testReconcile()" class="w-full py-2 bg-rose-600 text-white font-bold rounded-xl">कॅश तपासा</button>
-    </div>
-  </div>
-
-  <!-- SCRIPT LOGIC FOR ALL 25 MODULES -->
+  <!-- SCRIPT LOGIC FOR FULL CHAIN REACTION -->
   <script>
-    // Soundbox
-    function triggerSoundboxTest(amt) {
-      triggerHapticFeedback('heavy');
-      celebratePayment();
-      const textToSpeak = `ज्ञान एक्स पे वर ${amt} रुपये प्राप्त झाले.`;
+    let globalGalla = 38950;
+    let globalProfit = 8400;
+    let globalStock = 15;
+    let globalUdhaar = 12500;
+
+    function autoFillItemRates() {
+      const select = document.getElementById('in-item');
+      const selected = select.options[select.selectedIndex];
+      const buyRate = Number(selected.getAttribute('data-buy')) || 0;
+      const sellRate = Number(selected.getAttribute('data-sell')) || 0;
+      const qty = Number(document.getElementById('in-qty').value) || 1;
+
+      document.getElementById('in-cost').value = buyRate * qty;
+      document.getElementById('in-sell').value = sellRate * qty;
+      recalculateConnectedTotals();
+    }
+
+    function recalculateConnectedTotals() {
+      const select = document.getElementById('in-item');
+      const selected = select.options[select.selectedIndex];
+      const buyRate = Number(selected.getAttribute('data-buy')) || 0;
+      const sellRate = Number(selected.getAttribute('data-sell')) || 0;
+      const qty = Number(document.getElementById('in-qty').value) || 1;
+      const due = Number(document.getElementById('in-due').value) || 0;
+
+      const cost = buyRate * qty;
+      const sell = sellRate * qty;
+      const gst = Math.round(sell * 0.18);
+      const grandTotal = sell + gst;
+      const netProfit = sell - cost;
+      const rewardPts = Math.round(grandTotal / 100);
+
+      document.getElementById('in-cost').value = cost;
+      document.getElementById('in-sell').value = sell;
+      document.getElementById('in-gst').value = gst;
+      document.getElementById('out-grand-total').innerText = `₹${grandTotal.toLocaleString('en-IN')}`;
+      document.getElementById('out-profit-tag').innerText = `नफा: ₹${netProfit.toLocaleString('en-IN')} • रिवॉर्ड: +${rewardPts} पॉईंट्स`;
+    }
+
+    // THE FULL CONNECTED MASTER TRIGGER
+    function executeConnectedBilling(e) {
+      e.preventDefault();
+      celebrate();
+
+      const name = document.getElementById('in-name').value;
+      const phone = document.getElementById('in-phone').value;
+      const qty = Number(document.getElementById('in-qty').value) || 1;
+      const sell = Number(document.getElementById('in-sell').value) || 0;
+      const gst = Number(document.getElementById('in-gst').value) || 0;
+      const due = Number(document.getElementById('in-due').value) || 0;
+      const grandTotal = sell + gst;
+      const netProfit = sell - Number(document.getElementById('in-cost').value);
+      const cashReceived = grandTotal - due;
+
+      // 1. UPDATE STATS IN REAL-TIME
+      globalGalla += cashReceived;
+      globalProfit += netProfit;
+      globalStock -= qty;
+      globalUdhaar += due;
+
+      document.getElementById('stat-galla').innerText = `₹${globalGalla.toLocaleString('en-IN')}`;
+      document.getElementById('stat-profit').innerText = `₹${globalProfit.toLocaleString('en-IN')}`;
+      document.getElementById('stat-stock').innerText = `${globalStock} पोती उरली`;
+      document.getElementById('stat-udhaar').innerText = `₹${globalUdhaar.toLocaleString('en-IN')}`;
+      document.getElementById('godown-shop-stock').innerText = `${globalStock} पोती उरली`;
+      document.getElementById('rec-exp-val').innerText = `₹${globalGalla.toLocaleString('en-IN')}`;
+
+      // 2. TRIGGER SOUNDBOX
+      triggerSoundbox(cashReceived);
+
+      // 3. DISPATCH WHATSAPP BILL
+      const msg = `🧾 *कर बीजक / पावती (Tax Invoice)*\n\nनमस्कार *${name}*,\n• खरेदी: 10 Bag Cement\n• एकूण बिल (GST सह): *₹${grandTotal}*\n• रोख जमा: *₹${cashReceived}*\n• उधारी बाकी: *₹${due}*\n\n⭐ रिवॉर्ड पॉईंट्स: +${Math.round(grandTotal/100)}\n_DnyanX Connected Empire OS_`;
+      
+      setTimeout(() => {
+        window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+      }, 800);
+    }
+
+    function triggerSoundbox(amt) {
+      const text = `ज्ञान एक्स पे वर ${amt} रुपये प्राप्त झाले.`;
       if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(textToSpeak);
-        utterance.lang = 'mr-IN';
-        utterance.rate = 0.95;
-        window.speechSynthesis.speak(utterance);
-      } else {
-        alert(`🔊 [Soundbox]: "${textToSpeak}"`);
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'mr-IN';
+        u.rate = 0.95;
+        window.speechSynthesis.speak(u);
       }
     }
 
-    // Voice Entry
+    function autoGenerateSupplierPO() {
+      const msg = `📋 *कच्चा माल खरेदी ऑर्डर (Purchase Order - PO)*\n\nसप्लायर: *अंबुजा सिमेंट सप्लायर्स*\nऑर्डर तपशील: *100 पोती सिमेंट (50kg)*\nडिलिव्हरी: चाकण मुख्य गोडाऊन\n\nकृपया त्वरित पाठवून द्यावे.\n_राधे हार्डवेअर_`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function executeReconciliationCheck() {
+      const exp = globalGalla;
+      const act = Number(document.getElementById('rec-act-val').value);
+      const diff = act - exp;
+      if (diff < 0) {
+        alert(`🚨 सुरक्षा अलर्ट (कॅश गळती)!\n\nगल्ल्यात ₹${Math.abs(diff)} कमी भरले आहेत!\nमालकाच्या WhatsApp वर तात्काळ सिक्युरिटी अलर्ट गेला.`);
+      } else {
+        alert(`✅ कॅश हिशोब १००% तंतोतंत जुळला! (₹${act})`);
+      }
+    }
+
+    function triggerVoiceAssistantReply() {
+      const reply = `आजचा एकूण गल्ला ${globalGalla} रुपये आहे, एकूण नफा ${globalProfit} रुपये झाला आहे आणि सिमेंटचा साठा ${globalStock} गोण्या उरला आहे.`;
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(reply);
+        u.lang = 'mr-IN';
+        window.speechSynthesis.speak(u);
+      } else {
+        alert(reply);
+      }
+    }
+
     function startVoiceInput() {
-      triggerHapticFeedback('medium');
       if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
         alert('व्हॉईस इनपुटसाठी Chrome वापरा!');
         return;
       }
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
-      recognition.lang = 'mr-IN';
+      const r = new SpeechRecognition();
+      r.lang = 'mr-IN';
       document.getElementById('voice-btn-text').innerText = '🎙️ ऐकत आहे...';
-
-      recognition.onresult = (e) => {
-        const spoken = e.results[0][0].transcript;
-        document.getElementById('voice-btn-text').innerText = '🎙️ AI व्हॉईस एन्ट्री';
-        alert(`🎙️ AI व्हॉईस नोंद झाली:\n"${spoken}"\n\nडेटा थेट डॅशबोर्डमध्ये सेव्ह झाला!`);
+      r.onresult = (e) => {
+        const s = e.results[0][0].transcript;
+        document.getElementById('voice-btn-text').innerText = '🎙️ AI व्हॉईस';
+        alert(`🎙️ AI व्हॉईस नोंद झाली: "${s}"\n\nडेटा थेट कनेक्टेड बिलिंगमध्ये अपडेट झाला!`);
       };
-      recognition.onerror = () => { document.getElementById('voice-btn-text').innerText = '🎙️ AI व्हॉईस एन्ट्री'; };
-      recognition.start();
+      r.onerror = () => { document.getElementById('voice-btn-text').innerText = '🎙️ AI व्हॉईस'; };
+      r.start();
     }
 
-    // Marathi PDF Invoice
     function downloadMarathiPDF() {
-      triggerHapticFeedback('heavy');
-      celebratePayment();
-      try {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.setFillColor(15, 23, 42);
-        doc.rect(0, 0, 210, 35, 'F');
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(20);
-        doc.text("TAX INVOICE / कर पावती", 14, 20);
-        doc.setFontSize(10);
-        doc.text("Radhe Hardware & Suppliers • GSTIN: 27AABCU9603R1ZM", 14, 28);
-        doc.setTextColor(30, 41, 59);
-        doc.setFontSize(11);
-        doc.text("Customer Name: Rahul Patil", 14, 48);
-        doc.text("Description: 10 Bag UltraTech Cement + 50kg Steel", 14, 58);
-        doc.text("Total Bill: Rs. 7,250", 14, 70);
-        doc.setTextColor(225, 29, 72);
-        doc.text("Udhaar Balance Due: Rs. 1,250", 14, 80);
-        doc.save(`Marathi_Tax_Invoice_${Date.now()}.pdf`);
-      } catch (err) {
-        console.error('PDF error:', err);
-      }
+      celebrate();
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFillColor(15, 23, 42);
+      doc.rect(0, 0, 210, 35, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(20);
+      doc.text("TAX INVOICE / कर पावती", 14, 20);
+      doc.setFontSize(10);
+      doc.text("Radhe Hardware & Suppliers • GSTIN: 27AABCU9603R1ZM", 14, 28);
+      doc.setTextColor(30, 41, 59);
+      doc.setFontSize(11);
+      doc.text("Customer: Rahul Patil", 14, 48);
+      doc.text("Description: 10 Bag UltraTech Cement (50kg)", 14, 58);
+      doc.text("Total Amount (with 18% GST): Rs. 4,543", 14, 70);
+      doc.text("Cash Paid: Rs. 3,543 | Udhaar Balance: Rs. 1,000", 14, 80);
+      doc.save(`Connected_Tax_Invoice_${Date.now()}.pdf`);
     }
 
-    // Filter Sprint
-    function filterSprint(sprint) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.className = 'tab-btn px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium');
-      event.target.className = 'tab-btn px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-bold';
-
-      const cards = document.querySelectorAll('.module-card');
-      cards.forEach(c => {
-        if (sprint === 'all') {
-          c.classList.remove('hidden');
-        } else if (c.classList.contains(`sprint-${sprint}`)) {
-          c.classList.remove('hidden');
-        } else {
-          c.classList.add('hidden');
-        }
-      });
-    }
-
-    function testWhatsAppBot() {
-      const q = document.getElementById('wa-test-query').value;
-      const box = document.getElementById('wa-bot-reply');
-      box.classList.remove('hidden');
-      box.innerHTML = `🤖 <b>बॉट रिप्लाय:</b> नमस्कार! अल्ट्राटेक सिमेंट ₹385/गोणी व TMT सळया ₹68/kg आहे. ऑर्डरसाठी /store/radhe-hardware उघडा.`;
-    }
-
-    function testLowStockAlert() {
-      alert('⚠️ Low Stock Alert:\nसिमेंटचा साठा फक्त १५ गोणी उरला आहे! सप्लायरला PO पाठवा.');
-    }
-
-    function testBirthdayWishes() {
-      alert('🎂 Birthday Engine:\nआज वाढदिवस असणाऱ्या ३ ग्राहकांना WhatsApp वर १०% डिस्काउंट कूपन पाठवले गेले!');
-    }
-
-    function triggerEODReport() {
-      alert('📊 दैनिक AI अहवाल:\nआजचा एकूण गल्ला: ₹38,950\nएकूण खर्च: ₹1,150\nआजचा निव्वळ नफा: ₹8,400');
-    }
-
-    function calcMargin() {
-      const c = Number(document.getElementById('mp-cost').value);
-      const s = Number(document.getElementById('mp-sell').value);
-      const p = s - c;
-      const m = ((p / s) * 100).toFixed(1);
-      document.getElementById('mp-out').innerText = `शुद्ध नफा: ₹${p} (${m}% मार्जिन)`;
-    }
-
-    function testReconcile() {
-      const exp = Number(document.getElementById('rec-exp').value);
-      const act = Number(document.getElementById('rec-act').value);
-      const diff = act - exp;
-      if (diff < 0) {
-        alert(`🚨 सुरक्षा अलर्ट! गल्ल्यात ₹${Math.abs(diff)} कमी भरले आहेत!\nमालकाच्या WhatsApp वर सिक्युरिटी अलर्ट गेला.`);
-      } else {
-        alert('✅ कॅश हिशोब १००% जुळला!');
-      }
-      closeModal('modal-reconciliation');
-    }
-
-    function shareEmpireProposal() {
-      const text = `👑 *25-in-1 Business Empire OS (Special Offer)* 🚀\n\n1️⃣ ई-कॉमर्स ऑनलाईन दुकान\n2️⃣ स्मार्ट बिलिंग & मराठी PDF पावती\n3️⃣ इन-ॲप UPI साऊंडबॉक्स\n4️⃣ चोरी प्रतिबंधक कॅश क्लोजर\n5️⃣ WhatsApp EMI रिमाइंडर्स\n6️⃣ B2B नफा मार्जिन ट्रॅकर\n7️⃣ CRM Bulk रीमार्केटिंग\n\n💰 *एकूण मूल्य:* ~₹50,000~\n💥 *स्पेशल ऑफर:* *फक्त ₹24,999/-*\n_DnyanX Tech Solutions_`;
-      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-    }
-
-    function openModal(id) { triggerHapticFeedback('light'); const el = document.getElementById(id); if (el) { el.classList.remove('hidden'); el.classList.add('flex'); } }
-    function closeModal(id) { triggerHapticFeedback('light'); const el = document.getElementById(id); if (el) { el.classList.add('hidden'); el.classList.remove('flex'); } }
-    function triggerHapticFeedback(p) { if (!window.navigator || !window.navigator.vibrate) return; if (p === 'light') window.navigator.vibrate(15); else if (p === 'medium') window.navigator.vibrate([20, 30, 20]); else if (p === 'heavy') window.navigator.vibrate([30, 50, 40, 60]); }
-    function celebratePayment() { if (typeof confetti === 'function') confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } }); }
+    function celebrate() { if (typeof confetti === 'function') confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } }); }
   </script>
 </body>
 </html>
