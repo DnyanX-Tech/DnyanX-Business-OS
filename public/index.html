@@ -23,7 +23,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
@@ -49,7 +49,7 @@
     body {
       background-color: var(--bg-base);
       color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
     .glass-card {
@@ -65,6 +65,13 @@
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: .5; }
+    }
+    .scan-laser {
+      animation: scanLaser 2s linear infinite alternate;
+    }
+    @keyframes scanLaser {
+      0% { top: 10%; }
+      100% { top: 85%; }
     }
   </style>
 </head>
@@ -90,23 +97,28 @@
             <h1 class="font-black text-base sm:text-lg tracking-tight text-white">50-in-1 Unified Connected Business OS</h1>
             <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 synced-badge"></span>
-              All 50 Modules Connected
+              Sprint 2 Super-Suite Active
             </span>
           </div>
-          <p class="text-xs text-slate-400">१ ॲक्शन = बिलिंग, स्टॉक, साऊंडबॉक्स, नफा व GST सिंक!</p>
+          <p class="text-xs text-slate-400">१ ॲक्शन = UPI Gateway, बारकोड स्कॅनर, फेशिअल हजेरी & Vendor PO सिंक!</p>
         </div>
       </div>
 
-      <!-- Quick Theme & Assistant Tools -->
-      <div class="flex items-center gap-2">
-        <button onclick="startVoiceInput()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
-          <i class="fa-solid fa-microphone text-xs"></i>
-          <span id="voice-btn-text" class="hidden sm:inline">🎙️ AI व्हॉईस</span>
+      <!-- Quick Action Tools (Sprint 2 Superpowers) -->
+      <div class="flex items-center gap-2 flex-wrap justify-end">
+        <button onclick="openModal('modal-upi-gateway')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
+          <i class="fa-solid fa-qrcode text-xs"></i>
+          <span>💳 Dynamic UPI QR</span>
         </button>
 
-        <button onclick="triggerSoundbox(100)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
-          <i class="fa-solid fa-volume-high text-xs"></i>
-          <span class="hidden sm:inline">🔊 Soundbox</span>
+        <button onclick="openModal('modal-barcode-scanner')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
+          <i class="fa-solid fa-barcode text-xs"></i>
+          <span>📸 बारकोड स्कॅनर</span>
+        </button>
+
+        <button onclick="openModal('modal-facial-attendance')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-md active:scale-95 transition">
+          <i class="fa-solid fa-user-astronaut text-xs"></i>
+          <span>👤 चेहरा हजेरी</span>
         </button>
 
         <button onclick="downloadMarathiPDF()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold active:scale-95 transition">
@@ -156,12 +168,16 @@
         
         <!-- THE CONNECTED BILLING ENGINE -->
         <div class="glass-card rounded-3xl p-6 shadow-2xl space-y-4 border-2 border-emerald-500/30">
-          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3 flex-wrap gap-2">
             <h3 class="text-base font-bold text-white flex items-center gap-2">
               <i class="fa-solid fa-bolt text-emerald-400"></i>
               <span>१-क्लिक कनेक्टेड बिलिंग इंजिन (Master Chain Reaction)</span>
             </h3>
-            <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">All-in-One Trigger</span>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="openModal('modal-barcode-scanner')" class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold flex items-center gap-1">
+                <i class="fa-solid fa-barcode"></i> स्कॅन आयटम
+              </button>
+            </div>
           </div>
 
           <form onsubmit="executeConnectedBilling(event)" class="space-y-3.5 text-xs">
@@ -184,6 +200,7 @@
                   <option value="cement" data-buy="320" data-sell="385" data-stock="15">अल्ट्राटेक सिमेंट 50kg (स्टॉक: 15 पोती)</option>
                   <option value="steel" data-buy="58" data-sell="68" data-stock="500">TMT स्टील 12mm (स्टॉक: 500 kg)</option>
                   <option value="paint" data-buy="1800" data-sell="2400" data-stock="8">एशियन पेंट्स २० लिटर (स्टॉक: 8 बादल्या)</option>
+                  <option value="drfixit" data-buy="750" data-sell="980" data-stock="22">डॉ. फिक्सिट डॅम्पप्रूफ 5L (स्टॉक: 22 कॅन)</option>
                 </select>
               </div>
               <div>
@@ -213,13 +230,18 @@
             </div>
 
             <!-- Interconnected Calculation Output -->
-            <div class="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-950/40 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <div class="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-950/40 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
                 <span class="text-slate-400 text-xs block">एकूण देय बिल (Grand Total with GST):</span>
                 <span id="out-grand-total" class="text-xl font-black text-emerald-400 font-mono">₹४,५४३</span>
                 <span id="out-profit-tag" class="text-[11px] text-cyan-400 block mt-0.5">नफा: ₹६५० • रिवॉर्ड: +४५ पॉईंट्स</span>
               </div>
               <div class="flex items-center gap-2 w-full sm:w-auto">
+                <button type="button" onclick="openUpiPaymentForCurrentBill()" class="px-4 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-lg flex items-center justify-center gap-1.5 active:scale-95 transition">
+                  <i class="fa-solid fa-qrcode"></i>
+                  <span>UPI QR</span>
+                </button>
+
                 <button type="submit" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-xs shadow-xl flex items-center justify-center gap-2 active:scale-95 transition">
                   <i class="fa-solid fa-circle-check text-base"></i>
                   <span>बिल कन्फर्म करा (Trigger All Chain) 🚀</span>
@@ -229,37 +251,49 @@
           </form>
         </div>
 
-        <!-- CHAIN REACTION VISUALIZER (WHAT HAPPENS ON 1 CLICK) -->
-        <div class="glass-card rounded-3xl p-5 space-y-3">
-          <h4 class="font-bold text-white text-xs uppercase tracking-wider text-slate-400 flex items-center gap-2 border-b border-white/10 pb-2">
-            <i class="fa-solid fa-network-wired text-cyan-400"></i>
-            <span>१ बिलामुळे एकाच क्षणात होणाऱ्या ७ स्वयंचलित क्रिया (Chain Actions)</span>
-          </h4>
+        <!-- SPRINT 2 SUPERPOWERS OVERVIEW -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <!-- 1. UPI Gateway Card -->
+          <div class="glass-card rounded-2xl p-4 border border-cyan-500/30 flex items-start gap-3 cursor-pointer hover:border-cyan-400 transition" onclick="openModal('modal-upi-gateway')">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg font-bold">
+              💳
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Dynamic UPI Deep-Linking</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">GPay, PhonePe, Paytm साठी ऑटोमॅटिक QR कोड व साऊंडबॉक्स सिंक.</p>
+            </div>
+          </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
-            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
-              <span class="text-emerald-400 text-base">1️⃣</span>
-              <span><b>साऊंडबॉक्स:</b> मराठीत बोलेल ("ज्ञान एक्स पे वर...")</span>
+          <!-- 2. Barcode Scanner Card -->
+          <div class="glass-card rounded-2xl p-4 border border-amber-500/30 flex items-start gap-3 cursor-pointer hover:border-amber-400 transition" onclick="openModal('modal-barcode-scanner')">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg font-bold">
+              📸
             </div>
-            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
-              <span class="text-emerald-400 text-base">2️⃣</span>
-              <span><b>स्टॉक अपडेट:</b> गोडाऊनमधून १० गोण्या वजा</span>
+            <div>
+              <h4 class="font-bold text-white text-sm">ML Barcode & QR Scanner</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">कॅमेरा स्कॅन करून १ सेकंदात प्रॉडक्टचे दर व स्टॉक बिलात जोडा.</p>
             </div>
-            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
-              <span class="text-emerald-400 text-base">3️⃣</span>
-              <span><b>गल्ला सिंक:</b> रोजच्या हिशोबात ₹३,५४३ रोख जमा</span>
+          </div>
+
+          <!-- 3. Facial Attendance Card -->
+          <div class="glass-card rounded-2xl p-4 border border-purple-500/30 flex items-start gap-3 cursor-pointer hover:border-purple-400 transition" onclick="openModal('modal-facial-attendance')">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg font-bold">
+              👤
             </div>
-            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
-              <span class="text-emerald-400 text-base">4️⃣</span>
-              <span><b>B2B नफा:</b> ₹६५० शुद्ध नफ्याची स्वतंत्र नोंद</span>
+            <div>
+              <h4 class="font-bold text-white text-sm">AI Facial Recognition</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">चेहरा स्कॅन करून स्टाफची इन/आऊट हजेरी व पगार ट्रॅकिंग.</p>
             </div>
-            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
-              <span class="text-emerald-400 text-base">5️⃣</span>
-              <span><b>उधारी व EMI:</b> ₹१,००० उधारी खात्यावर नोंद</span>
+          </div>
+
+          <!-- 4. Vendor PO Card -->
+          <div class="glass-card rounded-2xl p-4 border border-indigo-500/30 flex items-start gap-3 cursor-pointer hover:border-indigo-400 transition" onclick="openModal('modal-vendor-po')">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-lg font-bold">
+              📋
             </div>
-            <div class="p-2.5 rounded-xl bg-black/40 border border-white/10 flex items-center gap-2 text-slate-300">
-              <span class="text-emerald-400 text-base">6️⃣</span>
-              <span><b>WhatsApp पावती:</b> ग्राहकाला थेट PDF बिल पाठवले</span>
+            <div>
+              <h4 class="font-bold text-white text-sm">1-Click Vendor PO Builder</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">कच्चा माल सप्लायरला WhatsApp वर थेट अधिकृत PO पाठवा.</p>
             </div>
           </div>
         </div>
@@ -290,7 +324,7 @@
             </div>
           </div>
 
-          <button onclick="autoGenerateSupplierPO()" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl flex items-center justify-center gap-1.5">
+          <button onclick="openModal('modal-vendor-po')" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl flex items-center justify-center gap-1.5">
             <i class="fa-solid fa-paper-plane"></i>
             <span>अंबुजा सप्लायर्सला १०० गोणींची PO ऑर्डर पाठवा 📋</span>
           </button>
@@ -337,6 +371,159 @@
 
   </main>
 
+  <!-- ========================================== -->
+  <!-- SPRINT 2 INTERACTIVE MODALS -->
+  <!-- ========================================== -->
+
+  <!-- 1. DYNAMIC UPI DEEP-LINKING MODAL -->
+  <div id="modal-upi-gateway" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-sm w-full p-6 rounded-3xl space-y-4 border border-cyan-500/40 text-center">
+      <div class="flex justify-between items-center border-b border-white/10 pb-2">
+        <h3 class="font-bold text-white text-base">💳 Dynamic UPI QR Code</h3>
+        <button onclick="closeModal('modal-upi-gateway')" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <div class="bg-white p-3 rounded-2xl inline-block shadow-xl">
+        <img id="upi-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=radhehardware@okaxis%26pn=Radhe%20Hardware%26am=4543%26cu=INR" alt="UPI QR" class="w-48 h-48 mx-auto">
+      </div>
+
+      <div>
+        <span class="text-xs text-slate-400">एकूण देय रक्कम:</span>
+        <h2 id="upi-modal-amt" class="text-2xl font-black text-cyan-400 font-mono">₹४,५४३</h2>
+        <span class="text-[11px] text-slate-400">VPA: radhehardware@okaxis</span>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 text-[10px]">
+        <button onclick="simulateUpiPayment()" class="p-2 bg-emerald-600/30 hover:bg-emerald-600 border border-emerald-500/40 rounded-xl font-bold text-emerald-400 hover:text-white">GPay</button>
+        <button onclick="simulateUpiPayment()" class="p-2 bg-indigo-600/30 hover:bg-indigo-600 border border-indigo-500/40 rounded-xl font-bold text-indigo-400 hover:text-white">PhonePe</button>
+        <button onclick="simulateUpiPayment()" class="p-2 bg-sky-600/30 hover:bg-sky-600 border border-sky-500/40 rounded-xl font-bold text-sky-400 hover:text-white">Paytm</button>
+      </div>
+
+      <button onclick="simulateUpiPayment()" class="w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black rounded-xl text-xs shadow-lg">
+        ✅ पेमेंट प्राप्त झाले (Simulate Webhook & Speak) 🔊
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. HIGH-SPEED BARCODE & QR SCANNER MODAL -->
+  <div id="modal-barcode-scanner" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl space-y-4 border border-amber-500/40">
+      <div class="flex justify-between items-center border-b border-white/10 pb-2">
+        <h3 class="font-bold text-white text-base">📸 ML Barcode & QR Scanner</h3>
+        <button onclick="closeModal('modal-barcode-scanner')" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <!-- Live Viewfinder with laser -->
+      <div class="relative w-full h-48 bg-slate-950 rounded-2xl border-2 border-dashed border-amber-500/40 overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-x-4 h-0.5 bg-rose-500 scan-laser shadow-lg shadow-rose-500/50"></div>
+        <div class="text-center space-y-1">
+          <i class="fa-solid fa-camera text-3xl text-amber-400"></i>
+          <p class="text-xs text-slate-400">कॅमेऱ्यासमोर बारकोड किंवा QR कोड धरा...</p>
+        </div>
+      </div>
+
+      <!-- Quick Simulate Buttons -->
+      <div class="space-y-1.5 text-xs">
+        <span class="text-slate-400 font-bold block">त्वरित टेस्ट करण्यासाठी बारकोड निवडा:</span>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="scanBarcodeDirect('8901234567890')" class="p-2 bg-black/40 hover:bg-amber-600/30 border border-white/10 rounded-xl text-left">
+            <b class="text-amber-400 block">सिमेंट 50kg</b>
+            <span class="text-[10px] text-slate-400">Code: 8901234567890</span>
+          </button>
+          <button onclick="scanBarcodeDirect('8909876543210')" class="p-2 bg-black/40 hover:bg-amber-600/30 border border-white/10 rounded-xl text-left">
+            <b class="text-amber-400 block">TMT स्टील 12mm</b>
+            <span class="text-[10px] text-slate-400">Code: 8909876543210</span>
+          </button>
+          <button onclick="scanBarcodeDirect('8905554443322')" class="p-2 bg-black/40 hover:bg-amber-600/30 border border-white/10 rounded-xl text-left">
+            <b class="text-amber-400 block">एशियन पेंट्स 20L</b>
+            <span class="text-[10px] text-slate-400">Code: 8905554443322</span>
+          </button>
+          <button onclick="scanBarcodeDirect('8901112223334')" class="p-2 bg-black/40 hover:bg-amber-600/30 border border-white/10 rounded-xl text-left">
+            <b class="text-amber-400 block">डॉ. फिक्सिट 5L</b>
+            <span class="text-[10px] text-slate-400">Code: 8901112223334</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. AI FACIAL ATTENDANCE MODAL -->
+  <div id="modal-facial-attendance" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl space-y-4 border border-purple-500/40 text-center">
+      <div class="flex justify-between items-center border-b border-white/10 pb-2">
+        <h3 class="font-bold text-white text-base">👤 AI Facial Recognition Attendance</h3>
+        <button onclick="closeModal('modal-facial-attendance')" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <div class="relative w-48 h-48 mx-auto bg-slate-950 rounded-full border-4 border-purple-500/40 overflow-hidden flex items-center justify-center shadow-2xl">
+        <div class="absolute inset-x-2 h-0.5 bg-cyan-400 scan-laser shadow-lg shadow-cyan-400"></div>
+        <i class="fa-solid fa-face-smile text-6xl text-purple-400"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h4 id="face-staff-name" class="font-black text-lg text-white">कर्मचारी: सचिन सावंत (EMP-102)</h4>
+        <p id="face-status-text" class="text-xs text-purple-300">बायोमेट्रिक स्कॅन पूर्ण: 98.6% अचूकता</p>
+      </div>
+
+      <div class="p-3 bg-black/40 rounded-2xl border border-white/10 text-xs text-left grid grid-cols-2 gap-2">
+        <div>
+          <span class="text-slate-400 block">दैनिक वेतन (Daily Wage):</span>
+          <b class="text-emerald-400">₹६५० / दिवस</b>
+        </div>
+        <div>
+          <span class="text-slate-400 block">ओव्हरटाईम (Overtime):</span>
+          <b class="text-cyan-400">१.५ तास (₹१४०)</b>
+        </div>
+      </div>
+
+      <button onclick="markFacialAttendance()" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl text-xs shadow-lg">
+        ✅ उपस्थिती नोंदवा (Mark Attendance & WhatsApp Alert)
+      </button>
+    </div>
+  </div>
+
+  <!-- 4. 1-CLICK VENDOR PO MODAL -->
+  <div id="modal-vendor-po" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full p-6 rounded-3xl space-y-4 border border-indigo-500/40">
+      <div class="flex justify-between items-center border-b border-white/10 pb-2">
+        <h3 class="font-bold text-white text-base">📋 1-Click Vendor Purchase Order (PO)</h3>
+        <button onclick="closeModal('modal-vendor-po')" class="text-slate-400 hover:text-white text-lg">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">सप्लायर / पुरवठादार (Vendor)</label>
+          <select id="po-vendor" class="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/10 text-white">
+            <option value="ambuja">अंबुजा सिमेंट & सप्लायर्स (चाकण डेपो)</option>
+            <option value="tatasteel">टाटा टिस्कॉन स्टील डीलर (पुणे)</option>
+            <option value="asianpaints">एशियन पेंट्स सेंट्रल गोडाऊन</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">साहित्य (Item)</label>
+            <input id="po-item" type="text" value="अल्ट्राटेक सिमेंट 50kg" class="w-full p-2 bg-black/40 rounded-xl border border-white/10 text-white font-medium">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-300 mb-1">मागवायचा साठा (Quantity)</label>
+            <input id="po-qty" type="text" value="100 पोती" class="w-full p-2 bg-black/40 rounded-xl border border-white/10 text-emerald-400 font-bold font-mono">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">डिलिव्हरी पत्ता</label>
+          <input id="po-loc" type="text" value="चाकण मुख्य गोडाऊन, आळंदी रोड, पुणे - 410501" class="w-full p-2 bg-black/40 rounded-xl border border-white/10 text-slate-300">
+        </div>
+      </div>
+
+      <button onclick="dispatchVendorPO()" class="w-full py-3 bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-500 hover:to-blue-400 text-white font-bold rounded-2xl text-xs shadow-xl flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>सप्लायरला WhatsApp वर अधिकृत PO पाठवा 🚀</span>
+      </button>
+    </div>
+  </div>
+
   <!-- One-Thumb Bottom Navigation -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-white/10 px-4 py-2 sm:hidden">
     <div class="flex items-center justify-around">
@@ -368,12 +555,28 @@
     </div>
   </nav>
 
-  <!-- SCRIPT LOGIC FOR FULL CHAIN REACTION -->
+  <!-- SCRIPT LOGIC FOR SPRINT 2 CONNECTED ENGINE -->
   <script>
     let globalGalla = 38950;
     let globalProfit = 8400;
     let globalStock = 15;
     let globalUdhaar = 12500;
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.classList.add('flex');
+      }
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      }
+    }
 
     function autoFillItemRates() {
       const select = document.getElementById('in-item');
@@ -409,7 +612,7 @@
       document.getElementById('out-profit-tag').innerText = `नफा: ₹${netProfit.toLocaleString('en-IN')} • रिवॉर्ड: +${rewardPts} पॉईंट्स`;
     }
 
-    // THE FULL CONNECTED MASTER TRIGGER
+    // MASTER CHECKOUT
     function executeConnectedBilling(e) {
       e.preventDefault();
       celebrate();
@@ -424,7 +627,6 @@
       const netProfit = sell - Number(document.getElementById('in-cost').value);
       const cashReceived = grandTotal - due;
 
-      // 1. UPDATE STATS IN REAL-TIME
       globalGalla += cashReceived;
       globalProfit += netProfit;
       globalStock -= qty;
@@ -437,15 +639,70 @@
       document.getElementById('godown-shop-stock').innerText = `${globalStock} पोती उरली`;
       document.getElementById('rec-exp-val').innerText = `₹${globalGalla.toLocaleString('en-IN')}`;
 
-      // 2. TRIGGER SOUNDBOX
       triggerSoundbox(cashReceived);
 
-      // 3. DISPATCH WHATSAPP BILL
       const msg = `🧾 *कर बीजक / पावती (Tax Invoice)*\n\nनमस्कार *${name}*,\n• खरेदी: 10 Bag Cement\n• एकूण बिल (GST सह): *₹${grandTotal}*\n• रोख जमा: *₹${cashReceived}*\n• उधारी बाकी: *₹${due}*\n\n⭐ रिवॉर्ड पॉईंट्स: +${Math.round(grandTotal/100)}\n_DnyanX Connected Empire OS_`;
       
       setTimeout(() => {
         window.open(`https://wa.me/91${phone}?text=${encodeURIComponent(msg)}`, '_blank');
       }, 800);
+    }
+
+    // 1. DYNAMIC UPI DEEP LINKING
+    function openUpiPaymentForCurrentBill() {
+      const total = document.getElementById('out-grand-total').innerText;
+      document.getElementById('upi-modal-amt').innerText = total;
+      openModal('modal-upi-gateway');
+    }
+
+    function simulateUpiPayment() {
+      celebrate();
+      closeModal('modal-upi-gateway');
+      triggerSoundbox(4543);
+      alert('✅ UPI पेमेंट ₹4,543 यशस्वी झाले!\nसाऊंडबॉक्सने मराठीत पुष्टी दिली आणि गल्ल्यात नोंद झाली.');
+    }
+
+    // 2. BARCODE RAPID LOOKUP
+    function scanBarcodeDirect(code) {
+      closeModal('modal-barcode-scanner');
+      celebrate();
+      if (code === '8901234567890') {
+        document.getElementById('in-item').value = 'cement';
+      } else if (code === '8909876543210') {
+        document.getElementById('in-item').value = 'steel';
+      } else if (code === '8905554443322') {
+        document.getElementById('in-item').value = 'paint';
+      } else if (code === '8901112223334') {
+        document.getElementById('in-item').value = 'drfixit';
+      }
+      autoFillItemRates();
+      alert(`📸 बारकोड [${code}] यशस्वीरित्या स्कॅन झाला आणि बिलात ॲड झाला!`);
+    }
+
+    // 3. FACIAL ATTENDANCE
+    function markFacialAttendance() {
+      celebrate();
+      closeModal('modal-facial-attendance');
+      const text = `सचिन सावंत यांची हजेरी नोंदवली गेली. दैनिक वेतन साडेसहाशे रुपये.`;
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'mr-IN';
+        window.speechSynthesis.speak(u);
+      }
+      alert('✅ बायोमेट्रिक चेहरा हजेरी यशस्वी!\nसचिन सावंत (EMP-102) यांची हजेरी व पगार ट्रॅकरमध्ये नोंद झाली.');
+    }
+
+    // 4. VENDOR PO DISPATCH
+    function dispatchVendorPO() {
+      celebrate();
+      closeModal('modal-vendor-po');
+      const vendor = document.getElementById('po-vendor').value;
+      const item = document.getElementById('po-item').value;
+      const qty = document.getElementById('po-qty').value;
+      const loc = document.getElementById('po-loc').value;
+
+      const msg = `📋 *कच्चा माल खरेदी ऑर्डर (Purchase Order - PO)*\n\nसप्लायर: *${vendor}*\nमागवलेले साहित्य: *${item} (${qty})*\n📍 डिलिव्हरी पत्ता: *${loc}*\n\nकृपया त्वरित खात्री करावी.\n_राधे हार्डवेअर & सप्लायर्स • DnyanX OS_`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function triggerSoundbox(amt) {
@@ -456,11 +713,6 @@
         u.rate = 0.95;
         window.speechSynthesis.speak(u);
       }
-    }
-
-    function autoGenerateSupplierPO() {
-      const msg = `📋 *कच्चा माल खरेदी ऑर्डर (Purchase Order - PO)*\n\nसप्लायर: *अंबुजा सिमेंट सप्लायर्स*\nऑर्डर तपशील: *100 पोती सिमेंट (50kg)*\nडिलिव्हरी: चाकण मुख्य गोडाऊन\n\nकृपया त्वरित पाठवून द्यावे.\n_राधे हार्डवेअर_`;
-      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function executeReconciliationCheck() {
@@ -493,20 +745,16 @@
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const r = new SpeechRecognition();
       r.lang = 'mr-IN';
-      document.getElementById('voice-btn-text').innerText = '🎙️ ऐकत आहे...';
       r.onresult = (e) => {
         const s = e.results[0][0].transcript;
-        document.getElementById('voice-btn-text').innerText = '🎙️ AI व्हॉईस';
         alert(`🎙️ AI व्हॉईस नोंद झाली: "${s}"\n\nडेटा थेट कनेक्टेड बिलिंगमध्ये अपडेट झाला!`);
       };
-      r.onerror = () => { document.getElementById('voice-btn-text').innerText = '🎙️ AI व्हॉईस'; };
       r.start();
     }
 
     function downloadMarathiPDF() {
       celebrate();
 
-      // Create an offscreen high-resolution Canvas (A4 aspect ratio: 2480 x 3508 at 300 DPI)
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       const width = 1200;
@@ -514,18 +762,15 @@
       canvas.width = width;
       canvas.height = height;
 
-      // Background
       ctx.fillStyle = '#FFFFFF';
       ctx.fillRect(0, 0, width, height);
 
-      // Header Banner
       const grad = ctx.createLinearGradient(0, 0, width, 0);
       grad.addColorStop(0, '#0F172A');
       grad.addColorStop(1, '#1E293B');
       ctx.fillStyle = grad;
       ctx.fillRect(40, 40, width - 80, 160);
 
-      // Header Text (Devanagari Font)
       ctx.fillStyle = '#10B981';
       ctx.font = 'bold 36px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
       ctx.fillText('कर बीजक / कर पावती (TAX INVOICE)', 70, 100);
@@ -538,7 +783,6 @@
       ctx.font = '16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
       ctx.fillText('GSTIN: 27AABCU9603R1ZM | मोबाईल: +91 98234 56789 | चाकण, पुणे - 410501', 70, 172);
 
-      // Invoice Meta Card
       ctx.fillStyle = '#F8FAFC';
       ctx.fillRect(40, 230, width - 80, 120);
       ctx.strokeStyle = '#E2E8F0';
@@ -555,7 +799,6 @@
       ctx.fillText('पत्ता: प्लॉट नं. ४२, आळंदी रोड, चाकण, पुणे', 70, 315);
       ctx.fillText(`दिनांक: ${new Date().toLocaleDateString('mr-IN')}`, 750, 315);
 
-      // Table Header
       ctx.fillStyle = '#0F172A';
       ctx.fillRect(40, 380, width - 80, 50);
 
@@ -568,7 +811,6 @@
       ctx.fillText('GST %', 900, 412);
       ctx.fillText('एकूण रक्कम (₹)', 1020, 412);
 
-      // Table Rows
       const items = [
         { sr: '१', desc: 'अल्ट्राटेक सिमेंट 50kg प्रीमियम', qty: '१० पोती', rate: '₹३८५.००', gst: '१८%', total: '₹४,५४३.००' },
         { sr: '२', desc: 'TMT स्टील बार्स 12mm (५०० kg)', qty: '५०० kg', rate: '₹६८.००', gst: '१८%', total: '₹४०,१२०.००' },
@@ -594,7 +836,6 @@
         y += 50;
       });
 
-      // Total Breakdown Box
       y += 40;
       ctx.fillStyle = '#F1F5F9';
       ctx.fillRect(650, y, 510, 240);
@@ -628,7 +869,6 @@
       ctx.font = 'bold 16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
       ctx.fillText('उधारी बाकी (Balance Due): ₹१०,०००.००', 680, y + 220);
 
-      // Payment & Terms
       ctx.fillStyle = '#0F172A';
       ctx.font = 'bold 18px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
       ctx.fillText('नियम व अटी:', 50, y + 40);
@@ -638,14 +878,12 @@
       ctx.fillText('२. उधारी बिले १५ दिवसांच्या आत भरणे आवश्यक आहे.', 50, y + 95);
       ctx.fillText('३. सर्व वाद पुणे न्यायालयाच्या अखत्यारीत.', 50, y + 120);
 
-      // Digital Sign Stamp
       ctx.fillStyle = '#10B981';
       ctx.fillRect(50, y + 160, 240, 60);
       ctx.fillStyle = '#0F172A';
       ctx.font = 'bold 16px "Noto Sans Devanagari", "Plus Jakarta Sans", sans-serif';
       ctx.fillText('✅ संगणकीकृत अधिकृत पावती', 60, y + 195);
 
-      // Convert Canvas to 100% Crisp Vector PDF
       const imgData = canvas.toDataURL('image/png', 1.0);
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF('p', 'mm', 'a4');
