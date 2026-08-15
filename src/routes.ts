@@ -14,7 +14,7 @@ export const registerRoutes = (): Router => {
   // Core Phase 1 Modules
   router.use('/health', healthRouter);
   router.use('/webhooks/whatsapp', whatsappRouter);
-  router.post('/whatsapp-webhook', handleWebhookEvents); // Direct alias
+  router.post('/whatsapp-webhook', handleWebhookEvents);
 
   // Module 03: 7-Pillar AI Prompt Studio SaaS
   router.use('/prompt', promptRouter);
@@ -28,7 +28,8 @@ export const registerRoutes = (): Router => {
 
   // Module 06: Universal Smart QR & All-in-One Social Automation Hub
   router.use('/hub', hubRouter);
-  router.post('/create-business-hub', createHubHandler); // Direct alias
+  router.post('/create-business-hub', createHubHandler);
+  router.post('/generate-business-kit', createHubHandler); // 5-in-1 Kit Alias
 
   return router;
 };
