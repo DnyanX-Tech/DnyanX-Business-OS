@@ -11,6 +11,7 @@ import { operationsRouter } from './modules/operations/operations.router.js';
 import { crmRouter } from './modules/crm/crm.router.js';
 import { advancedErpRouter } from './modules/erp/advanced.router.js';
 import { empireRouter } from './modules/empire/empire.router.js';
+import { epic50Router } from './modules/epic50/epic50.router.js';
 import { handleWebhookEvents } from './modules/whatsapp/whatsapp.controller.js';
 
 export const registerRoutes = (): Router => {
@@ -50,6 +51,9 @@ export const registerRoutes = (): Router => {
 
   // 25-in-1 Empire Modules: Vendor Ledger, Dead Stock, In-App Soundbox, Anti-Theft Shift, Marathi Invoice
   router.use('/empire', empireRouter);
+
+  // 50-in-1 Enterprise Epics: GST Engine, Facial Attendance, Multi-Godown, AI Predictive, Shop Siri & Franchise
+  router.use('/epic50', epic50Router);
 
   return router;
 };
