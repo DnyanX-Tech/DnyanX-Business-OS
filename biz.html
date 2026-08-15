@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="mr" class="dark h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Smart Business Hub | DnyanX Tech</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background-color: #030712;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+    }
+    .hub-btn {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hub-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 relative overflow-x-hidden">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-[20%] -left-[10%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-30 bg-emerald-500"></div>
+    <div class="absolute -bottom-[20%] -right-[10%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-25 bg-blue-600"></div>
+  </div>
+
+  <main class="relative z-10 w-full max-w-md mx-auto space-y-4 my-auto">
+
+    <!-- Store Profile Header -->
+    <div class="glass-card rounded-3xl p-6 text-center space-y-3 relative overflow-hidden border-2 border-white/10">
+      <div class="w-20 h-20 rounded-3xl bg-gradient-to-tr from-emerald-500 to-cyan-400 mx-auto flex items-center justify-center text-3xl shadow-xl shadow-emerald-500/20">
+        🏪
+      </div>
+      <div>
+        <h1 id="biz-name" class="font-extrabold text-xl text-white">राधे हार्डवेअर & सप्लायर्स</h1>
+        <p id="biz-category" class="text-xs text-slate-400 mt-0.5">सर्व प्रकारचे बांधकाम साहित्य व सेवा</p>
+      </div>
+      <div class="flex items-center justify-center gap-1.5 text-amber-400 text-xs font-bold pt-1">
+        <span>⭐ 4.9 Rating</span>
+        <span class="text-slate-600">•</span>
+        <span class="text-emerald-400">🟢 Verified Merchant</span>
+      </div>
+    </div>
+
+    <!-- Interactive Actions List -->
+    <div class="space-y-2.5">
+      
+      <!-- 1. Smart E-Commerce Web App Storefront -->
+      <a id="link-store" href="/store/radhe-hardware" class="hub-btn glass-card p-4 rounded-2xl flex items-center justify-between border-l-4 border-l-emerald-500 text-emerald-300 hover:bg-emerald-500/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-shop"></i>
+          </div>
+          <div>
+            <h2 class="font-bold text-white text-sm">ऑनलाईन डिजिटल दुकान (Shop Online)</h2>
+            <p class="text-[11px] text-slate-400">प्रॉडक्ट्स निवडा & थेट WhatsApp वर मागवा</p>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-right text-emerald-400 text-xs"></i>
+      </a>
+
+      <!-- 2. WhatsApp Auto-Bot -->
+      <a id="link-whatsapp" href="https://wa.me/919876543210?text=नमस्कार,%20मला%20माहिती%20हवी%20आहे." target="_blank" class="hub-btn glass-card p-4 rounded-2xl flex items-center justify-between border-l-4 border-l-green-500 text-green-300 hover:bg-green-500/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center text-lg">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+          </div>
+          <div>
+            <h2 class="font-bold text-white text-sm">WhatsApp २४/७ चॅट & चौकशी</h2>
+            <p class="text-[11px] text-slate-400">कोटेशन, दरपत्रक आणि तात्काळ मदत</p>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-green-400 text-xs"></i>
+      </a>
+
+      <!-- 3. Google 5-Star Review -->
+      <a id="link-review" href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4" target="_blank" class="hub-btn glass-card p-4 rounded-2xl flex items-center justify-between border-l-4 border-l-amber-500 text-amber-300 hover:bg-amber-500/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-star text-amber-400"></i>
+          </div>
+          <div>
+            <h2 class="font-bold text-white text-sm">गुगल ५-स्टार रिव्ह्यू द्या</h2>
+            <p class="text-[11px] text-slate-400">आमच्या सेवेबद्दल अभिप्राय नोंदवा</p>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-amber-400 text-xs"></i>
+      </a>
+
+      <!-- 4. Instagram -->
+      <a id="link-instagram" href="https://instagram.com/dnyanx.tech" target="_blank" class="hub-btn glass-card p-4 rounded-2xl flex items-center justify-between border-l-4 border-l-pink-500 text-pink-300 hover:bg-pink-500/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-lg">
+            <i class="fa-brands fa-instagram text-xl"></i>
+          </div>
+          <div>
+            <h2 class="font-bold text-white text-sm">इन्स्टाग्राम रील्स & ऑफर्स</h2>
+            <p class="text-[11px] text-slate-400">नवीन स्टॉक आणि व्हिडिओ अपडेट्स</p>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-pink-400 text-xs"></i>
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center pt-2 text-slate-500 text-xs">
+      <p>Powered by <span class="text-emerald-400 font-bold">DnyanX 6-in-1 Business OS</span></p>
+    </div>
+
+  </main>
+
+  <script>
+    const pathParts = window.location.pathname.split('/');
+    const slug = pathParts[pathParts.length - 1] || 'radhe-hardware';
+    const storeLink = document.getElementById('link-store');
+    if (storeLink) storeLink.href = `/store/${slug}`;
+  </script>
+</body>
+</html>

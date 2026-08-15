@@ -1,10 +1,11 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/**"
+    }
+  },
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
     {
       "source": "/store/:slug",
       "destination": "/store.html"

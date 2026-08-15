@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="mr" class="dark h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>स्मार्ट डिजिटल दुकान | ज्ञानX Digital Dukan</title>
+  <meta name="description" content="ऑल-इन-वन मोबाईल ई-कॉमर्स दुकान: प्रॉडक्ट्स निवडा आणि थेट व्हॉट्सॲपवर ऑर्डर द्या!">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background-color: #030712;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+    }
+    .product-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .product-card:active {
+      transform: scale(0.98);
+    }
+    .bottom-dock {
+      padding-bottom: max(env(safe-area-inset-bottom), 14px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden pb-24">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-32 -left-20 w-80 h-80 bg-emerald-500/15 rounded-full blur-[100px]"></div>
+    <div class="absolute top-1/2 -right-20 w-80 h-80 bg-cyan-500/15 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Store Header -->
+  <header class="glass-panel sticky top-0 z-40 px-4 sm:px-6 py-3.5 border-b border-white/10">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+      
+      <div class="flex items-center gap-3">
+        <a href="/" class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-400 flex items-center justify-center font-black text-slate-950 text-lg shadow-lg shadow-emerald-500/20">
+          🏪
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 id="store-title" class="font-extrabold text-base sm:text-lg text-white">राधे हार्डवेअर & सप्लायर्स</h1>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Live Shop</span>
+          </div>
+          <p id="store-tagline" class="text-xs text-slate-400">सर्व प्रकारचे बांधकाम साहित्य व टूल्स • चाकण, पुणे</p>
+        </div>
+      </div>
+
+      <!-- Quick Cart Button -->
+      <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 flex items-center gap-2 active:scale-95 transition">
+        <i class="fa-solid fa-cart-shopping text-sm"></i>
+        <span class="hidden sm:inline">कार्ट</span>
+        <span id="cart-count-badge" class="w-5 h-5 rounded-full bg-white text-slate-950 text-[11px] font-black flex items-center justify-center">0</span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-6">
+
+    <!-- Search & Category Filter Bar -->
+    <section class="glass-panel rounded-2xl p-4 space-y-3">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs"></i>
+        <input 
+          id="search-input" 
+          type="text" 
+          oninput="handleSearch()" 
+          placeholder="वस्तू किंवा साहित्य शोधा (उदा. सिमेंट, स्टील, पेंट्स)..." 
+          class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-xs placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+        >
+      </div>
+
+      <!-- Categories Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs scrollbar-none" id="categories-bar">
+        <button onclick="filterCategory('all')" class="cat-pill px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-bold flex-shrink-0 transition">सर्व वस्तू (All)</button>
+        <button onclick="filterCategory('सिमेंट')" class="cat-pill px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium flex-shrink-0 hover:text-white transition">सिमेंट</button>
+        <button onclick="filterCategory('स्टील')" class="cat-pill px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium flex-shrink-0 hover:text-white transition">स्टील (सळया)</button>
+        <button onclick="filterCategory('विटा')" class="cat-pill px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium flex-shrink-0 hover:text-white transition">विटा</button>
+        <button onclick="filterCategory('पेंट्स')" class="cat-pill px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium flex-shrink-0 hover:text-white transition">पेंट्स</button>
+        <button onclick="filterCategory('टूल्स')" class="cat-pill px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium flex-shrink-0 hover:text-white transition">टूल्स</button>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section>
+      <div class="flex items-center justify-between mb-3 px-1">
+        <h2 class="text-sm font-bold text-white uppercase tracking-wider">उपलब्ध साहित्य & वस्तू (Catalog)</h2>
+        <span id="product-count" class="text-xs text-slate-400 font-mono">६ वस्तू</span>
+      </div>
+
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Sticky Checkout Bar on Mobile -->
+  <div id="sticky-cart-bar" class="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-white/10 bottom-dock px-4 py-3 hidden">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+      <div>
+        <span id="sticky-cart-qty" class="text-xs text-slate-300 block">० वस्तू निवडल्या</span>
+        <span id="sticky-cart-total" class="text-lg font-black text-emerald-400 font-mono">₹0.00</span>
+      </div>
+      <button onclick="openCheckoutModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/30 flex items-center gap-2 active:scale-95 transition">
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>थेट WhatsApp वर ऑर्डर करा</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 🛒 CART & CHECKOUT MODAL -->
+  <!-- ========================================================= -->
+  <div id="modal-checkout" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="glass-panel w-full max-w-lg rounded-3xl p-6 sm:p-7 border border-emerald-500/40 my-auto space-y-4">
+      
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🛍️</span>
+          <h3 class="text-base font-bold text-white">तुमची ऑर्डर आणि डिलिव्हरी तपशील</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:text-white">✕</button>
+      </div>
+
+      <!-- Selected Items Summary -->
+      <div id="modal-items-list" class="max-h-44 overflow-y-auto space-y-2 text-xs divide-y divide-white/5 pr-1">
+        <!-- Injected dynamically -->
+      </div>
+
+      <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-between text-xs">
+        <span class="text-slate-400 font-medium">एकूण देय रक्कम (Grand Total):</span>
+        <span id="modal-grand-total" class="text-lg font-black text-emerald-400 font-mono">₹0</span>
+      </div>
+
+      <!-- Customer Details Form -->
+      <form onsubmit="handlePlaceOrder(event)" class="space-y-3 pt-1 text-xs">
+        <div>
+          <label class="block font-bold text-slate-300 uppercase mb-1">तुमचे नाव (Your Name)</label>
+          <input id="order-name" type="text" required value="राहुल पाटील" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 uppercase mb-1">WhatsApp मोबाईल नंबर</label>
+          <input id="order-phone" type="tel" required value="9823456789" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white font-mono">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 uppercase mb-1">डिलिव्हरी पत्ता / साईट लोकेशन</label>
+          <input id="order-address" type="text" required value="प्लॉट नं. २४, चाकण, पुणे" class="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white">
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs shadow-xl shadow-emerald-500/30 flex items-center justify-center gap-2 active:scale-95 transition mt-3">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>दुकानदाराला WhatsApp वर ऑर्डर पाठवा (Confirm Order)</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC: STORE + CART + WHATSAPP CHECKOUT -->
+  <script>
+    let currentStore = null;
+    let allProducts = [];
+    let cart = {}; // { productId: qty }
+
+    async function fetchStoreData() {
+      const pathParts = window.location.pathname.split('/');
+      let slug = pathParts[pathParts.length - 1];
+      if (!slug || slug === 'store.html' || slug === 'store' || slug === 'catalog') {
+        const urlParams = new URLSearchParams(window.location.search);
+        slug = urlParams.get('slug') || 'radhe-hardware';
+      }
+
+      try {
+        const res = await fetch(`/api/store/${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          currentStore = data.store;
+          allProducts = currentStore.products || [];
+          
+          document.getElementById('store-title').innerText = currentStore.storeName;
+          document.getElementById('store-tagline').innerText = currentStore.tagline + ' • ' + currentStore.address;
+          renderProducts(allProducts);
+        }
+      } catch (err) {
+        console.error('Failed to load store data:', err);
+      }
+    }
+
+    function renderProducts(products) {
+      const grid = document.getElementById('product-grid');
+      document.getElementById('product-count').innerText = `${products.length} वस्तू`;
+
+      if (products.length === 0) {
+        grid.innerHTML = `<div class="col-span-full p-8 text-center text-slate-500 text-xs">कोणतीही वस्तू सापडली नाही.</div>`;
+        return;
+      }
+
+      grid.innerHTML = products.map(p => {
+        const qty = cart[p.id] || 0;
+        return `
+          <div class="product-card glass-panel rounded-2xl p-4 flex flex-col justify-between space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 border border-white/5 flex items-center justify-center text-2xl flex-shrink-0">
+                ${p.image}
+              </div>
+              <div class="flex-1">
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">${p.category}</span>
+                <h3 class="font-bold text-white text-sm leading-snug">${p.name}</h3>
+                <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-2">${p.description}</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-white/5">
+              <div>
+                <span class="text-base font-black text-emerald-400 font-mono">₹${p.price}</span>
+                <span class="text-[10px] text-slate-400 block">${p.unit}</span>
+              </div>
+
+              <div>
+                ${qty === 0 ? `
+                  <button onclick="addToCart('${p.id}')" class="px-3.5 py-1.5 rounded-xl bg-emerald-600/30 hover:bg-emerald-600 border border-emerald-500/40 text-emerald-300 hover:text-white text-xs font-bold transition">
+                    + जोडा
+                  </button>
+                ` : `
+                  <div class="flex items-center gap-2 p-1 rounded-xl bg-slate-900 border border-white/10 text-xs">
+                    <button onclick="changeQty('${p.id}', -1)" class="w-6 h-6 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold">-</button>
+                    <span class="w-5 text-center font-bold text-emerald-400 font-mono">${qty}</span>
+                    <button onclick="changeQty('${p.id}', 1)" class="w-6 h-6 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold">+</button>
+                  </div>
+                `}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateCartBar();
+    }
+
+    function addToCart(id) {
+      if (window.navigator && window.navigator.vibrate) window.navigator.vibrate(15);
+      cart[id] = 1;
+      renderProducts(allProducts);
+    }
+
+    function changeQty(id, delta) {
+      if (window.navigator && window.navigator.vibrate) window.navigator.vibrate(15);
+      if (!cart[id]) cart[id] = 0;
+      cart[id] += delta;
+      if (cart[id] <= 0) delete cart[id];
+      renderProducts(allProducts);
+    }
+
+    function updateCartBar() {
+      const keys = Object.keys(cart);
+      let totalQty = 0;
+      let totalPrice = 0;
+
+      keys.forEach(k => {
+        const prod = allProducts.find(p => p.id === k);
+        if (prod) {
+          totalQty += cart[k];
+          totalPrice += prod.price * cart[k];
+        }
+      });
+
+      document.getElementById('cart-count-badge').innerText = totalQty;
+      const stickyBar = document.getElementById('sticky-cart-bar');
+
+      if (totalQty > 0) {
+        stickyBar.classList.remove('hidden');
+        document.getElementById('sticky-cart-qty').innerText = `${totalQty} वस्तू निवडल्या`;
+        document.getElementById('sticky-cart-total').innerText = '₹' + totalPrice.toLocaleString('en-IN');
+      } else {
+        stickyBar.classList.add('hidden');
+      }
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-pill').forEach(el => {
+        el.className = 'cat-pill px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-300 font-medium flex-shrink-0 transition';
+      });
+      event.target.className = 'cat-pill px-3 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-bold flex-shrink-0 transition';
+
+      if (cat === 'all') {
+        renderProducts(allProducts);
+      } else {
+        const filtered = allProducts.filter(p => p.category.includes(cat));
+        renderProducts(filtered);
+      }
+    }
+
+    function handleSearch() {
+      const q = document.getElementById('search-input').value.toLowerCase();
+      const filtered = allProducts.filter(p => p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
+      renderProducts(filtered);
+    }
+
+    function toggleCartDrawer() {
+      openCheckoutModal();
+    }
+
+    function openCheckoutModal() {
+      const keys = Object.keys(cart);
+      if (keys.length === 0) {
+        alert('कृपया कार्टमध्ये आधी वस्तू जोडा!');
+        return;
+      }
+
+      let listHtml = '';
+      let total = 0;
+
+      keys.forEach(k => {
+        const prod = allProducts.find(p => p.id === k);
+        if (prod) {
+          const itemTotal = prod.price * cart[k];
+          total += itemTotal;
+          listHtml += `
+            <div class="flex items-center justify-between py-1.5">
+              <div>
+                <span class="font-bold text-white">${prod.name}</span>
+                <span class="text-slate-400 block">${cart[k]} × ₹${prod.price} (${prod.unit})</span>
+              </div>
+              <span class="font-black text-emerald-400 font-mono">₹${itemTotal}</span>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById('modal-items-list').innerHTML = listHtml;
+      document.getElementById('modal-grand-total').innerText = '₹' + total.toLocaleString('en-IN');
+
+      document.getElementById('modal-checkout').classList.remove('hidden');
+      document.getElementById('modal-checkout').classList.add('flex');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('modal-checkout').classList.add('hidden');
+      document.getElementById('modal-checkout').classList.remove('flex');
+    }
+
+    async function handlePlaceOrder(e) {
+      e.preventDefault();
+      if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+
+      const name = document.getElementById('order-name').value;
+      const phone = document.getElementById('order-phone').value;
+      const address = document.getElementById('order-address').value;
+
+      const cartItems = Object.keys(cart).map(k => {
+        const p = allProducts.find(x => x.id === k);
+        return { name: p.name, qty: cart[k], price: p.price, unit: p.unit };
+      });
+
+      const grandTotal = cartItems.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+
+      const slug = currentStore ? currentStore.slug : 'radhe-hardware';
+
+      try {
+        const res = await fetch(`/api/store/${slug}/order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ customerName: name, customerPhone: phone, address, cartItems, grandTotal })
+        });
+        const data = await res.json();
+        
+        closeCheckoutModal();
+        window.open(data.whatsappUrl, '_blank');
+      } catch (err) {
+        console.error('Order error:', err);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', fetchStoreData);
+  </script>
+</body>
+</html>
