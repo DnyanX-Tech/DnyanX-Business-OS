@@ -22,6 +22,11 @@ export const createApp = (): Express => {
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+  // Handle Favicons & Robots directly without error
+  app.get('/favicon.ico', (req, res) => res.status(204).end());
+  app.get('/favicon.png', (req, res) => res.status(204).end());
+  app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\nAllow: /'));
+
   // Serve Public Static Assets
   const publicDir = path.resolve(process.cwd(), 'public');
   app.use(express.static(publicDir));
