@@ -7,33 +7,41 @@ import { estimationRouter } from './modules/estimation/estimation.router.js';
 import { reviewRouter } from './modules/tools/review.router.js';
 import { hubRouter, createHubHandler } from './modules/hub/hub.router.js';
 import { storeRouter } from './modules/store/store.router.js';
+import { operationsRouter } from './modules/operations/operations.router.js';
+import { crmRouter } from './modules/crm/crm.router.js';
 import { handleWebhookEvents } from './modules/whatsapp/whatsapp.controller.js';
 
 export const registerRoutes = (): Router => {
   const router = Router();
 
-  // Core Modules
+  // Core & Communication
   router.use('/health', healthRouter);
   router.use('/webhooks/whatsapp', whatsappRouter);
   router.post('/whatsapp-webhook', handleWebhookEvents);
 
-  // Module 03: 7-Pillar AI Prompt Studio SaaS
+  // Growth & AI Prompt SaaS
   router.use('/prompt', promptRouter);
   router.post('/generate-prompt', generatePrompt);
 
-  // Module 04: Civil Construction Auto-Estimation Engine
+  // Civil BOQ Calculator
   router.use('/estimation', estimationRouter);
 
-  // Module 05: Google 5-Star Review QR Generator & Local SEO
+  // Google 5-Star Review Tool
   router.use('/tools/review', reviewRouter);
 
-  // Module 06: Universal Smart QR & All-in-One Social Automation Hub
+  // Universal Smart QR Hub
   router.use('/hub', hubRouter);
   router.post('/create-business-hub', createHubHandler);
   router.post('/generate-business-kit', createHubHandler);
 
-  // Module 07: Smart Digital Dukan & E-Commerce Storefront
+  // Smart Digital Dukan Storefront
   router.use('/store', storeRouter);
+
+  // 15-in-1 Operations, Low-Stock, Vendor PO, Voice Parsing & EOD
+  router.use('/operations', operationsRouter);
+
+  // CRM Leads & Bulk Remarketing
+  router.use('/crm', crmRouter);
 
   return router;
 };
