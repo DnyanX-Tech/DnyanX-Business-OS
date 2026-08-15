@@ -26,6 +26,14 @@ export const createApp = (): Express => {
   const publicDir = path.resolve(process.cwd(), 'public');
   app.use(express.static(publicDir));
 
+  // Dynamic Storefront & Catalog Routes
+  app.get('/store/:slug', (req, res) => {
+    res.sendFile(path.join(publicDir, 'store.html'));
+  });
+  app.get('/catalog', (req, res) => {
+    res.sendFile(path.join(publicDir, 'store.html'));
+  });
+
   // Public Dynamic Business Hub Route: /biz/:slug -> public/biz.html
   app.get('/biz/:slug', (req, res) => {
     res.sendFile(path.join(publicDir, 'biz.html'));

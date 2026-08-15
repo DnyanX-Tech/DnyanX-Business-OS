@@ -6,12 +6,13 @@ import { generatePrompt } from './modules/prompt/prompt.controller.js';
 import { estimationRouter } from './modules/estimation/estimation.router.js';
 import { reviewRouter } from './modules/tools/review.router.js';
 import { hubRouter, createHubHandler } from './modules/hub/hub.router.js';
+import { storeRouter } from './modules/store/store.router.js';
 import { handleWebhookEvents } from './modules/whatsapp/whatsapp.controller.js';
 
 export const registerRoutes = (): Router => {
   const router = Router();
 
-  // Core Phase 1 Modules
+  // Core Modules
   router.use('/health', healthRouter);
   router.use('/webhooks/whatsapp', whatsappRouter);
   router.post('/whatsapp-webhook', handleWebhookEvents);
@@ -29,7 +30,10 @@ export const registerRoutes = (): Router => {
   // Module 06: Universal Smart QR & All-in-One Social Automation Hub
   router.use('/hub', hubRouter);
   router.post('/create-business-hub', createHubHandler);
-  router.post('/generate-business-kit', createHubHandler); // 5-in-1 Kit Alias
+  router.post('/generate-business-kit', createHubHandler);
+
+  // Module 07: Smart Digital Dukan & E-Commerce Storefront
+  router.use('/store', storeRouter);
 
   return router;
 };
